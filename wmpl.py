@@ -20,28 +20,28 @@ def get_order_info(item_name):
   requests_result = requests.get(f'https://api.warframe.market/v1/items/{item_name}/orders', headers={'Platform': 'pc'})
   
   if order_info['status'] == '<Response [200]>':
-    order_info['status'] = 'T'
-    payload = json.loads(requests_result.text)
-    orders = payload['payload']['orders']
-    for order in orders:
-      if order['user']['status']=='ingame':
-        if order['order_type']=='sell':
-          if order_info['lowest_sell_price']==0:
-            order_info['lowest_sell_price'] = order['platinum']
-            order_info['sell_user'] = order['user']['ingame_name']
-          else:
-            if order['platinum']<order_info['lowest_sell_price']:
-              order_info['lowest_sell_price'] = order['platinum']
-              order_info['sell_user'] = order['user']['ingame_name']
-        if order['order_type']=='buy':
-          if order_info['highest_buy_price']==0:
-            order_info['highest_buy_price'] = order['platinum']
-            order_info['buy_user'] = order['user']['ingame_name']
-          else:
-            if order['platinum']>order_info['highest_buy_price']:
-              order_info['highest_buy_price'] = order['platinum']
-              order_info['buy_user'] = order['user']['ingame_name']
-    order_info['query_time'] = str(round(time.time()-start_time,3))
+      order_info['status'] = 'T'
+      payload = json.loads(requests_result.text)
+      orders = payload['payload']['orders']
+      for order in orders:
+        if order['user']['status']=='ingame':
+          if order['order_type']=='sell':
+            if order_info['sell']==0:
+              order_info['sell'] = order['platinum']
+              order_info['seller'] = order['user']['ingame_name']
+            else:
+              if order['platinum']<order_info['sell']:
+                order_info['sell'] = order['platinum']
+                order_info['seller'] = order['user']['ingame_name']
+          if order['order_type']=='buy':
+            if order_info['buy']==0:
+              order_info['buy'] = order['platinum']
+              order_info['buyer'] = order['user']['ingame_name']
+            else:
+              if order['platinum']>order_info['buy']:
+                order_info['buy'] = order['platinum']
+                order_info['buyer'] = order['user']['ingame_name']
+      order_info['time'] = str(round(time.time()-start_time,3))
    else:
       order_info['status'] = 'F'
   return order_info
