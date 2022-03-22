@@ -20,8 +20,7 @@ def get_order_info(item_name):
   requests_result = requests.get(f'https://api.warframe.market/v1/items/{item_name}/orders', headers={'Platform': 'pc'})
   order_info['status'] = str(requests_result)
   if order_info['status'] == '<Response [200]>':
-    print('ok')
-    payload = json.loads(request_result.text)
+    payload = json.loads(requests_result.text)
     orders = payload['payload']['orders']
     for order in orders:
       if order['user']['status']=='ingame':
