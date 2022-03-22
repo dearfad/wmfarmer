@@ -48,4 +48,7 @@ st.title('Warframe Market Price List')
 warframe_prime_list = ['ash', 'atlas', 'banshee']
 warframe_prime_set_list = ['set', 'blueprint', 'neuroptics', 'chassis', 'systems']
 
-st.write(get_order_info('ash_prime_set'))
+for warframe in warframe_prime_list:
+  item_name = warframe+'_prime_set'
+  st.write(get_order_info(item_name))
+  
