@@ -17,7 +17,7 @@ def get_order_info(item_name):
     'query_time': 0,
   }
   requests_result = requests.get(f'https://api.warframe.market/v1/items/{item_name}/orders', headers={'Platform': 'pc'})
-  st.write(result)
+  st.write(requests_result)
   # payload = json.loads(result.text)
   # orders = payload['payload']['orders']
   # high_buy_price = 0
