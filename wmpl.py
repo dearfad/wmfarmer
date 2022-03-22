@@ -1,6 +1,6 @@
 '''
 # Warframe Market Price List - Streamlit
-# Author: dearfad
+*Author*: dearfad
 '''
 
 import streamlit as st
