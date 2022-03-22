@@ -58,4 +58,4 @@ for warframe in warframe_prime_list:
     item_name = warframe + '_prime_' + item
     price_df.loc[len(price_df)] = get_order_info(item_name)
   
-st.dataframe(price_df, 200, 100)
+st.dataframe(price_df, 1024, 720)
