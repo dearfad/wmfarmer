@@ -6,10 +6,7 @@ import requests
 import json
 import time
 
-'''
-# Warframe Market Price List - Streamlit
-*Author*: dearfad
-'''
+st.title('Warframe Market Price List - Streamlit')
 
 start_time = time.time()
 name = 'ash_prime_set'
