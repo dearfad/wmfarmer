@@ -9,17 +9,18 @@ import time
 def get_order_info(item_name):  
   start_time = time.time()
   order_info = {
-    'item_name': item_name,
-    'lowest_sell_price': 0,
-    'sell_user': '',
-    'highest_buy_price': 0,
-    'buy_user': '', 
-    'query_time': 0,
+    'name': item_name,
+    'sell': 0,
+    'seller': '',
+    'buy': 0,
+    'buyer': '', 
+    'time': 0,
     'status': '',
   }
   requests_result = requests.get(f'https://api.warframe.market/v1/items/{item_name}/orders', headers={'Platform': 'pc'})
-  order_info['status'] = str(requests_result)
+  
   if order_info['status'] == '<Response [200]>':
+    order_info['status'] = 'T'
     payload = json.loads(requests_result.text)
     orders = payload['payload']['orders']
     for order in orders:
@@ -41,6 +42,8 @@ def get_order_info(item_name):
               order_info['highest_buy_price'] = order['platinum']
               order_info['buy_user'] = order['user']['ingame_name']
     order_info['query_time'] = str(round(time.time()-start_time,3))
+   else:
+      order_info['status'] = 'F'
   return order_info
 
 st.title('Warframe Market Price List')
@@ -48,7 +51,7 @@ st.title('Warframe Market Price List')
 warframe_prime_list = ['ash', 'atlas', 'banshee']
 warframe_prime_set_list = ['set', 'blueprint', 'neuroptics', 'chassis', 'systems']
 
-price_df = pd.DataFrame(columns = ['name', 'sell', 'user', 'buy', 'buser', 'time', 'status'])
+price_df = pd.DataFrame(columns = ['name', 'sell', 'seller', 'buy', 'buyer', 'time', 'status'])
 for warframe in warframe_prime_list:
   item_name = warframe+'_prime_set'
   price_df.loc[len(price_df)] = get_order_info(item_name)
