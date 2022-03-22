@@ -51,6 +51,6 @@ warframe_prime_set_list = ['set', 'blueprint', 'neuroptics', 'chassis', 'systems
 price_df = pd.DataFrame()
 for warframe in warframe_prime_list:
   item_name = warframe+'_prime_set'
-  price_df = price_df.concat([price_df, get_order_info(item_name)])
+  price_df.loc[len(price_df)] = get_order_info(item_name)
   
 st.dataframe(price_df)
