@@ -42,7 +42,7 @@ def get_order_info(item_name):
                 order_info['buy'] = order['platinum']
                 order_info['buyer'] = order['user']['ingame_name']
       order_info['time'] = str(round(time.time()-start_time,3))
-   else:
+  else:
       order_info['status'] = 'F'
   return order_info
 
