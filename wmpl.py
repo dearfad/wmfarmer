@@ -48,7 +48,7 @@ st.title('Warframe Market Price List')
 warframe_prime_list = ['ash', 'atlas', 'banshee']
 warframe_prime_set_list = ['set', 'blueprint', 'neuroptics', 'chassis', 'systems']
 
-price_df = pd.DataFrame()
+price_df = pd.DataFrame(columns = ['item_name', 'lowest_sell_price', 'sell_user', 'highest_buy_price', 'buy_user', 'query_time', 'status'])
 for warframe in warframe_prime_list:
   item_name = warframe+'_prime_set'
   price_df.loc[len(price_df)] = get_order_info(item_name)
