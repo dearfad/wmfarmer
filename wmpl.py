@@ -1,7 +1,7 @@
-```
+'''
 # Warframe Market Price List - Streamlit
 # Author: dearfad
-```
+'''
 
 import streamlit as st
 import pandas as pd
