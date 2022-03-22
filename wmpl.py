@@ -53,4 +53,4 @@ for warframe in warframe_prime_list:
   item_name = warframe+'_prime_set'
   price_df = price_df.append(get_order_info(item_name), ignore_index=True)
   
-st.write(price_df)
+st.dataframe(price_df)
