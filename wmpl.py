@@ -49,7 +49,7 @@ def get_order_info(item_name):
 
 st.title('Warframe Market Price List')
 
-warframe_prime_list = ['ash', 'atlas', 'banshee']
+warframe_prime_list = ['ash', 'atlas', 'banshee', 'chroma', 'ember']
 warframe_prime_set_list = ['set', 'blueprint', 'neuroptics', 'chassis', 'systems']
 
 price_df = pd.DataFrame(columns = ['name', 'sell', 'seller', 'buy', 'buyer', 'time', 'status'])
