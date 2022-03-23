@@ -60,12 +60,11 @@ warframe_selection = st.sidebar.selectbox('选择战甲', warframe_prime_list)
 item_name = ''
 
 info = st.empty()
-info.text = item_name
-
-for item in warframe_prime_set_list:
-  item_name = warframe_selection + '_prime_' + item
-  info.text = item_name
-  price_df.loc[len(price_df)] = get_order_info(item_name)
+with info.container()
+  for item in warframe_prime_set_list:
+    item_name = warframe_selection + '_prime_' + item
+    st.info(item_name)
+    price_df.loc[len(price_df)] = get_order_info(item_name)
     
 # for warframe in warframe_prime_list:
 #   for item in warframe_prime_set_list:
