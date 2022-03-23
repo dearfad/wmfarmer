@@ -58,7 +58,7 @@ price_df = pd.DataFrame(columns = ['name', 'sell', 'seller', 'buy', 'buyer', 'ti
 
 warframe_selection = st.sidebar.selectbox('选择战甲', warframe_prime_list)
 
-with info.empty():
+with st.empty():
   for item in warframe_prime_set_list:
     item_name = warframe_selection + '_prime_' + item
     st.info(item_name)
