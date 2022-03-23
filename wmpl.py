@@ -63,7 +63,7 @@ with st.empty():
     item_name = warframe_selection + '_prime_' + item
     st.info(item_name)
     price_df.loc[len(price_df)] = get_order_info(item_name)
-st.empty()
+  st.write('')
 
 # for warframe in warframe_prime_list:
 #   for item in warframe_prime_set_list:
