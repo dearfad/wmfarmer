@@ -52,10 +52,12 @@ st.title('Warframe Market Price List')
 warframe_prime_list = ['ash', 'atlas', 'banshee', 'chroma', 'ember', 'equinox', 'frost', 'gara', 'harrow', 'hydroid', 'inaros', 'ivara', 'limbo', 'loki', 'mag', 'mesa', 'mirage', 'nekros', 'nezha', 'nidus', 'nova', 'nyx', 'oberon', 'octavia', 'rhino', 'saryn', 'titania', 'trinity', 'valkyr', 'vauban', 'volt', 'wukong', 'zephyr']
 warframe_prime_set_list = ['set', 'blueprint', 'neuroptics', 'chassis', 'systems']
 
-price_df = pd.DataFrame(columns = ['name', 'sell', 'seller', 'buy', 'buyer', 'time', 'status'])
-for warframe in warframe_prime_list:
-  for item in warframe_prime_set_list:
-    item_name = warframe + '_prime_' + item
-    price_df.loc[len(price_df)] = get_order_info(item_name)
+warframe_selection = st.sidebar.selectbox('选择战甲', warframe_prime_list)
+
+# price_df = pd.DataFrame(columns = ['name', 'sell', 'seller', 'buy', 'buyer', 'time', 'status'])
+# for warframe in warframe_prime_list:
+#   for item in warframe_prime_set_list:
+#     item_name = warframe + '_prime_' + item
+#     price_df.loc[len(price_df)] = get_order_info(item_name)
   
-st.dataframe(price_df, height=800)
+# st.dataframe(price_df, height=800)
