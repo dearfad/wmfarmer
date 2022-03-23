@@ -57,9 +57,10 @@ warframe_prime_set_list = ['set', 'blueprint', 'neuroptics', 'chassis', 'systems
 price_df = pd.DataFrame(columns = ['name', 'sell', 'seller', 'buy', 'buyer', 'time', 'status'])
 
 warframe_selection = st.sidebar.selectbox('选择战甲', warframe_prime_list)
+st.info(warframe_selection)
+
 for item in warframe_prime_set_list:
   item_name = warframe_selection + '_prime_' + item
-  st.spinner(item_name)
   price_df.loc[len(price_df)] = get_order_info(item_name)
     
 # for warframe in warframe_prime_list:
