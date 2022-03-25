@@ -120,7 +120,7 @@ with cols[0]:
 for i, col in enumerate(cols):
   if i:
       with col:
-        for n in range(14):
+        for n in range(2):
           st.button(str(i)+str(n))
         
 relic_prefix = {
