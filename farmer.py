@@ -113,8 +113,16 @@ with st.empty():
   st.write('')
 
 relic_type = st.selectbox('纪元', ('古纪', '前纪', '中纪', '后纪', '安魂'))
-st.write('名称')
+relic_prefix = {
+    '古纪': 'lith',
+    '前纪': 'meso',
+    '中纪': 'neo',
+    '后纪': 'axi',
+    '安魂': 'requiem',
+}
+
 item_name = st.text_input('').lower()
+item_name = relic_prefix[relic_type]+item_name+'_relic'
 drop_list = droptables['Relics'].get(item_name)
 if drop_list:
   df = pd.DataFrame()
