@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import time
 
+@st.cache
 def get_droptables():
   droptables = {}
   r = requests.get('https://www.warframe.com/droptables')
@@ -50,6 +51,7 @@ def get_droptables():
     
   return droptables
 
+@st.cache
 def get_url_names():
   url_names = {}
   r = requests.get('https://api.warframe.market/v1/items', headers={'Language': 'zh-hans'})
@@ -111,7 +113,7 @@ with st.empty():
   st.write('')
 
 item_name = st.text_input('')
-st.write(droptables.get(item_name))
+st.write(droptables['Relics'].get(item_name))
 
 # warframe_prime_list = ['ash', 'atlas', 'banshee', 'chroma', 'ember', 'equinox', 'frost', 'gara', 'harrow', 'hydroid', 'inaros', 'ivara', 'limbo', 'loki', 'mag', 'mesa', 'mirage', 'nekros', 'nezha', 'nidus', 'nova', 'nyx', 'oberon', 'octavia', 'rhino', 'saryn', 'titania', 'trinity', 'valkyr', 'vauban', 'volt', 'wukong', 'zephyr']
 # warframe_prime_set_list = ['set', 'blueprint', 'neuroptics', 'chassis', 'systems']
