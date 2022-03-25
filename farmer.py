@@ -115,8 +115,7 @@ with st.empty():
 item_name = st.text_input('')
 drop_list = droptables['Relics'].get(item_name)
 df = pd.DataFrame()
-st.write(droplist)
-# df['url_name'] = droplist
+df['url_name'] = drop_list
 df['中文'] = url_names[df['url_name']]
 st.dataframe(df)
 
