@@ -115,8 +115,11 @@ with st.empty():
 item_name = st.text_input('')
 drop_list = droptables['Relics'].get(item_name)
 df = pd.DataFrame()
-df['url_name'] = drop_list  
-df['中文'] = url_names[df['url_name'].replace(' ','_')]
+df['url_name'] = drop_list 
+drop_list_cn = []
+for item in drop_list:
+  drop_list_cn.append(item.replace(' ','_'))
+df['中文'] = drop_list_cn
 st.dataframe(df)
 
 # warframe_prime_list = ['ash', 'atlas', 'banshee', 'chroma', 'ember', 'equinox', 'frost', 'gara', 'harrow', 'hydroid', 'inaros', 'ivara', 'limbo', 'loki', 'mag', 'mesa', 'mirage', 'nekros', 'nezha', 'nidus', 'nova', 'nyx', 'oberon', 'octavia', 'rhino', 'saryn', 'titania', 'trinity', 'valkyr', 'vauban', 'volt', 'wukong', 'zephyr']
