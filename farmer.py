@@ -126,7 +126,7 @@ if drop_list:
     st.write(url_name)
     cn_name = url_names.get(url_name.lower())
     drop_list_cn.append(cn_name)
-    price_list.append(get_order_info(url_name))
+    price_list.append(get_order_info(url_name)['buy'])
   df['中文'] = drop_list_cn
   df['价格'] = price_list
   st.dataframe(df)
