@@ -119,7 +119,7 @@ if drop_list:
   df['url_name'] = drop_list 
   drop_list_cn = []
   for item in drop_list:
-    if 'Prime Neuroptics' in item:
+    if 'Neuroptics' in item:
       item = item.strip('Blueprint')
     url_name = item.replace(' ','_')
     cn_name = url_names.get(url_name.lower())
