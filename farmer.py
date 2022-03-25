@@ -125,7 +125,7 @@ for i, col in enumerate(cols):
   if i>10:
     with col:
       for n in range(3):
-        st.button(str((i-10)*n))
+        st.button(str((i-10)*(n+1)))
         
 relic_prefix = {
     '古纪': 'lith',
