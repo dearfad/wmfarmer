@@ -112,7 +112,7 @@ with st.empty():
   url_names = get_url_names()
   st.write('')
 
-time = st.selectbox('纪元', ('古纪', '前纪', '中纪', '后纪', '安魂'))
+relic_type = st.selectbox('纪元', ('古纪', '前纪', '中纪', '后纪', '安魂'))
 st.write('名称')
 item_name = st.text_input('').lower()
 drop_list = droptables['Relics'].get(item_name)
