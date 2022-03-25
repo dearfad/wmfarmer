@@ -113,8 +113,8 @@ with st.empty():
   st.write('')
 
 time = st.selectbox('纪元', ('古纪', '前纪', '中纪', '后纪', '安魂'))
-
-item_name = st.text_input('')
+st.write('名称')
+item_name = st.text_input('').lower()
 drop_list = droptables['Relics'].get(item_name)
 if drop_list:
   df = pd.DataFrame()
