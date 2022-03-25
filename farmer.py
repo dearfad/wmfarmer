@@ -123,7 +123,6 @@ if drop_list:
     if 'Neuroptics' in item or 'Chasis' in item or 'Systems' in item:
       item = item.strip('Blueprint').strip()
     url_name = item.replace(' ','_')
-    st.write(url_name)
     cn_name = url_names.get(url_name.lower())
     drop_list_cn.append(cn_name)
     price = get_order_info(url_name.lower())['buy']
