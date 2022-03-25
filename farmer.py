@@ -96,6 +96,7 @@ st.title('Warframe Farmer')
 with st.empty():
   st.info('从Warframe官网获取掉落表...')
   droptables = get_droptables()
+  st.info('从Market官网获取中文对照表...')
   st.write('')
 
 st.write(droptables)
