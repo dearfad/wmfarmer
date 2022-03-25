@@ -118,6 +118,7 @@ if drop_list:
   df = pd.DataFrame()
   df['url_name'] = drop_list 
   drop_list_cn = []
+  price_list = []
   for item in drop_list:
     if 'Neuroptics' in item or 'Chasis' in item or 'Systems' in item:
       item = item.strip('Blueprint').strip()
@@ -125,7 +126,9 @@ if drop_list:
     st.write(url_name)
     cn_name = url_names.get(url_name.lower())
     drop_list_cn.append(cn_name)
+    price_list.append(get_order_info(url_name))
   df['中文'] = drop_list_cn
+  df['价格'] = price_list
   st.dataframe(df)
 
 # warframe_prime_list = ['ash', 'atlas', 'banshee', 'chroma', 'ember', 'equinox', 'frost', 'gara', 'harrow', 'hydroid', 'inaros', 'ivara', 'limbo', 'loki', 'mag', 'mesa', 'mirage', 'nekros', 'nezha', 'nidus', 'nova', 'nyx', 'oberon', 'octavia', 'rhino', 'saryn', 'titania', 'trinity', 'valkyr', 'vauban', 'volt', 'wukong', 'zephyr']
