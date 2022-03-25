@@ -57,7 +57,7 @@ def get_url_names():
       payload = result.json()
       items = payload['payload']['items']
       for item in items:
-          url_names[item['url_name']] = item['item_name']]
+          url_names[item['url_name']] = item['item_name']
   return url_names
 
 def get_order_info(item_name):  
