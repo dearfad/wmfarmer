@@ -50,6 +50,16 @@ def get_droptables():
     
   return droptables
 
+def get_url_names():
+  url_names = {}
+  r = requests.get('https://api.warframe.market/v1/items', headers={'Language': 'zh-hans'})
+  if r.statuscode == 200:
+      payload = result.json()
+      items = payload['payload']['items']
+      for item in items:
+          url_names[item['url_name']] = item['item_name']]
+  return url_names
+
 def get_order_info(item_name):  
   start_time = time.time()
   order_info = {
@@ -97,9 +107,10 @@ with st.empty():
   st.info('从Warframe官网获取掉落表...')
   droptables = get_droptables()
   st.info('从Market官网获取中文对照表...')
+  url_names = get_url_names()
   st.write('')
 
-st.write(droptables)
+st.write(url_names)
 
 # warframe_prime_list = ['ash', 'atlas', 'banshee', 'chroma', 'ember', 'equinox', 'frost', 'gara', 'harrow', 'hydroid', 'inaros', 'ivara', 'limbo', 'loki', 'mag', 'mesa', 'mirage', 'nekros', 'nezha', 'nidus', 'nova', 'nyx', 'oberon', 'octavia', 'rhino', 'saryn', 'titania', 'trinity', 'valkyr', 'vauban', 'volt', 'wukong', 'zephyr']
 # warframe_prime_set_list = ['set', 'blueprint', 'neuroptics', 'chassis', 'systems']
