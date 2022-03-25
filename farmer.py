@@ -114,10 +114,10 @@ with st.empty():
 
 cols = st.columns(20)
 
-with col1:
+with cols[0]:
   relic_type = st.radio('纪元', ('古纪', '前纪', '中纪', '后纪', '安魂'))
 
-with col2:
+for col in cols:
   st.button('s1')
 
 relic_prefix = {
