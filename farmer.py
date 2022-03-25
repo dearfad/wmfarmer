@@ -119,7 +119,7 @@ df['url_name'] = drop_list
 drop_list_cn = []
 for item in drop_list:
   url_name = item.replace(' ','_')
-  cn_name = url_names[url_name.lower()]
+  cn_name = url_names.get(url_name.lower())
   drop_list_cn.append(cn_name)
 df['中文'] = drop_list_cn
 st.dataframe(df)
