@@ -54,7 +54,7 @@ def get_url_names():
   url_names = {}
   r = requests.get('https://api.warframe.market/v1/items', headers={'Language': 'zh-hans'})
   if r.status_code == 200:
-      payload = result.json()
+      payload = r.json()
       items = payload['payload']['items']
       for item in items:
           url_names[item['url_name']] = item['item_name']
