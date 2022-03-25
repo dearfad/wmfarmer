@@ -112,7 +112,7 @@ with st.empty():
   url_names = get_url_names()
   st.write('')
 
-cols = st.columns(11)
+cols = st.columns([2,1,1,1,1,1,1,1,1,1,1])
 
 with cols[0]:
   relic_type = st.radio('纪元', ('古纪', '前纪', '中纪', '后纪', '安魂'))
@@ -121,7 +121,7 @@ for i, col in enumerate(cols):
   if i:
       with col:
         for n in range(10):
-          st.button('s'+str(i)+str(n))
+          st.button(str(i)+str(n))
         
 relic_prefix = {
     '古纪': 'lith',
