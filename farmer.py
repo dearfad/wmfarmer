@@ -36,7 +36,7 @@ def get_droptables():
     relic_tag = relics_table.tr
 
     for i in range(relic_count+1):
-        relic_name = relic_tag.text.split(' (')[0]
+        relic_name = relic_tag.text.split(' (')[0].lower()
         relic_drops = []
         for n in range(6):
             relic_tag = relic_tag.next_sibling
@@ -111,6 +111,8 @@ with st.empty():
   st.info('从Market官网获取中文对照表...')
   url_names = get_url_names()
   st.write('')
+
+time = st.selectbox('纪元', ('古纪', '前纪', '中纪', '后纪', '安魂'))
 
 item_name = st.text_input('')
 drop_list = droptables['Relics'].get(item_name)
