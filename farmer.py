@@ -120,8 +120,10 @@ if drop_list:
   drop_list_cn = []
   for item in drop_list:
     if 'Neuroptics' in item:
+      st.write('OK')
       item = item.strip('Blueprint')
     url_name = item.replace(' ','_')
+    st.write(url_name)
     cn_name = url_names.get(url_name.lower())
     drop_list_cn.append(cn_name)
   df['中文'] = drop_list_cn
