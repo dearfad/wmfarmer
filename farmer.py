@@ -118,6 +118,7 @@ with cols[0]:
   relic_type = st.radio('纪元', ('古纪', '前纪', '中纪', '后纪', '安魂'))
 
 for i, col in enumerate(cols):
+  if i:
       with col:
         for n in range(10):
           st.button('s'+str(i)+str(n))
