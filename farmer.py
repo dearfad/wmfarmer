@@ -117,6 +117,7 @@ cols = st.columns([2,1,1,1,1,1,1,1,1,1,1,1,1,1])
 with cols[0]:
   relic_type = st.radio('纪元', ('古纪', '前纪', '中纪', '后纪', '安魂'))
 
+num = 0
 for i, col in enumerate(cols):
   if i>1 and i<9:
       with col:
@@ -125,7 +126,8 @@ for i, col in enumerate(cols):
   if i>10:
     with col:
       for n in range(1,4):
-        st.button(str((i-11+n)))
+        num = num+1
+        st.button(num)
         
 relic_prefix = {
     '古纪': 'lith',
