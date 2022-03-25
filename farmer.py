@@ -121,7 +121,7 @@ if drop_list:
   for item in drop_list:
     if 'Neuroptics' in item:
       st.write('OK')
-      item = item.strip('Blueprint')
+      item = item.strip('Blueprint').strip()
     url_name = item.replace(' ','_')
     st.write(url_name)
     cn_name = url_names.get(url_name.lower())
