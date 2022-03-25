@@ -120,7 +120,7 @@ if drop_list:
   drop_list_cn = []
   price_list = []
   for item in drop_list:
-    if 'Neuroptics' in item or 'Chasis' in item or 'Systems' in item:
+    if 'Neuroptics' in item or 'Chassis' in item or 'Systems' in item:
       item = item.strip('Blueprint').strip()
     url_name = item.replace(' ','_')
     cn_name = url_names.get(url_name.lower())
