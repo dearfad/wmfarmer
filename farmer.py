@@ -112,7 +112,7 @@ with st.empty():
   url_names = get_url_names()
   st.write('')
 
-cols = st.columns(20)
+cols = st.columns(15)
 
 with cols[0]:
   relic_type = st.radio('纪元', ('古纪', '前纪', '中纪', '后纪', '安魂'))
