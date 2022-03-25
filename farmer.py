@@ -113,7 +113,11 @@ with st.empty():
   st.write('')
 
 item_name = st.text_input('')
-st.write(droptables['Relics'].get(item_name))
+drop_list = droptables['Relics'].get(item_name)
+df = pd.DataFrame()
+df['url_name'] = droplist
+df['中文'] = url_names[df['url_name']]
+st.dataframe(df)
 
 # warframe_prime_list = ['ash', 'atlas', 'banshee', 'chroma', 'ember', 'equinox', 'frost', 'gara', 'harrow', 'hydroid', 'inaros', 'ivara', 'limbo', 'loki', 'mag', 'mesa', 'mirage', 'nekros', 'nezha', 'nidus', 'nova', 'nyx', 'oberon', 'octavia', 'rhino', 'saryn', 'titania', 'trinity', 'valkyr', 'vauban', 'volt', 'wukong', 'zephyr']
 # warframe_prime_set_list = ['set', 'blueprint', 'neuroptics', 'chassis', 'systems']
