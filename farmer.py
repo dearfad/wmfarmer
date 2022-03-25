@@ -118,9 +118,9 @@ with cols[0]:
   relic_type = st.radio('纪元', ('古纪', '前纪', '中纪', '后纪', '安魂'))
 
 for i, col in enumerate(cols):
-  if i:
+  if i>0 and i<8:
       with col:
-        for n in range(2):
+        for n in range(4):
           st.button(str(i)+str(n))
         
 relic_prefix = {
