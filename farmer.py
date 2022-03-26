@@ -121,6 +121,7 @@ relic_prefix = {
     '后纪': 'axi',
     '安魂': 'requiem',
 }
+warframe_prime_list = ['ash', 'atlas', 'banshee', 'chroma', 'ember', 'equinox', 'frost', 'gara', 'harrow', 'hydroid', 'inaros', 'ivara', 'limbo', 'loki', 'mag', 'mesa', 'mirage', 'nekros', 'nezha', 'nidus', 'nova', 'nyx', 'oberon', 'octavia', 'rhino', 'saryn', 'titania', 'trinity', 'valkyr', 'vauban', 'volt', 'wukong', 'zephyr']
 
 with relic_drop_col:
     item_name = st.text_input('').lower()
@@ -133,7 +134,8 @@ with relic_drop_col:
       price_list = []
       for item in drop_list:
         if 'neuroptics' in item or 'chassis' in item or 'systems' in item:
-          item = item[:-10]
+          if item.split(' ')[0] in warframe_prime_list:
+            item = item[:-10]
         url_name = item.replace(' ','_')
         cn_name = url_names.get(url_name.lower())
         if url_name == 'forma_blueprint':
@@ -148,7 +150,7 @@ with relic_drop_col:
 
 
   
-# warframe_prime_list = ['ash', 'atlas', 'banshee', 'chroma', 'ember', 'equinox', 'frost', 'gara', 'harrow', 'hydroid', 'inaros', 'ivara', 'limbo', 'loki', 'mag', 'mesa', 'mirage', 'nekros', 'nezha', 'nidus', 'nova', 'nyx', 'oberon', 'octavia', 'rhino', 'saryn', 'titania', 'trinity', 'valkyr', 'vauban', 'volt', 'wukong', 'zephyr']
+
 # warframe_prime_set_list = ['set', 'blueprint', 'neuroptics', 'chassis', 'systems']
 
 
