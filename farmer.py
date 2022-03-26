@@ -6,20 +6,20 @@ import time
 
 st.set_page_config(page_title='Warframe Farmer', page_icon='random', layout="wide", initial_sidebar_state="expanded", menu_items=None)
 
-mode_list = ["虚空裂缝", '警报 - 噩梦']
-containers = {}
-for item in mode_list:
-    containers[item] = st.empty()
-toc_selectbox = st.sidebar.selectbox("任务选择：", mode_list)
+# mode_list = ["虚空裂缝", '警报 - 噩梦']
+# containers = {}
+# for item in mode_list:
+#     containers[item] = st.empty()
+# toc_selectbox = st.sidebar.selectbox("任务选择：", mode_list)
 
-tag = 'tag'
-with containers[toc_selectbox].container():
-    if tag != toc_selectbox:
-        if containers.get(tag):
-            containers[tag] = st.empty()
-        tag = toc_selectbox
-    st.write(toc_selectbox)
-    st.write(tag)
+# tag = 'tag'
+# with containers[toc_selectbox].container():
+#     if tag != toc_selectbox:
+#         if containers.get(tag):
+#             containers[tag] = st.empty()
+#         tag = toc_selectbox
+#     st.write(toc_selectbox)
+#     st.write(tag)
         
     
 @st.cache
@@ -127,6 +127,7 @@ st.title('Warframe Farmer')
   
 droptables = get_droptables()
 url_names = get_url_names()
+
 
 relic_drop_col = [0,1,2,3]
 relic_type_col, relic_drop_col[0],relic_drop_col[1],relic_drop_col[2],relic_drop_col[3]  = st.columns([1,2,2,2,2])
