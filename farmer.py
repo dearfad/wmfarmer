@@ -6,6 +6,11 @@ import time
 
 st.set_page_config(page_title='Warframe Farmer', page_icon='random', layout="wide", initial_sidebar_state="expanded", menu_items=None)
 
+toc_selectbox = st.sidebar.selectbox(
+    "任务选择：",
+    ("Email", "Home phone", "Mobile phone")
+)
+
 @st.cache
 def get_droptables():
   droptables = {}
