@@ -36,11 +36,11 @@ def get_droptables():
     relic_tag = relics_table.tr
 
     for i in range(relic_count+1):
-        relic_name = relic_tag.text.split(' (')[0]
+        relic_name = relic_tag.text.split(' (')[0].lower()
         relic_drops = {}
         for n in range(6):
             relic_tag = relic_tag.next_sibling
-            relic_drops[relic_tag.td.text] = int(relic_tag.td.next_sibling.text.split('.')[0].split('(')[1])
+            relic_drops[relic_tag.td.text.lower()] = int(relic_tag.td.next_sibling.text.split('.')[0].split('(')[1])
         relic_drops = sorted(relic_drops.items(), key=lambda x: x[1], reverse=True)
         relic_dict[relic_name] = [x[0] for x in relic_drops]
 
