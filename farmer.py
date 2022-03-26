@@ -26,7 +26,7 @@ st.set_page_config(page_title='Warframe Farmer', page_icon='random', layout="wid
 def get_droptables():
   droptables = {}
   r = requests.get('https://www.warframe.com/droptables')
-  if r.status_code==200:
+  if r.status_code == 200:
     soup = BeautifulSoup(r.text)
     toc = soup.ul
     dynamic_location_rewards =soup.ul.ul
@@ -41,21 +41,18 @@ def get_droptables():
         if item.name:
             dynamic_location_rewards_dict[item.a.text] = item.a['href'].strip('#')
     
+    # Relics
     id = toc_dict['Relics']
-
-    relics = soup.find('h3', id=id)
-
-    relics_table = relics.next_sibling.next_sibling
-
     relic_dict = {}
-
+    relics = soup.find('h3', id=id)
+    relics_table = relics.next_sibling.next_sibling    
     relic_count = int(len(relics_table.find_all('tr'))/8/4)
-
     relic_tag = relics_table.tr
 
     for i in range(relic_count+1):
-        relic_name = relic_tag.text.split(' (')[0].lower()
         relic_drops = {}
+        relic_name = relic_tag.text.split(' (')[0].lower()
+        
         for n in range(6):
             relic_tag = relic_tag.next_sibling
             relic_drops[relic_tag.td.text.lower()] = int(relic_tag.td.next_sibling.text.split('.')[0].split('(')[1])
@@ -65,8 +62,12 @@ def get_droptables():
         for n in range(34):
             if relic_tag.next_sibling:
                 relic_tag = relic_tag.next_sibling
-    
-    droptables['Relics'] = relic_dict
+     
+    # Nightmare
+    nightmare_dict = {}
+
+    droptables['relics'] = relic_dict
+    droptables['nightmare'] = nightmare_dict
     
   return droptables
 
@@ -148,7 +149,7 @@ def show_price(item_name):
 # with relic_drop_col[0]:
 #     item_name = st.text_input('').lower()
     item_name = relic_prefix[relic_type]+ ' ' + item_name + ' relic'
-    drop_list = droptables['Relics'].get(item_name)
+    drop_list = droptables['relics'].get(item_name)
     if drop_list:
       df = pd.DataFrame()
       df['url_name'] = drop_list 
