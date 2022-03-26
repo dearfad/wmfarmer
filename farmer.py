@@ -4,6 +4,8 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import time
 
+st.set_page_config(page_title='Warframe Farmer', page_icon=random, layout="wide", initial_sidebar_state="expanded", menu_items=None)
+
 @st.cache
 def get_droptables():
   droptables = {}
