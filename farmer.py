@@ -6,24 +6,9 @@ import time
 
 st.set_page_config(page_title='Warframe Farmer', page_icon='random', layout="wide", initial_sidebar_state="expanded", menu_items=None)
 
-st.markdown(
-"""
-<style>
-[data-testid="stSidebar"][aria-expanded="true"] > div:first-child {
-width: 200px;
-}
-[data-testid="stSidebar"][aria-expanded="false"] > div:first-child {
-width: 200px;
-margin-left: -200px;
-}
-</style>
-""",
-unsafe_allow_html=True
-)
-
 toc_selectbox = st.sidebar.selectbox(
     "任务选择：",
-    ("虚空裂缝",)
+    ("虚空裂缝", '警报 - 噩梦')
 )
 
 @st.cache
