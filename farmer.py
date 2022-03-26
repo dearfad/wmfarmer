@@ -104,14 +104,9 @@ def get_order_info(item_name):
   return order_info
 
 st.title('Warframe Farmer')
-
   
-with st.empty():
-  st.info('从Warframe官网获取掉落表...')
-  droptables = get_droptables()
-  st.info('从Market官网获取中文对照表...')
-  url_names = get_url_names()
-  st.write('')
+droptables = get_droptables()
+url_names = get_url_names()
 
 relic_type_col, relic_drop_col = st.columns([1,3])
 
