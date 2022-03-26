@@ -17,7 +17,7 @@ content_dict = {
 }
 
 for item in content_dict.keys():
-    item = st.empty()
+    content_dict[item] = st.empty()
 
 
 @st.cache
