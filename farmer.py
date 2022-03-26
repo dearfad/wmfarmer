@@ -108,7 +108,6 @@ st.title('Warframe Farmer')
   
 droptables = get_droptables()
 url_names = get_url_names()
-st.write(url_names)
 
 relic_type_col, relic_drop_col = st.columns([1,3])
 
