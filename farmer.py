@@ -8,7 +8,7 @@ st.set_page_config(page_title='Warframe Farmer', page_icon='random', layout="wid
 
 mode_list = ["虚空裂缝", '警报 - 噩梦']
 toc_selectbox = st.sidebar.selectbox("任务选择：", mode_list)
-containers = []
+containers = {}
 for item in mode_list:
     containers[item] = st.empty()
     
