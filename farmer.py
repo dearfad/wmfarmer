@@ -105,12 +105,7 @@ def get_order_info(item_name):
 
 st.title('Warframe Farmer')
 
-with st.empty():
-  st.info('从Warframe官网获取掉落表...')
-  droptables = get_droptables()
-  st.info('从Market官网获取中文对照表...')
-  url_names = get_url_names()
-  st.write('')
+
 
 cols = st.columns([2,1,1,1,1,1,1,1,1,1,1,1,1,1])
 
@@ -157,6 +152,15 @@ if drop_list:
   df['价格'] = price_list
   st.dataframe(df, width=1000)
 
+  
+with st.empty():
+  st.info('从Warframe官网获取掉落表...')
+  droptables = get_droptables()
+  st.info('从Market官网获取中文对照表...')
+  url_names = get_url_names()
+  st.write('')
+
+  
 # warframe_prime_list = ['ash', 'atlas', 'banshee', 'chroma', 'ember', 'equinox', 'frost', 'gara', 'harrow', 'hydroid', 'inaros', 'ivara', 'limbo', 'loki', 'mag', 'mesa', 'mirage', 'nekros', 'nezha', 'nidus', 'nova', 'nyx', 'oberon', 'octavia', 'rhino', 'saryn', 'titania', 'trinity', 'valkyr', 'vauban', 'volt', 'wukong', 'zephyr']
 # warframe_prime_set_list = ['set', 'blueprint', 'neuroptics', 'chassis', 'systems']
 
