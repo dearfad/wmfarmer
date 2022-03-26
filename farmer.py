@@ -12,13 +12,14 @@ for item in mode_list:
     containers[item] = st.empty()
 toc_selectbox = st.sidebar.selectbox("任务选择：", mode_list)
 
-pre = 'test'
+tag = 'tag'
 with containers[toc_selectbox].container():
-    st.write(pre)
-    if pre != toc_selectbox:
-        containers[pre] = st.empty()
-        pre = toc_selectbox
-    st.write(toc_selectbox+'cont')
+    if tag != toc_selectbox:
+        if containers[tag]:
+            containers[tag] = st.empty()
+        tag = toc_selectbox
+    st.write(toc_selectbox)
+    st.write(tag)
         
     
 @st.cache
