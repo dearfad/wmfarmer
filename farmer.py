@@ -127,6 +127,7 @@ with relic_drop_col:
     item_name = st.text_input('').lower()
     item_name = relic_prefix[relic_type]+ ' ' + item_name + ' relic'
     drop_list = droptables['Relics'].get(item_name)
+    st.write(drop_list)
     if drop_list:
       df = pd.DataFrame()
       df['url_name'] = drop_list 
