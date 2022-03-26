@@ -133,11 +133,8 @@ with relic_drop_col:
       price_list = []
       for item in drop_list:
         if 'neuroptics' in item or 'chassis' in item or 'systems' in item:
-          st.write(item)
           item = item[:-10]
-          st.write(item)
         url_name = item.replace(' ','_')
-        st.write(url_name)
         cn_name = url_names.get(url_name.lower())
         if url_name == 'forma_blueprint':
           cn_name = 'Forma 蓝图'
