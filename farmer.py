@@ -23,7 +23,7 @@ unsafe_allow_html=True
 
 toc_selectbox = st.sidebar.selectbox(
     "任务选择：",
-    ("Email", "Home phone", "Mobile phone")
+    ("虚空裂缝")
 )
 
 @st.cache
