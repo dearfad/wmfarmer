@@ -135,6 +135,7 @@ with relic_drop_col:
           item = item.strip('Blueprint').strip()
         url_name = item.replace(' ','_')
         cn_name = url_names.get(url_name.lower())
+        st.write(url_name, cn_name)
         if url_name == 'forma_blueprint':
           cn_name = 'Forma 蓝图'
         drop_list_cn.append(cn_name)
