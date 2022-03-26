@@ -15,7 +15,7 @@ toc_selectbox = st.sidebar.selectbox("任务选择：", mode_list)
 tag = 'tag'
 with containers[toc_selectbox].container():
     if tag != toc_selectbox:
-        if containers[tag]:
+        if containers.get(tag):
             containers[tag] = st.empty()
         tag = toc_selectbox
     st.write(toc_selectbox)
