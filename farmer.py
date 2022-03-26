@@ -153,8 +153,9 @@ itemname = st.text_input('').lower()
 
 names = itemname.strip().split(' ')
 
-st.write(names)
-
+for i, n in names:
+  with relic_drop_col[i]:
+    st.write(n)
   
 
 # warframe_prime_set_list = ['set', 'blueprint', 'neuroptics', 'chassis', 'systems']
