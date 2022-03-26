@@ -139,7 +139,6 @@ relic_prefix = {
 
 item_name = st.text_input('').lower()
 item_name = relic_prefix[relic_type]+ ' ' + item_name + ' relic'
-st.write(item_name)
 drop_list = droptables['Relics'].get(item_name)
 if drop_list:
   df = pd.DataFrame()
