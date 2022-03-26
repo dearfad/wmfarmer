@@ -136,7 +136,7 @@ with relic_drop_col:
         url_name = item.replace(' ','_')
         cn_name = url_names.get(url_name.lower())
         if url_name == 'forma_blueprint':
-          cn_name = 'Forma 蓝图
+          cn_name = 'Forma 蓝图'
         drop_list_cn.append(cn_name)
         price = get_order_info(url_name.lower())['buy']
         price_list.append(price)
