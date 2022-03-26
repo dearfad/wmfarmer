@@ -134,7 +134,7 @@ with relic_drop_col:
       for item in drop_list:
         if 'neuroptics' in item or 'chassis' in item or 'systems' in item:
           st.write(item)
-          item = item[:-9]
+          item = item[:-10]
           st.write(item)
         url_name = item.replace(' ','_')
         st.write(url_name)
