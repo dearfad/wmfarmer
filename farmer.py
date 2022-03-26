@@ -113,23 +113,11 @@ with st.empty():
   url_names = get_url_names()
   st.write('')
 
-cols = st.columns([2,1,1,1,1,1,1,1,1,1,1,1,1,1])
+relic_type_col, relic_drop_col = st.columns([1,3])
 
-with cols[0]:
+with relic_type_col:
   relic_type = st.radio('纪元', ('古纪', '前纪', '中纪', '后纪', '安魂'))
 
-num = 0
-for i, col in enumerate(cols):
-  if i>1 and i<9:
-      with col:
-        for n in range(4):
-          st.button(str(i)+str(n))
-  if i>10:
-    with col:
-      for n in range(1,4):
-        num = num+1
-        st.button(str(num))
-        
 relic_prefix = {
     '古纪': 'lith',
     '前纪': 'meso',
@@ -138,25 +126,26 @@ relic_prefix = {
     '安魂': 'requiem',
 }
 
-item_name = st.text_input('').lower()
-item_name = relic_prefix[relic_type]+ ' ' + item_name + ' relic'
-drop_list = droptables['Relics'].get(item_name)
-if drop_list:
-  df = pd.DataFrame()
-  df['url_name'] = drop_list 
-  drop_list_cn = []
-  price_list = []
-  for item in drop_list:
-    if 'Neuroptics' in item or 'Chassis' in item or 'Systems' in item:
-      item = item.strip('Blueprint').strip()
-    url_name = item.replace(' ','_')
-    cn_name = url_names.get(url_name.lower())
-    drop_list_cn.append(cn_name)
-    price = get_order_info(url_name.lower())['buy']
-    price_list.append(price)
-  df['中文'] = drop_list_cn
-  df['价格'] = price_list
-  st.dataframe(df, width=1000)
+with relic_drop_col:
+    item_name = st.text_input('').lower()
+    item_name = relic_prefix[relic_type]+ ' ' + item_name + ' relic'
+    drop_list = droptables['Relics'].get(item_name)
+    if drop_list:
+      df = pd.DataFrame()
+      df['url_name'] = drop_list 
+      drop_list_cn = []
+      price_list = []
+      for item in drop_list:
+        if 'Neuroptics' in item or 'Chassis' in item or 'Systems' in item:
+          item = item.strip('Blueprint').strip()
+        url_name = item.replace(' ','_')
+        cn_name = url_names.get(url_name.lower())
+        drop_list_cn.append(cn_name)
+        price = get_order_info(url_name.lower())['buy']
+        price_list.append(price)
+      df['中文'] = drop_list_cn
+      df['价格'] = price_list
+      st.dataframe(df)
 
 
 
