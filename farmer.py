@@ -11,6 +11,8 @@ toc_selectbox = st.sidebar.selectbox(
     ("虚空裂缝", '警报 - 噩梦')
 )
 
+st.write(toc_selectbox)
+
 content_dict = {
     '虚空裂缝': st.empty(),
     '警报 - 噩梦': st.empty(),
