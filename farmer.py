@@ -140,7 +140,7 @@ with relic_drop_col:
         price_list.append(price)
       df['中文'] = drop_list_cn
       df['价格'] = price_list
-      st.table(df[['中文','价格']])
+      st.table(df[['url_name','中文','价格']])
 
 
 
