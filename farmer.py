@@ -110,7 +110,7 @@ droptables = get_droptables()
 url_names = get_url_names()
 
 relic_drop_col = [0,1,2,3]
-relic_type_col, relic_drop_col[0],relic_drop_col[1],relic_drop_col[2],relic_drop_col[3]  = st.columns([1,1,1,1,1])
+relic_type_col, relic_drop_col[0],relic_drop_col[1],relic_drop_col[2],relic_drop_col[3]  = st.columns([1,2,2,2,2])
 
 with relic_type_col:
   relic_type = st.radio('纪元', ('古纪', '前纪', '中纪', '后纪', '安魂'))
