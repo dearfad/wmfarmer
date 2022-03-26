@@ -12,13 +12,14 @@ for item in mode_list:
     containers[item] = st.empty()
 toc_selectbox = st.sidebar.selectbox("任务选择：", mode_list)
 
-current = ''
+pre = 'test'
 with containers[toc_selectbox].container():
-    st.write(current)
-    if current and current != toc_selectbox:
-        containers[current] = st.empty()
-        st.write(toc_selectbox+'cont')
-        current = toc_selectbox
+    st.write(pre)
+    if pre != toc_selectbox:
+        containers[pre] = st.empty()
+        pre = toc_selectbox
+    st.write(toc_selectbox+'cont')
+        
     
 @st.cache
 def get_droptables():
