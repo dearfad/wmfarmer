@@ -153,7 +153,7 @@ itemname = st.text_input('').lower()
 
 names = itemname.strip().split(' ')
 
-for x, y in names:
+for x, y in enumerate(names):
   st.write(x, y)
   with relic_drop_col[x]:
     st.write(y)
