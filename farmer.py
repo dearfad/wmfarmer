@@ -6,12 +6,20 @@ import time
 
 st.set_page_config(page_title='Warframe Farmer', page_icon='random', layout="wide", initial_sidebar_state="expanded", menu_items=None)
 
-st.markdown(f'''
-    <style>
-        section[data-testid="stSidebar"] .css-ng1t4o {{width: 10rem;}}
-        section[data-testid="stSidebar"] .css-1d391kg {{width: 10rem;}}
-    </style>
-''',unsafe_allow_html=True)
+st.markdown(
+"""
+<style>
+[data-testid="stSidebar"][aria-expanded="true"] > div:first-child {
+width: 500px;
+}
+[data-testid="stSidebar"][aria-expanded="false"] > div:first-child {
+width: 500px;
+margin-left: -500px;
+}
+</style>
+""",
+unsafe_allow_html=True
+)
 
 toc_selectbox = st.sidebar.selectbox(
     "任务选择：",
