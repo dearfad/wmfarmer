@@ -12,13 +12,9 @@ toc_selectbox = st.sidebar.selectbox(
 )
 
 content_dict = {
-    '虚空裂缝': void_fissure,
-    '警报 - 噩梦': nightmare_mode
+    '虚空裂缝': st.empty(),
+    '警报 - 噩梦': st.empty(),
 }
-
-for item in content_dict.keys():
-    content_dict[item] = st.empty()
-
 
 @st.cache
 def get_droptables():
