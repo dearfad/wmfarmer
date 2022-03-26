@@ -6,9 +6,10 @@ import time
 
 st.set_page_config(page_title='Warframe Farmer', page_icon='random', layout="wide", initial_sidebar_state="expanded", menu_items=None)
 
+mode_list = ["虚空裂缝", '警报 - 噩梦']
 toc_selectbox = st.sidebar.selectbox(
     "任务选择：",
-    ("虚空裂缝", '警报 - 噩梦')
+    mode_list
 )
 
 st.write(toc_selectbox)
