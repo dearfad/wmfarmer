@@ -124,8 +124,9 @@ relic_prefix = {
 }
 warframe_prime_list = ['ash', 'atlas', 'banshee', 'chroma', 'ember', 'equinox', 'frost', 'gara', 'harrow', 'hydroid', 'inaros', 'ivara', 'limbo', 'loki', 'mag', 'mesa', 'mirage', 'nekros', 'nezha', 'nidus', 'nova', 'nyx', 'oberon', 'octavia', 'rhino', 'saryn', 'titania', 'trinity', 'valkyr', 'vauban', 'volt', 'wukong', 'zephyr']
 
-with relic_drop_col[0]:
-    item_name = st.text_input('').lower()
+def show_price(item_name)
+# with relic_drop_col[0]:
+#     item_name = st.text_input('').lower()
     item_name = relic_prefix[relic_type]+ ' ' + item_name + ' relic'
     drop_list = droptables['Relics'].get(item_name)
     if drop_list:
@@ -148,7 +149,11 @@ with relic_drop_col[0]:
       df['价格'] = price_list
       st.table(df[['中文','价格']])
 
+itemname = st.text_input('').lower()
 
+names = itemname.strip().split(' ')
+
+st.write(names)
 
   
 
