@@ -156,7 +156,7 @@ names = itemname.strip().split(' ')
 for x, y in enumerate(names):
   st.write(x, y)
   with relic_drop_col[x]:
-    st.write(y)
+    show_price(y)
   
 
 # warframe_prime_set_list = ['set', 'blueprint', 'neuroptics', 'chassis', 'systems']
