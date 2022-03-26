@@ -109,7 +109,7 @@ st.title('Warframe Farmer')
 droptables = get_droptables()
 url_names = get_url_names()
 
-relic_type_col, relic_drop_col = st.columns([1,3])
+relic_type_col, relic_drop_col[0],relic_drop_col[1],relic_drop_col[2],relic_drop_col[3]  = st.columns([1,1,1,1,1])
 
 with relic_type_col:
   relic_type = st.radio('纪元', ('古纪', '前纪', '中纪', '后纪', '安魂'))
@@ -123,7 +123,7 @@ relic_prefix = {
 }
 warframe_prime_list = ['ash', 'atlas', 'banshee', 'chroma', 'ember', 'equinox', 'frost', 'gara', 'harrow', 'hydroid', 'inaros', 'ivara', 'limbo', 'loki', 'mag', 'mesa', 'mirage', 'nekros', 'nezha', 'nidus', 'nova', 'nyx', 'oberon', 'octavia', 'rhino', 'saryn', 'titania', 'trinity', 'valkyr', 'vauban', 'volt', 'wukong', 'zephyr']
 
-with relic_drop_col:
+with relic_drop_col[0]:
     item_name = st.text_input('').lower()
     item_name = relic_prefix[relic_type]+ ' ' + item_name + ' relic'
     drop_list = droptables['Relics'].get(item_name)
