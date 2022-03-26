@@ -107,6 +107,7 @@ def get_order_info(item_name):
 st.title('Warframe Farmer')
   
 droptables = get_droptables()
+st.write(droptables)
 url_names = get_url_names()
 
 relic_type_col, relic_drop_col = st.columns([1,3])
