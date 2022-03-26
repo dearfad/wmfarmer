@@ -70,6 +70,7 @@ def get_url_names():
           url_names[item['url_name']] = item['item_name']
   return url_names
 
+@st.cache(ttl=60.0)
 def get_order_info(item_name):  
   start_time = time.time()
   order_info = {
