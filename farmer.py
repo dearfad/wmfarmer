@@ -135,7 +135,9 @@ with relic_drop_col:
         if 'neuroptics' in item or 'chassis' in item or 'systems' in item:
           st.write(item)
           item = item.strip('blueprint').strip()
+          st.write(item)
         url_name = item.replace(' ','_')
+        st.write(url_name)
         cn_name = url_names.get(url_name.lower())
         if url_name == 'forma_blueprint':
           cn_name = 'Forma 蓝图'
