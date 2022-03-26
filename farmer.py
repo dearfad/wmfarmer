@@ -7,18 +7,11 @@ import time
 st.set_page_config(page_title='Warframe Farmer', page_icon='random', layout="wide", initial_sidebar_state="expanded", menu_items=None)
 
 mode_list = ["虚空裂缝", '警报 - 噩梦']
-toc_selectbox = st.sidebar.selectbox(
-    "任务选择：",
-    mode_list
-)
-
-st.write(toc_selectbox)
-
-content_dict = {
-    '虚空裂缝': st.empty(),
-    '警报 - 噩梦': st.empty(),
-}
-
+toc_selectbox = st.sidebar.selectbox("任务选择：", mode_list)
+containers = []
+for item in mode_list:
+    containers[item] = st.empty()
+    
 @st.cache
 def get_droptables():
   droptables = {}
