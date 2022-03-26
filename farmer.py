@@ -124,7 +124,7 @@ relic_prefix = {
 }
 warframe_prime_list = ['ash', 'atlas', 'banshee', 'chroma', 'ember', 'equinox', 'frost', 'gara', 'harrow', 'hydroid', 'inaros', 'ivara', 'limbo', 'loki', 'mag', 'mesa', 'mirage', 'nekros', 'nezha', 'nidus', 'nova', 'nyx', 'oberon', 'octavia', 'rhino', 'saryn', 'titania', 'trinity', 'valkyr', 'vauban', 'volt', 'wukong', 'zephyr']
 
-def show_price(item_name)
+def show_price(item_name):
 # with relic_drop_col[0]:
 #     item_name = st.text_input('').lower()
     item_name = relic_prefix[relic_type]+ ' ' + item_name + ' relic'
