@@ -175,7 +175,6 @@ itemname = st.text_input('').lower()
 names = itemname.strip().split(' ')
 
 for x, y in enumerate(names):
-  st.write(x, y)
   with relic_drop_col[x]:
     show_price(y)
 
