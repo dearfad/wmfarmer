@@ -182,7 +182,7 @@ for x, y in enumerate(names):
 nightmaremoderewards = ['Ice Storm','Stunning Speed','Hammer Shot','Wildfire','Accelerated Blast','Blaze','Chilling Reload','Drifting Contact','Seeking Fury','Armored Agility','Shred','Rending Strike','Fortitude','Streamlined Form','Animal Instinct','Vigor','Lethal Torrent','Focus Energy','Constitution']
 
 night = pd.DataFrame()
-night['url_name'] = nightmaremoderewards.replace(' ','_').lower()
+night['url_name'] = [x.replace(' ','_').lower() for x in nightmaremoderewards]
 st.table(night)
 
 # warframe_prime_set_list = ['set', 'blueprint', 'neuroptics', 'chassis', 'systems']
