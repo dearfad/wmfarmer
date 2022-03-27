@@ -178,7 +178,12 @@ for x, y in enumerate(names):
   st.write(x, y)
   with relic_drop_col[x]:
     show_price(y)
-  
+
+nightmaremoderewards = ['Ice Storm','Stunning Speed','Hammer Shot','Wildfire','Accelerated Blast','Blaze','Chilling Reload','Drifting Contact','Seeking Fury','Armored Agility','Shred','Rending Strike','Fortitude','Streamlined Form','Animal Instinct','Vigor','Lethal Torrent','Focus Energy','Constitution']
+
+night = pd.DataFrame()
+night['url_name'] = nightmaremoderewards.replace(' ','_').lower()
+st.table(night)
 
 # warframe_prime_set_list = ['set', 'blueprint', 'neuroptics', 'chassis', 'systems']
 
