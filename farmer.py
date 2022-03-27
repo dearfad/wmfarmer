@@ -183,6 +183,7 @@ nightmaremoderewards = ['Ice Storm','Stunning Speed','Hammer Shot','Wildfire','A
 
 night = pd.DataFrame()
 night['url_name'] = [x.replace(' ','_').lower() for x in nightmaremoderewards]
+night['中文'] = [url_names.get(x) for x in night['url_name']]
 st.table(night)
 
 # warframe_prime_set_list = ['set', 'blueprint', 'neuroptics', 'chassis', 'systems']
