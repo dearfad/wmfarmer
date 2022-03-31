@@ -24,7 +24,7 @@ def get_items(suppress_st_warning=True):
 st.title('Warframe Market Farmer')
 item_name = st.text_input('名称：', 'Xiphos 机身')
 items = get_items()
-item = items[items['item_name_cn']==item_name].to_dict(orient='list')
+item = items[items['item_name_cn']==item_name].to_dict(orient='series')
 st.write(item)
 # thumb_url = assets_url + item['thumb']
 # st.write(item_name)
