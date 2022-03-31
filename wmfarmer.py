@@ -2,6 +2,8 @@ import streamlit as st
 import requests
 import pandas as pd
 
+st.set_page_config(page_title='Warframe Market Farmer', page_icon='random')
+
 items_api_url = "https://api.warframe.market/v1/items"
 assets_url = "https://warframe.market/static/assets/"
 
@@ -19,6 +21,6 @@ def get_items(suppress_st_warning=True):
   # items[items.item_name_cn.duplicated(keep=False)]
   return items
 
-items = get_items()
-
+st.title('Warframe Market Farmer')
 item_name = st.text_input('名称：', 'Xiphos 机身')
+items = get_items()
