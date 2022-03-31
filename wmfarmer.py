@@ -66,11 +66,10 @@ item_name = st.text_input('名称：', 'Xiphos 机身')
 items = get_items()
 item = items[items['item_name_cn']==item_name].to_dict(orient='records')[0]
 thumb_url = assets_url + item['thumb']
-st.write(item_name)
-st.image(thumb_url)
 
 order_info = get_order_info(item['url_name'])
 
-col1, col2 = st.columns(3)
+col0, col1, col2 = st.columns(3)
+col0.image(thumb_url)
 col1.metric("最高卖出", order_info['buy'], order_info['buyer'])
 col2.metric("最低买入", order_info['sell'], order_info['seller'])
