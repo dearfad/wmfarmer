@@ -24,3 +24,5 @@ def get_items(suppress_st_warning=True):
 st.title('Warframe Market Farmer')
 item_name = st.text_input('名称：', 'Xiphos 机身')
 items = get_items()
+item = items[items['item_name_cn']==item_name]
+st.write(item)
