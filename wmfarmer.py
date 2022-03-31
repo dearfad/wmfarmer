@@ -65,7 +65,6 @@ st.title('Warframe Market Farmer')
 item_name = st.text_input('名称：', 'Xiphos 机身')
 items = get_items()
 item = items[items['item_name_cn']==item_name].to_dict(orient='records')[0]
-st.write(item)
 if item:
   thumb_url = assets_url + item['thumb']
   order_info = get_order_info(item['url_name'])
