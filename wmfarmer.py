@@ -24,4 +24,6 @@ def get_items():
 
   return items
 
+items = get_items()
+
 st.write(items)
