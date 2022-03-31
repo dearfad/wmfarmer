@@ -69,7 +69,7 @@ thumb_url = assets_url + item['thumb']
 st.write(item_name)
 st.image(thumb_url)
 
-order_info = get_order_info(item['url_name']))
+order_info = get_order_info(item['url_name'])
 
 col1, col2 = st.columns(3)
 col1.metric("最高卖出", order_info['buy'], order_info['buyer'])
