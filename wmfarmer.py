@@ -63,9 +63,13 @@ def get_order_info(item_name):
 
 st.title('Warframe Market Farmer')
 item_name = st.text_input('模糊搜索：', 'Xiphos 机身')
-selected_name = st.selectbox('已发现：', item_name)
+
 items = get_items()
-item_df = items[items['item_name_cn']==item_name]
+df = items[items['item_name_cn'].str.contains(item_name)]
+item_names = df['item_name_cn'].values
+selected_name = st.selectbox('已发现：', item_names)
+
+item_df = items[items['item_name_cn']==selected_name]
 if item_df.empty:
   st.write('未找到相关信息...')  
 else:
