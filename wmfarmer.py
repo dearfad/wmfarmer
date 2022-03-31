@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 import pandas as pd
 
+@st.cache
 def get_items():
   items_api_url = "https://api.warframe.market/v1/items"
   assets_url = "https://warframe.market/static/assets/"
@@ -26,4 +27,4 @@ def get_items():
 
 items = get_items()
 
-st.write(items)
+st.table(items)
