@@ -21,4 +21,4 @@ def get_items(suppress_st_warning=True):
 
 items = get_items()
 
-item_name = st.input_text()
+item_name = st.text_input('名称：', 'Xiphos 机身')
