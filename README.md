@@ -1,2 +1,2 @@
-# wmpl
-Warframe Market Price List - Streamlit
+# wmfarmer
+Warframe Market Farmer - Streamlit
