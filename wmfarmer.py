@@ -27,4 +27,4 @@ items = get_items()
 item = items[items['item_name_cn']==item_name]
 thumb_url = assets_url + item['thumb']
 st.write(item_name)
-st.write(thumb_url)
+st.image(thumb_url)
