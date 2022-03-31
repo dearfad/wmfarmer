@@ -25,6 +25,6 @@ st.title('Warframe Market Farmer')
 item_name = st.text_input('名称：', 'Xiphos 机身')
 items = get_items()
 item = items[items['item_name_cn']==item_name]
-thumb_url = assets_url + item['thumb']
+thumb_url = assets_url + str(item['thumb'])
 st.write(item_name)
 st.image(thumb_url)
