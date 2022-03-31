@@ -64,7 +64,7 @@ def get_order_info(item_name):
 st.title('Warframe Market Farmer')
 item_name = st.text_input('名称：', 'Xiphos 机身')
 items = get_items()
-item = items[items['item_name_cn']==item_name].to_dict(orient='records')[0]
+item = items[items['item_name_cn']==item_name].to_dict(orient='records')
 if item:
   thumb_url = assets_url + item['thumb']
   order_info = get_order_info(item['url_name'])
