@@ -23,17 +23,8 @@ def get_items(suppress_st_warning=True):
 
 @st.cache(show_spinner=False, ttl=120.0)
 def get_order_info(item_name):  
-  order_info = {
-    'name': item_name,
-    'sell': 0,
-    'seller': '',
-    'buy': 0,
-    'buyer': '', 
-    'status': '',
-  }
-  
-  r = requests.get(f'https://api.warframe.market/v1/items/{item_name}/orders', headers={'Platform': 'pc'})
-  
+  order_info = {'name': item_name, 'sell': 0, 'seller': '', 'buy': 0, 'buyer': '',  'status': ''} 
+  r = requests.get(f'https://api.warframe.market/v1/items/{item_name}/orders', headers={'Platform': 'pc'})  
   if r.status_code == 200:
       order_info['status'] = 'T'
       payload = r.json()
@@ -60,15 +51,12 @@ def get_order_info(item_name):
       order_info['status'] = 'F'
   return order_info
 
-
 st.title('Warframe Market Farmer')
 item_name = st.text_input('模糊搜索：', 'Xiphos 机身')
-
 items = get_items()
-df = items[items['item_name_cn'].str.contains(item_name)]
-item_names = df['item_name_cn'].values
+search_result = items[items['item_name_cn'].str.contains(item_name)]
+item_names = searchc_result['item_name_cn'].values
 selected_name = st.selectbox('已发现：', item_names)
-
 item_df = items[items['item_name_cn']==selected_name]
 if item_df.empty:
   st.write('未找到相关信息...')  
