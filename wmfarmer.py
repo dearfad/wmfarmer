@@ -21,6 +21,46 @@ def get_items(suppress_st_warning=True):
   # items[items.item_name_cn.duplicated(keep=False)]
   return items
 
+@st.cache(show_spinner=False, ttl=120.0)
+def get_order_info(item_name):  
+  order_info = {
+    'name': item_name,
+    'sell': 0,
+    'seller': '',
+    'buy': 0,
+    'buyer': '', 
+    'status': '',
+  }
+  
+  r = requests.get(f'https://api.warframe.market/v1/items/{item_name}/orders', headers={'Platform': 'pc'})
+  
+  if r.status_code == 200:
+      order_info['status'] = 'T'
+      payload = r.json()
+      orders = payload['payload']['orders']
+      for order in orders:
+        if order['user']['status']=='ingame':
+          if order['order_type']=='sell':
+            if order_info['sell']==0:
+              order_info['sell'] = order['platinum']
+              order_info['seller'] = order['user']['ingame_name']
+            else:
+              if order['platinum']<order_info['sell']:
+                order_info['sell'] = order['platinum']
+                order_info['seller'] = order['user']['ingame_name']
+          if order['order_type']=='buy':
+            if order_info['buy']==0:
+              order_info['buy'] = order['platinum']
+              order_info['buyer'] = order['user']['ingame_name']
+            else:
+              if order['platinum']>order_info['buy']:
+                order_info['buy'] = order['platinum']
+                order_info['buyer'] = order['user']['ingame_name']
+  else:
+      order_info['status'] = 'F'
+  return order_info
+
+
 st.title('Warframe Market Farmer')
 item_name = st.text_input('名称：', 'Xiphos 机身')
 items = get_items()
@@ -28,3 +68,4 @@ item = items[items['item_name_cn']==item_name].to_dict(orient='records')[0]
 thumb_url = assets_url + item['thumb']
 st.write(item_name)
 st.image(thumb_url)
+st.write(get_order_info(item['url_name']))
