@@ -142,7 +142,7 @@ def warframe():
 
 def relic():
   droptables = get_droptables()
-  st.write(droptables)
+  st.write(droptables['relics'])
 # relic_prefix = {
 #     '古纪': 'lith',
 #     '前纪': 'meso',
