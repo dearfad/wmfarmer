@@ -159,7 +159,7 @@ def relic():
   for item in relic_drop:
     item_df = items[items['item_name_en']==item]
     if item_df.empty:
-      st.write('item', '未找到相关信息...')  
+      st.write(item, '未找到相关信息...')  
     else:
       show_item(item_df)
   return
