@@ -158,7 +158,7 @@ def relic():
   st.write(relic_drop)
   for item in relic_drop:
     if 'Chassis Blueprint' in item:
-      item = item[:-7]
+      item = item[:-10]
       st.write(item)
     item_df = items[items['item_name_en']==item]
     if item_df.empty:
