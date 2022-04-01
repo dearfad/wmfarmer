@@ -85,7 +85,7 @@ def warframe():
   items = get_items()
   for item in warframe_prime_set_list:
     item_name = warframe_selection + '_prime_' + item
-    item_df = items[items['item_name_cn']==item_name]
+    item_df = items[items['url_name']==item_name]
     st.write(item_df)
     show_item(item_df)
   return
