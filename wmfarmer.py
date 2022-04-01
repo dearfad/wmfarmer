@@ -155,6 +155,7 @@ def relic():
   selected_name = st.selectbox('已发现：', item_name_cn)
   selected_relic_name_en = items[items['item_name_cn']==selected_name]['item_name_en'].values[0]
   relic_drop = droptables['relics'][selected_relic_name_en]
+  st.write(relic_drop)
   for item in relic_drop:
     item_df = items[items['item_name_en']==item]
     show_item(item_df)
