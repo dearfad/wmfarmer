@@ -157,6 +157,9 @@ def relic():
   relic_drop = droptables['relics'][selected_relic_name_en]
   st.write(relic_drop)
   for item in relic_drop:
+    if 'Chassis Blueprint' in item:
+      item = item[:-7]
+      st.write(item)
     item_df = items[items['item_name_en']==item]
     if item_df.empty:
       st.write(item, '未找到相关信息...')  
