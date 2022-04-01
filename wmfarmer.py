@@ -8,8 +8,8 @@ st.set_page_config(page_title='Warframe Market Farmer', page_icon='random')
 items_api_url = "https://api.warframe.market/v1/items"
 assets_url = "https://warframe.market/static/assets/"
 
-@st.cache
-def get_items(suppress_st_warning=True):
+@st.cache(suppress_st_warning=True)
+def get_items():
   r_en = requests.get(items_api_url, headers={"Language": "en"})
   if r_en.status_code == 200:
     items_en = pd.json_normalize(r_en.json()["payload"]["items"])
@@ -22,7 +22,7 @@ def get_items(suppress_st_warning=True):
   # items[items.item_name_cn.duplicated(keep=False)]
   return items
 
-@st.cache(show_spinner=False, ttl=120.0)
+@st.cache(suppress_st_warning=True, show_spinner=False, ttl=120.0)
 def get_order_info(item_name):  
   order_info = {'name': item_name, 'sell': 0, 'seller': '', 'buy': 0, 'buyer': '',  'status': ''} 
   r = requests.get(f'https://api.warframe.market/v1/items/{item_name}/orders', headers={'Platform': 'pc'})  
@@ -52,7 +52,7 @@ def get_order_info(item_name):
       order_info['status'] = 'F'
   return order_info
 
-@st.cache
+@st.cache(suppress_st_warning=True)
 def get_droptables():
   droptables = {}
   r = requests.get('https://www.warframe.com/droptables')
@@ -77,10 +77,10 @@ def get_droptables():
     relic_tag = relics_table.tr
     for i in range(relic_count+1):
         relic_drops = {}
-        relic_name = relic_tag.text.split(' (')[0].lower()        
+        relic_name = relic_tag.text.split(' (')[0]   
         for n in range(6):
             relic_tag = relic_tag.next_sibling
-            relic_drops[relic_tag.td.text.lower()] = int(relic_tag.td.next_sibling.text.split('.')[0].split('(')[1])
+            relic_drops[relic_tag.td.text] = int(relic_tag.td.next_sibling.text.split('.')[0].split('(')[1])
         relic_drops = sorted(relic_drops.items(), key=lambda x: x[1], reverse=True)
         relic_dict[relic_name] = [x[0] for x in relic_drops]
         for n in range(34):
