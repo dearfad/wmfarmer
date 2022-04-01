@@ -151,19 +151,10 @@ def relic():
       search_result.append(key)
   item_name_cn = []
   for item in search_result:
-    item_name_cn.append(items[items['item_name_en']==item]['item_name_cn'].values)
+    item_name_cn.append(items[items['item_name_en']==item]['item_name_cn'].values[0])
   selected_name = st.selectbox('已发现：', item_name_cn)
-  item_df = items[items['item_name_en']==selected_name]
+  item_df = items[items['item_name_cn']==selected_name]
   show_item(item_df)
-# relic_prefix = {
-#     '古纪': 'lith',
-#     '前纪': 'meso',
-#     '中纪': 'neo',
-#     '后纪': 'axi',
-#     '安魂': 'requiem',
-# }
-
-
   return
 
 def main():
