@@ -159,11 +159,15 @@ def relic():
     if 'Chassis Blueprint' in item or 'Systems Blueprint' in item or 'Neuroptics Blueprint' in item:
       item = item[:-10]
     item_df = items[items['item_name_en']==item]
-    st.write(item_df)
-    if item == 'Forma Blueprint':
-      st.write('Forma Blueprint!!!!!!!!!')
     if item_df.empty:
-      st.write(item, '未找到相关信息...')  
+      if item == 'Forma Blueprint':
+        st.write('福马 蓝图'])
+        col0, col1, col2 = st.columns(3)
+        col0.image('')
+        col1.metric("最高卖出", 0, 0)
+        col2.metric("最低买入", 0, 0)
+      else:
+        st.write(item, '未找到相关信息...')  
     else:
       show_item(item_df)
   return
