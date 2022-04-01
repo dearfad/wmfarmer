@@ -52,7 +52,6 @@ def get_order_info(item_name):
   return order_info
 
 def item():
-  st.title('Warframe Market Farmer')
   item_name = st.text_input('模糊搜索：', 'Xiphos 机身')
   items = get_items()
   search_result = items[items['item_name_cn'].str.contains(item_name.capitalize())]
@@ -77,10 +76,11 @@ def nightmare():
 
 def main():
   pages = {
-    'item': item,
-    'nightmare': nightmare
+    '物品价格': item,
+    '噩梦收益': nightmare
   }
   with st.sidebar:
+    st.title('Warframe Market Farmer')
     page = st.radio("请选择：", pages.keys())
   pages[page]()
   
