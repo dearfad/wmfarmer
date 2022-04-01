@@ -190,24 +190,4 @@ for x, y in enumerate(names):
 # night['位置'] = [r_a,r_a,r_a,r_a,r_a,r_a,r_a,r_b,r_b,r_b,r_b,r_b,r_b,r_c,r_c,r_c,r_c,r_c,r_c,]
 # st.table(night)
 
-# warframe_prime_set_list = ['set', 'blueprint', 'neuroptics', 'chassis', 'systems']
 
-
-
-# price_df = pd.DataFrame(columns = ['name', 'sell', 'seller', 'buy', 'buyer', 'time', 'status'])
-
-# warframe_selection = st.sidebar.selectbox('选择战甲', warframe_prime_list)
-
-# with st.empty():
-#   for item in warframe_prime_set_list:
-#     item_name = warframe_selection + '_prime_' + item
-#     st.info(item_name)
-#     price_df.loc[len(price_df)] = get_order_info(item_name)
-#   st.write('')
-
-# # for warframe in warframe_prime_list:
-# #   for item in warframe_prime_set_list:
-# #     item_name = warframe + '_prime_' + item
-# #     price_df.loc[len(price_df)] = get_order_info(item_name)
-  
-# st.dataframe(price_df, height=800)
