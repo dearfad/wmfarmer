@@ -99,11 +99,16 @@ def warframe():
     show_item(item_df)
   return
 
+def relic():
+  st.write('relic')
+  return
+
 def main():
   pages = {
     '物品价格': item,
     '战甲套装': warframe,
-    '噩梦收益': nightmare,    
+    '噩梦收益': nightmare,
+    '虚空裂缝': relic
   }
   with st.sidebar:
     st.title('Warframe Market Farmer')
