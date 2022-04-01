@@ -104,7 +104,7 @@ def show_item(item_df):
 def item():
   item_name = st.text_input('模糊搜索：', 'Xiphos 机身')
   items = get_items()
-  search_result = items[items['item_name_cn'].str.lower().contains(item_name.lower())]
+  search_result = items[items['item_name_cn'].str.contains(item_name.capitalize())]
   item_names = search_result['item_name_cn'].values
   selected_name = st.selectbox('已发现：', item_names)
   item_df = items[items['item_name_cn']==selected_name]
