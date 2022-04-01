@@ -51,20 +51,35 @@ def get_order_info(item_name):
       order_info['status'] = 'F'
   return order_info
 
-st.title('Warframe Market Farmer')
-item_name = st.text_input('模糊搜索：', 'Xiphos 机身')
-items = get_items()
-search_result = items[items['item_name_cn'].str.contains(item_name.capitalize())]
-item_names = search_result['item_name_cn'].values
-selected_name = st.selectbox('已发现：', item_names)
-item_df = items[items['item_name_cn']==selected_name]
-if item_df.empty:
-  st.write('未找到相关信息...')  
-else:
-  item = item_df.to_dict(orient='records')[0]
-  thumb_url = assets_url + item['thumb']
-  order_info = get_order_info(item['url_name'])
-  col0, col1, col2 = st.columns(3)
-  col0.image(thumb_url)
-  col1.metric("最高卖出", order_info['buy'], order_info['buyer'])
-  col2.metric("最低买入", order_info['sell'], order_info['seller'])
+def item():
+  st.title('Warframe Market Farmer')
+  item_name = st.text_input('模糊搜索：', 'Xiphos 机身')
+  items = get_items()
+  search_result = items[items['item_name_cn'].str.contains(item_name.capitalize())]
+  item_names = search_result['item_name_cn'].values
+  selected_name = st.selectbox('已发现：', item_names)
+  item_df = items[items['item_name_cn']==selected_name]
+  if item_df.empty:
+    st.write('未找到相关信息...')  
+  else:
+    item = item_df.to_dict(orient='records')[0]
+    thumb_url = assets_url + item['thumb']
+    order_info = get_order_info(item['url_name'])
+    col0, col1, col2 = st.columns(3)
+    col0.image(thumb_url)
+    col1.metric("最高卖出", order_info['buy'], order_info['buyer'])
+    col2.metric("最低买入", order_info['sell'], order_info['seller'])
+  return
+
+def nightmare():
+  st.write('nightmare')
+  return
+
+def main():
+  pages = {
+    'item': item,
+    'nightmare': nightmare
+  }
+  
+if __name__=='__main__':
+  main()
