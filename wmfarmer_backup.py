@@ -6,22 +6,6 @@ import time
 
 st.set_page_config(page_title='Warframe Farmer', page_icon='random', layout="wide", initial_sidebar_state="expanded", menu_items=None)
 
-# mode_list = ["虚空裂缝", '警报 - 噩梦']
-# containers = {}
-# for item in mode_list:
-#     containers[item] = st.empty()
-# toc_selectbox = st.sidebar.selectbox("任务选择：", mode_list)
-
-# tag = 'tag'
-# with containers[toc_selectbox].container():
-#     if tag != toc_selectbox:
-#         if containers.get(tag):
-#             containers[tag] = st.empty()
-#         tag = toc_selectbox
-#     st.write(toc_selectbox)
-#     st.write(tag)
-        
-    
 @st.cache
 def get_droptables():
   droptables = {}
@@ -82,48 +66,6 @@ def get_url_names():
           url_names[item['url_name']] = item['item_name']
   return url_names
 
-@st.cache(show_spinner=False, ttl=120.0)
-def get_order_info(item_name):  
-  start_time = time.time()
-  order_info = {
-    'name': item_name,
-    'sell': 0,
-    'seller': '',
-    'buy': 0,
-    'buyer': '', 
-    'time': 0,
-    'status': '',
-  }
-  
-  r = requests.get(f'https://api.warframe.market/v1/items/{item_name}/orders', headers={'Platform': 'pc'})
-  
-  if r.status_code == 200:
-      order_info['status'] = 'T'
-      payload = r.json()
-      orders = payload['payload']['orders']
-      for order in orders:
-        if order['user']['status']=='ingame':
-          if order['order_type']=='sell':
-            if order_info['sell']==0:
-              order_info['sell'] = order['platinum']
-              order_info['seller'] = order['user']['ingame_name']
-            else:
-              if order['platinum']<order_info['sell']:
-                order_info['sell'] = order['platinum']
-                order_info['seller'] = order['user']['ingame_name']
-          if order['order_type']=='buy':
-            if order_info['buy']==0:
-              order_info['buy'] = order['platinum']
-              order_info['buyer'] = order['user']['ingame_name']
-            else:
-              if order['platinum']>order_info['buy']:
-                order_info['buy'] = order['platinum']
-                order_info['buyer'] = order['user']['ingame_name']
-      order_info['time'] = str(round(time.time()-start_time,3))
-  else:
-      order_info['status'] = 'F'
-  return order_info
-
 st.title('Warframe Farmer')
   
 droptables = get_droptables()
@@ -143,7 +85,6 @@ relic_prefix = {
     '后纪': 'axi',
     '安魂': 'requiem',
 }
-warframe_prime_list = ['ash', 'atlas', 'banshee', 'chroma', 'ember', 'equinox', 'frost', 'gara', 'harrow', 'hydroid', 'inaros', 'ivara', 'limbo', 'loki', 'mag', 'mesa', 'mirage', 'nekros', 'nezha', 'nidus', 'nova', 'nyx', 'oberon', 'octavia', 'rhino', 'saryn', 'titania', 'trinity', 'valkyr', 'vauban', 'volt', 'wukong', 'zephyr']
 
 def show_price(item_name):
 # with relic_drop_col[0]:
@@ -177,17 +118,4 @@ names = itemname.strip().split(' ')
 for x, y in enumerate(names):
   with relic_drop_col[x]:
     show_price(y)
-
-# nightmaremoderewards = ['Ice Storm','Stunning Speed','Hammer Shot','Wildfire','Accelerated Blast','Blaze','Chilling Reload','Drifting Contact','Seeking Fury','Armored Agility','Shred','Rending Strike','Fortitude','Streamlined Form','Animal Instinct','Vigor','Lethal Torrent','Focus Energy','Constitution']
-
-# night = pd.DataFrame()
-# night['url_name'] = [x.replace(' ','_').lower() for x in nightmaremoderewards]
-# night['中文'] = [url_names.get(x) for x in night['url_name']]
-# night['价格'] = [get_order_info(x)['buy'] for x in night['url_name']]
-# r_a = '水星 金星 地球 火星'
-# r_b = '火卫一 谷神星 木星 欧罗巴 土星 月球 虚空 赤毒要塞 火卫二'
-# r_c = '天王星 海王星 冥王星 阋神星 赛德娜'
-# night['位置'] = [r_a,r_a,r_a,r_a,r_a,r_a,r_a,r_b,r_b,r_b,r_b,r_b,r_b,r_c,r_c,r_c,r_c,r_c,r_c,]
-# st.table(night)
-
 
