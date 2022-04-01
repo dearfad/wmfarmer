@@ -14,7 +14,7 @@ return_value = st_javascript("""await fetch("https://reqres.in/api/products/3").
 st.markdown(f"Return value was: {return_value}")
 print(f"Return value was: {return_value}")
 
-st.set_page_config(page_title='Warframe Market Farmer', page_icon='random')
+# st.set_page_config(page_title='Warframe Market Farmer', page_icon='random')
 
 items_api_url = "https://api.warframe.market/v1/items"
 assets_url = "https://warframe.market/static/assets/"
