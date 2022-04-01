@@ -51,6 +51,16 @@ def get_order_info(item_name):
       order_info['status'] = 'F'
   return order_info
 
+def show_item(item_df):
+  item = item_df.to_dict(orient='records')[0]
+  thumb_url = assets_url + item['thumb']
+  order_info = get_order_info(item['url_name'])
+  col0, col1, col2 = st.columns(3)
+  col0.image(thumb_url)
+  col1.metric("最高卖出", order_info['buy'], order_info['buyer'])
+  col2.metric("最低买入", order_info['sell'], order_info['seller'])
+  return
+
 def item():
   item_name = st.text_input('模糊搜索：', 'Xiphos 机身')
   items = get_items()
@@ -61,13 +71,7 @@ def item():
   if item_df.empty:
     st.write('未找到相关信息...')  
   else:
-    item = item_df.to_dict(orient='records')[0]
-    thumb_url = assets_url + item['thumb']
-    order_info = get_order_info(item['url_name'])
-    col0, col1, col2 = st.columns(3)
-    col0.image(thumb_url)
-    col1.metric("最高卖出", order_info['buy'], order_info['buyer'])
-    col2.metric("最低买入", order_info['sell'], order_info['seller'])
+    show_item(item_df)
   return
 
 def nightmare():
