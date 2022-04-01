@@ -109,7 +109,7 @@ def item():
   selected_name = st.selectbox('已发现：', item_names)
   item_df = items[items['item_name_cn']==selected_name]
   if item_df.empty:
-    st.warning(selected_name, '未找到相关信息...')  
+    st.warning('未找到相关信息...')  
   else:
     show_item(item_df)
   return
