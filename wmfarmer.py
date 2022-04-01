@@ -77,7 +77,7 @@ def item():
 def nightmare():
   nightmaremoderewards = ['Ice Storm','Stunning Speed','Hammer Shot','Wildfire','Accelerated Blast','Blaze','Chilling Reload','Drifting Contact','Seeking Fury','Armored Agility','Shred','Rending Strike','Fortitude','Streamlined Form','Animal Instinct','Vigor','Lethal Torrent','Focus Energy','Constitution']
   items = get_items()
-  for item_name in nightmwarerewards:
+  for item_name in nightmarerewards:
     item_df = items[items['item_name_en']==item_name]
     show_item(item_df)
   r_a = '水星 金星 地球 火星'
