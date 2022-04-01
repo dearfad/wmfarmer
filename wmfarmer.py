@@ -6,17 +6,6 @@ import pandas as pd
 
 st.set_page_config(page_title='Warframe Market Farmer', page_icon='random')
 
-# Baidu Stat
-baidu_stat = '''
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?b8d6c662233ffe44f986f97f4553a0d1";
-  var s = document.getElementsByTagName("script")[0]; 
-'''
-components.html(baidu_stat)
-
 items_api_url = "https://api.warframe.market/v1/items"
 assets_url = "https://warframe.market/static/assets/"
 
@@ -194,6 +183,17 @@ def main():
   with st.sidebar:
     st.title('Warframe Market Farmer')
     page = st.radio("请选择：", pages.keys())
+    
+    # Baidu Stat
+    baidu_stat = '''
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b8d6c662233ffe44f986f97f4553a0d1";
+      var s = document.getElementsByTagName("script")[0]; 
+    '''
+    components.html(baidu_stat)
   pages[page]()
   
 if __name__=='__main__':
