@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+import time
 
 st.set_page_config(page_title='Warframe Market Farmer', page_icon='random')
 items_api_url = "https://api.warframe.market/v1/items"
@@ -26,10 +27,8 @@ def get_order_info(url_name):
   order_info = {'name': url_name, 'sell': 0, 'seller': '', 'buy': 0, 'buyer': '',  'status': ''} 
   r = requests.get(f'https://api.warframe.market/v1/items/{url_name}/orders', headers={'Platform': 'pc'})  
   if r.status_code == 200:
-      order_info['status'] = 'T'
+      order_info['status'] = time.time()
       orders = r.json()['payload']['orders']
-#       payload = r.json()
-#       orders = payload['payload']['orders']
       for order in orders:
         if order['user']['status']=='ingame':
           if order['order_type']=='sell':
@@ -97,10 +96,11 @@ def show_item(item_df):
   thumb_url = assets_url + item['thumb']
   order_info = get_order_info(item['url_name'])
   st.markdown('**'+item['item_name_cn']+'**')
-  col0, col1, col2 = st.columns(3)
+  col0, col1, col2, col3 = st.columns(4)
   col0.image(thumb_url)
   col1.metric("最高卖出", order_info['buy'], order_info['buyer'])
   col2.metric("最低买入", order_info['sell'], order_info['seller'])
+  col3.metric("获取时间", order_info['status'])
   return
 
 def item():
