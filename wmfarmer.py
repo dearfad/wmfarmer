@@ -91,7 +91,8 @@ def warframe():
 def main():
   pages = {
     '物品价格': item,
-    '噩梦收益': nightmare
+    '战甲套装': warframe,
+    '噩梦收益': nightmare,    
   }
   with st.sidebar:
     st.title('Warframe Market Farmer')
