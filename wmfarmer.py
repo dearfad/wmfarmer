@@ -31,21 +31,13 @@ def get_order_info(url_name):
       for order in orders:
         if order['user']['status']=='ingame':
           if order['order_type']=='sell':
-            if order_info['sell']==0:
+            if order_info['sell']==0 or order['platinum']<order_info['sell']:
               order_info['sell'] = order['platinum']
               order_info['seller'] = order['user']['ingame_name']
-            else:
-              if order['platinum']<order_info['sell']:
-                order_info['sell'] = order['platinum']
-                order_info['seller'] = order['user']['ingame_name']
           if order['order_type']=='buy':
-            if order_info['buy']==0:
+            if order_info['buy']==0 or order['platinum']>order_info['buy']:
               order_info['buy'] = order['platinum']
               order_info['buyer'] = order['user']['ingame_name']
-            else:
-              if order['platinum']>order_info['buy']:
-                order_info['buy'] = order['platinum']
-                order_info['buyer'] = order['user']['ingame_name']
   else:
       order_info['status'] = 'F'
   return order_info
