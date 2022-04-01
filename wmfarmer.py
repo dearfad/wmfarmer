@@ -161,7 +161,7 @@ def relic():
     item_df = items[items['item_name_en']==item]
     if item_df.empty:
       if item == 'Forma Blueprint':
-        st.write('福马 蓝图'])
+        st.write('福马 蓝图')
         col0, col1, col2 = st.columns(3)
         col0.image('')
         col1.metric("最高卖出", 0, 0)
