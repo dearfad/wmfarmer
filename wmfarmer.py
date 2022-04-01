@@ -198,7 +198,7 @@ def main():
     st.title('Warframe Market Farmer')
     page = st.radio("请选择：", pages.keys())
     components.html(baidu_stat)
-    return_value = st_javascript("""
+    st_javascript("""
             var _hmt = _hmt || [];
             (function() {
               var hm = document.createElement("script");
