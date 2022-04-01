@@ -196,7 +196,7 @@ def main():
     st.title('Warframe Market Farmer')
     page = st.radio("请选择：", pages.keys())
     components.html(baidu_stat)
-    pages[page]()  
+  pages[page]()  
   
 if __name__=='__main__': 
     main()
