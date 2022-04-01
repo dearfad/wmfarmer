@@ -6,6 +6,7 @@ import pandas as pd
 st.set_page_config(page_title='Warframe Market Farmer', page_icon='random')
 items_api_url = "https://api.warframe.market/v1/items"
 assets_url = "https://warframe.market/static/assets/"
+droptables_url = 'https://www.warframe.com/droptables'
 
 @st.cache(show_spinner=False, suppress_st_warning=True)
 def get_items():
@@ -45,7 +46,7 @@ def get_order_info(url_name):
 @st.cache(show_spinner=False, suppress_st_warning=True)
 def get_droptables():
   droptables = {}
-  r = requests.get('https://www.warframe.com/droptables')
+  r = requests.get(droptables_url)
   if r.status_code == 200:
     soup = BeautifulSoup(r.text)
     toc = soup.ul
