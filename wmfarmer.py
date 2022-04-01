@@ -146,7 +146,7 @@ def relic():
   
   item_name = st.text_input('模糊搜索：', 'A1') 
   search_result = []
-  for key in droptables['relic']:
+  for key in droptables['relics']:
     if item_name.capitalize() in key:
       search_result.append(key)
   st.write(search_result)
