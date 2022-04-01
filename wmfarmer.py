@@ -173,6 +173,18 @@ def relic():
       show_item(item_df)
   return
 
+baidu_stat = '''
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b8d6c662233ffe44f986f97f4553a0d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+'''
+
 def main():
   pages = {
     '物品价格': item,
@@ -183,19 +195,8 @@ def main():
   with st.sidebar:
     st.title('Warframe Market Farmer')
     page = st.radio("请选择：", pages.keys())
-
-  pages[page]()
+    component.html(baidu_stat)
+    pages[page]()  
   
-if __name__=='__main__':
-    
-    # Baidu Stat
-    baidu_stat = '''
-    <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?b8d6c662233ffe44f986f97f4553a0d1";
-      var s = document.getElementsByTagName("script")[0]; 
-    '''
-    components.html(baidu_stat)
+if __name__=='__main__': 
     main()
