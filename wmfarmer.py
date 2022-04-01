@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+from bs4 import BeautifulSoup
 import pandas as pd
 
 st.set_page_config(page_title='Warframe Market Farmer', page_icon='random')
