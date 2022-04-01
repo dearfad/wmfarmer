@@ -141,8 +141,15 @@ def warframe():
   return
 
 def relic():
+  items = get_items()
   droptables = get_droptables()
-  st.write(droptables['relics'])
+  
+  item_name = st.text_input('模糊搜索：', 'A1')  
+  search_result = droptables['relics'].keys().str.contains(item_name.capitalize())]
+  st.write(search_result)
+#   item_names = search_result['item_name_cn'].values
+#   selected_name = st.selectbox('已发现：', item_names)
+#   item_df = items[items['item_name_cn']==selected_name]
 # relic_prefix = {
 #     '古纪': 'lith',
 #     '前纪': 'meso',
