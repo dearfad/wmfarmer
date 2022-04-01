@@ -157,7 +157,7 @@ def relic():
   relic_drop = droptables['relics'][selected_relic_name_en]
   st.write(relic_drop)
   for item in relic_drop:
-    if 'Chassis Blueprint' in item:
+    if 'Chassis Blueprint' in item or 'Systems Blueprint' in item or 'Neuroptics Blueprint' in item:
       item = item[:-10]
       st.write(item)
     item_df = items[items['item_name_en']==item]
