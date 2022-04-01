@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -6,14 +7,15 @@ import pandas as pd
 st.set_page_config(page_title='Warframe Market Farmer', page_icon='random')
 
 # Baidu Stat
-st.write('''
+baidu_stat = '''
 <script>
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "https://hm.baidu.com/hm.js?b8d6c662233ffe44f986f97f4553a0d1";
   var s = document.getElementsByTagName("script")[0]; 
-''', unsafe_allow_html=True)
+'''
+components.html(baidu_stat)
 
 items_api_url = "https://api.warframe.market/v1/items"
 assets_url = "https://warframe.market/static/assets/"
