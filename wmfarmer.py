@@ -153,8 +153,10 @@ def relic():
   for item in search_result:
     item_name_cn.append(items[items['item_name_en']==item]['item_name_cn'].values[0])
   selected_name = st.selectbox('已发现：', item_name_cn)
-  item_df = items[items['item_name_cn']==selected_name]
-  show_item(item_df)
+  selected_relic_name_en = items[items['item_name_cn']==selected_name]['item_name_en'].values[0]
+  for item in droptables['relics'][selected_relic_name_en]:
+    item_df = items[items['item_name_cn']==item]
+    show_item(item_df)
   return
 
 def main():
