@@ -3,6 +3,16 @@ import streamlit.components.v1 as components
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+from streamlit_javascript import st_javascript
+
+st.subheader("Javascript API call")
+
+return_value = st_javascript("""await fetch("https://reqres.in/api/products/3").then(function(response) {
+    return response.json();
+}) """)
+
+st.markdown(f"Return value was: {return_value}")
+print(f"Return value was: {return_value}")
 
 st.set_page_config(page_title='Warframe Market Farmer', page_icon='random')
 
