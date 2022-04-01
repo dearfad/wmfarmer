@@ -159,6 +159,8 @@ def relic():
     if 'Chassis Blueprint' in item or 'Systems Blueprint' in item or 'Neuroptics Blueprint' in item:
       item = item[:-10]
     item_df = items[items['item_name_en']==item]
+    if item == 'Forma Blueprint':
+      st.write('Forma Blueprint!!!!!!!!!')
     if item_df.empty:
       st.write(item, '未找到相关信息...')  
     else:
