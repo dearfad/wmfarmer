@@ -199,7 +199,6 @@ def main():
     page = st.radio("请选择：", pages.keys())
     components.html(baidu_stat)
     return_value = st_javascript("""
-        <script>
             var _hmt = _hmt || [];
             (function() {
               var hm = document.createElement("script");
@@ -207,8 +206,6 @@ def main():
               var s = document.getElementsByTagName("script")[0]; 
               s.parentNode.insertBefore(hm, s);
             })();
-            </script>
-
     """)
   pages[page]()  
   
