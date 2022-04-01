@@ -183,6 +183,10 @@ def main():
   with st.sidebar:
     st.title('Warframe Market Farmer')
     page = st.radio("请选择：", pages.keys())
+
+  pages[page]()
+  
+if __name__=='__main__':
     
     # Baidu Stat
     baidu_stat = '''
@@ -194,7 +198,4 @@ def main():
       var s = document.getElementsByTagName("script")[0]; 
     '''
     components.html(baidu_stat)
-  pages[page]()
-  
-if __name__=='__main__':
-  main()
+    main()
