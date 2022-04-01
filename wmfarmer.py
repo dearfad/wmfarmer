@@ -22,13 +22,14 @@ def get_items():
   return items
 
 @st.cache(show_spinner=False, suppress_st_warning=True, ttl=120.0)
-def get_order_info(item_name):  
-  order_info = {'name': item_name, 'sell': 0, 'seller': '', 'buy': 0, 'buyer': '',  'status': ''} 
-  r = requests.get(f'https://api.warframe.market/v1/items/{item_name}/orders', headers={'Platform': 'pc'})  
+def get_order_info(url_name):  
+  order_info = {'name': url_name, 'sell': 0, 'seller': '', 'buy': 0, 'buyer': '',  'status': ''} 
+  r = requests.get(f'https://api.warframe.market/v1/items/{url_name}/orders', headers={'Platform': 'pc'})  
   if r.status_code == 200:
       order_info['status'] = 'T'
-      payload = r.json()
-      orders = payload['payload']['orders']
+      orders = r.json()['payload']['orders']
+#       payload = r.json()
+#       orders = payload['payload']['orders']
       for order in orders:
         if order['user']['status']=='ingame':
           if order['order_type']=='sell':
