@@ -82,7 +82,7 @@ def main():
   }
   with st.sidebar:
     page = st.radio("请选择：", pages.keys())
-  page()
+  pages[page]()
   
 if __name__=='__main__':
   main()
