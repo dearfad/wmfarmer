@@ -140,16 +140,8 @@ def warframe():
   return
 
 def relic():
-#   droptables = get_droptables()
-# url_names = get_url_names()
-
-
-# relic_drop_col = [0,1,2,3]
-# relic_type_col, relic_drop_col[0],relic_drop_col[1],relic_drop_col[2],relic_drop_col[3]  = st.columns([1,2,2,2,2])
-
-# with relic_type_col:
-#   relic_type = st.radio('纪元', ('古纪', '前纪', '中纪', '后纪', '安魂'))
-
+  droptables = get_droptables()
+  st.write(droptables)
 # relic_prefix = {
 #     '古纪': 'lith',
 #     '前纪': 'meso',
@@ -182,14 +174,6 @@ def relic():
 #       df['中文'] = drop_list_cn
 #       df['价格'] = price_list
 #       st.table(df[['中文','价格']])
-
-# itemname = st.text_input('').lower()
-
-# names = itemname.strip().split(' ')
-
-# for x, y in enumerate(names):
-#   with relic_drop_col[x]:
-#     show_price(y)
   return
 
 def main():
