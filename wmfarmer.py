@@ -24,7 +24,7 @@ def get_items():
 @st.cache(show_spinner=False, suppress_st_warning=True, ttl=120.0)
 def get_order_info(url_name):  
   order_info = {'name': url_name, 'sell': 0, 'seller': '', 'buy': 0, 'buyer': '',  'status': ''} 
-  r = requests.get(f'https://api.warframe.market/v1/items/{url_name}/orders', headers={'Platform': 'pc'})  
+  r = requests.get(f'{items_api_url}/{url_name}/orders', headers={'Platform': 'pc'})  
   if r.status_code == 200:
       order_info['status'] = 'T'
       orders = r.json()['payload']['orders']
