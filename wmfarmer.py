@@ -80,6 +80,9 @@ def main():
     'item': item,
     'nightmare': nightmare
   }
+  with st.sidebar:
+    page = st.radio("请选择：", pages.keys())
+  page()
   
 if __name__=='__main__':
   main()
