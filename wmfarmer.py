@@ -163,7 +163,7 @@ def relic():
       if item == 'Forma Blueprint':
         st.write('福马 蓝图')
         col0, col1, col2 = st.columns(3)
-        col0.image('')
+        col0.image('https://static.wikia.nocookie.net/warframe/images/b/b1/Forma2.png')
         col1.metric("最高卖出", 0, 0)
         col2.metric("最低买入", 0, 0)
       else:
