@@ -1,4 +1,3 @@
 streamlit
 pandas
 beautifulsoup4
-streamlit-javascript
