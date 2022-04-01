@@ -5,16 +5,8 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from streamlit_javascript import st_javascript
 
-st.subheader("Javascript API call")
 
-return_value = st_javascript("""await fetch("https://reqres.in/api/products/3").then(function(response) {
-    return response.json();
-}) """)
-
-st.markdown(f"Return value was: {return_value}")
-print(f"Return value was: {return_value}")
-
-# st.set_page_config(page_title='Warframe Market Farmer', page_icon='random')
+st.set_page_config(page_title='Warframe Market Farmer', page_icon='random')
 
 items_api_url = "https://api.warframe.market/v1/items"
 assets_url = "https://warframe.market/static/assets/"
@@ -206,6 +198,18 @@ def main():
     st.title('Warframe Market Farmer')
     page = st.radio("请选择：", pages.keys())
     components.html(baidu_stat)
+    return_value = st_javascript("""
+        <script>
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "https://hm.baidu.com/hm.js?b8d6c662233ffe44f986f97f4553a0d1";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+            })();
+            </script>
+
+    """)
   pages[page]()  
   
 if __name__=='__main__': 
