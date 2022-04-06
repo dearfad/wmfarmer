@@ -31,6 +31,7 @@ def get_order_info(url_name):
       order_info['status'] = 'T'
       utc_time = datetime.utcnow().strftime("%H:%M:%S")
       st.write('utc_time', utc_time)
+      st.write('local', utc_time.astimezone())
 #       order_info['time'] = utc_time.replace(tzinfo=datetime.timezone.utc).astimezone(tz=None)
       orders = r.json()['payload']['orders']
       for order in orders:
