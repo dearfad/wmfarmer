@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 st.set_page_config(page_title='Warframe Market Farmer', page_icon='random')
 items_api_url = "https://api.warframe.market/v1/items"
@@ -30,10 +30,7 @@ def get_order_info(url_name):
   if r.status_code == 200:
       order_info['status'] = 'T'
       utc_time = datetime.utcnow()
-      st.write('utc_time', utc_time)
-      st.write('local', utc_time.astimezone(datetime.timezone(datetime.timedelta(0, 28800), '中国标准时间')))
-#       order_info['time'] = utc_time.replace(tzinfo=datetime.timezone.utc).astimezone(tz=None)
-# .strftime("%H:%M:%S")
+      order_info['time'] = utc_time.astimezone(timezone(timedelta(hours=8)))
       orders = r.json()['payload']['orders']
       for order in orders:
         if order['user']['status']=='ingame':
