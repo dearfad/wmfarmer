@@ -92,7 +92,7 @@ def show_item(item_df):
   item = item_df.to_dict(orient='records')[0]
   thumb_url = assets_url + item['thumb']
   order_info = get_order_info(item['url_name'])
-  st.markdown('**'+item['item_name_cn']+'**'+' '+order_info['time'])
+  st.markdown('**'+item['item_name_cn']+'**'+' :timer_clock:'+order_info['time'])
   col0, col1, col2 = st.columns(3)
   col0.image(thumb_url)
   col1.metric("最高卖出", order_info['buy'], order_info['buyer'])
