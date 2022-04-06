@@ -136,7 +136,7 @@ def warframe():
 def relic():
   items = get_items()
   droptables = get_droptables()
-  st.markdown('最后更新：{droptables['last_update']}')
+  st.markdown("最后更新：{droptables['last_update']}")
   item_name = st.text_input('模糊搜索：', 'A1') 
   search_result = []
   for key in droptables['relics']:
