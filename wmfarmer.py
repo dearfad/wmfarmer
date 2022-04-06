@@ -29,7 +29,7 @@ def get_order_info(url_name):
   r = requests.get(f'{items_api_url}/{url_name}/orders', headers={'Platform': 'pc'})  
   if r.status_code == 200:
       order_info['status'] = 'T'
-      order_info['time'] = time.strftime("%H:%M:%S", time.localtime()) 
+      order_info['time'] = time.strftime("%H:%M:%S", time.time()) 
       orders = r.json()['payload']['orders']
       for order in orders:
         if order['user']['status']=='ingame':
