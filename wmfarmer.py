@@ -49,6 +49,8 @@ def get_droptables():
   r = requests.get(droptables_url)
   if r.status_code == 200:
     soup = BeautifulSoup(r.text)
+    last_update = soup.p.contents[1].strip()
+    droptables['last_upate'] = last_update
     toc = soup.ul
     dynamic_location_rewards =soup.ul.ul
     toc_dict = {}
@@ -172,6 +174,7 @@ def main():
   }
   with st.sidebar:
     st.title('Warframe Market Farmer')
+    st.markdown(droptables['last_upate'])
     page = st.radio("请选择：", pages.keys())
   pages[page]()  
   
