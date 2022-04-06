@@ -136,7 +136,7 @@ def warframe():
 def relic():
   items = get_items()
   droptables = get_droptables()
-  
+  st.sidebar.markdown(droptables['last_upate'])
   item_name = st.text_input('模糊搜索：', 'A1') 
   search_result = []
   for key in droptables['relics']:
@@ -174,7 +174,6 @@ def main():
   }
   with st.sidebar:
     st.title('Warframe Market Farmer')
-    st.markdown(droptables['last_upate'])
     page = st.radio("请选择：", pages.keys())
   pages[page]()  
   
