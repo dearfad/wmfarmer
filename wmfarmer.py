@@ -30,7 +30,7 @@ def get_order_info(url_name):
   if r.status_code == 200:
       order_info['status'] = 'T'
       utc_time = datetime.utcnow().replace(tzinfo=timezone.utc)
-      order_info['time'] = utc_time.astimezone(timezone(timedelta(hours=8)))
+      order_info['time'] = utc_time.astimezone(timezone(timedelta(hours=8))).strftime("%H:%M:%S")
       orders = r.json()['payload']['orders']
       for order in orders:
         if order['user']['status']=='ingame':
