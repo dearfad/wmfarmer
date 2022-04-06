@@ -50,7 +50,7 @@ def get_droptables():
   if r.status_code == 200:
     soup = BeautifulSoup(r.text)
     last_update = soup.p.contents[1].strip()
-    droptables['last_upate'] = last_update
+    droptables['last_update'] = last_update
     toc = soup.ul
     dynamic_location_rewards =soup.ul.ul
     toc_dict = {}
