@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-import time
+from datetime import datetime
 
 st.set_page_config(page_title='Warframe Market Farmer', page_icon='random')
 items_api_url = "https://api.warframe.market/v1/items"
@@ -29,7 +29,7 @@ def get_order_info(url_name):
   r = requests.get(f'{items_api_url}/{url_name}/orders', headers={'Platform': 'pc'})  
   if r.status_code == 200:
       order_info['status'] = 'T'
-      order_info['time'] = time.strftime(" %X %H:%M:%S", time.localtime()) 
+      order_info['time'] = datetime.now().strftime("%H:%M:%S")
       orders = r.json()['payload']['orders']
       for order in orders:
         if order['user']['status']=='ingame':
