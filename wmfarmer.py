@@ -1,6 +1,6 @@
 import streamlit as st
 from wmfpkg.wmfcore import warframe, nightmare, relic
-from wmfpages import item
+from wmfpages.item import item
 
 st.set_page_config(page_title='Warframe Market Farmer', page_icon='👨‍🌾')
 
