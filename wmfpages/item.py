@@ -2,6 +2,7 @@ import streamlit as st
 from wmfpkg.wmmarket import get_items
 from wmfpkg.wmfcore import show_item
 
+
 def item():
     item_name = st.text_input('模糊搜索：', 'Xiphos 机身')
     items = get_items()
