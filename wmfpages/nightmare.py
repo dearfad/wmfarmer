@@ -3,10 +3,10 @@ from wmfpkg.wmmarket import get_items
 from wmfpkg.wmfcore import show_item
 
 
-def nightmare():
+def page():
     nightmaremoderewards = ['Ice Storm', 'Stunning Speed', 'Hammer Shot', 'Wildfire', 'Accelerated Blast', 'Blaze', 'Chilling Reload', 'Drifting Contact', 'Seeking Fury',
                             'Armored Agility', 'Shred', 'Rending Strike', 'Fortitude', 'Streamlined Form', 'Animal Instinct', 'Vigor', 'Lethal Torrent', 'Focus Energy', 'Constitution']
-    items = get_items()
+    items = items()
     for item_name in nightmaremoderewards:
         item_df = items[items['item_name_en'] == item_name]
         show_item(item_df)

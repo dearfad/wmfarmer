@@ -1,17 +1,17 @@
 import streamlit as st
-from wmfpkg.droptables import get_droptables
-from wmfpkg.wmmarket import get_items, get_order_info
+from wmfpkg.wmmarket import get_item_info, items_orders
 
 assets_url = "https://warframe.market/static/assets/"
 
 
-def show_item(item_df):
-    item = item_df.to_dict(orient='records')[0]
-    thumb_url = assets_url + item['thumb']
-    order_info = get_order_info(item['url_name'])
-    st.markdown('**'+item['item_name_cn']+'**'+'  '+order_info['time'])
+def show_item(url_name):
+    item = get_item_info(url_name)
+    order_info = items_orders(url_name)
+    st.write(order_info)
+    st.write(f"**{item['zh-hans']['item_name']}** [🔗]({item['zh-hans']['wiki_link']} 'wiki') {item['zh-hans']['description']}")
     col0, col1, col2 = st.columns(3)
-    col0.image(thumb_url)
+    col0.image(assets_url+item['icon'])
+    col0.write(item['zh-hans']['drop'])
     col1.metric("最高卖出", order_info['buy'], order_info['buyer'])
     col2.metric("最低买入", order_info['sell'], order_info['seller'])
     return

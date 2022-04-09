@@ -4,8 +4,8 @@ from wmfpkg.wmmarket import get_items
 from wmfpkg.wmfcore import show_item
 
 
-def relic():
-    items = get_items()
+def page():
+    items = items()
     droptables = get_droptables()
     st.markdown("最后更新：" + droptables['last_update'])
     item_name = st.text_input('模糊搜索：', 'A1')
