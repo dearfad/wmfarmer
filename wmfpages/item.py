@@ -7,7 +7,7 @@ def page():
     items = get_items()
     search_result = items[items['item_name'].str.contains(
         input_name.strip(), case=False)]
-    search_result['select'] = search_result['item_name'] + ' ' + search_result['url_name']
+    search_result['select'] = search_result.loc[:,'item_name'] + ' ' + search_result.loc[:,'url_name']
     selected_name =''
     selected_name = st.selectbox('已发现：', search_result['select'].values)
     if selected_name:
