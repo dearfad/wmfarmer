@@ -1,7 +1,6 @@
-from http import server
 import streamlit as st
 from wmfpkg.wmmarket import get_items
-from wmfpages.page import show_item
+from wmfpages.core import show_item
 
 
 def page():

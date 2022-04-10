@@ -4,11 +4,12 @@
 # Email: dearfad@sina.com
 
 
-from datetime import datetime, timedelta, timezone
+
 
 import pandas as pd
 import requests
 import streamlit as st
+from wmfpkg.core import get_time
 
 apiVersion = 'v1'
 Servers = "https://api.warframe.market/"
@@ -21,7 +22,7 @@ Computed_URL = Servers + apiVersion
 items_api_url = Computed_URL + "/items"
 
 
-@st.cache(show_spinner=False, suppress_st_warning=True)
+@st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
 def get_items(language='zh-hans'):
     # items: Get list of all tradable items.
     # ['id', 'thumb', 'url_name', 'item_name_cn', 'item_name_en']
@@ -36,7 +37,7 @@ def get_items(language='zh-hans'):
     return items
 
 
-@st.cache(show_spinner=False, suppress_st_warning=True)
+@st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
 def get_item_info(url_name):
     # items_info: Gets information about an item
     r = requests.get(f'{items_api_url}/{url_name}', headers={"Platform": "pc"})
@@ -62,23 +63,21 @@ def get_item_orders(url_name):
                      headers={'Platform': 'pc'})
     if r.status_code == 200:
         order_info['status'] = 'T'
-        utc_time = datetime.utcnow().replace(tzinfo=timezone.utc)
-        order_info['time'] = utc_time.astimezone(
-            timezone(timedelta(hours=8))).strftime("%H:%M:%S")
+        order_info['time'] = get_time()
         orders = r.json()['payload']['orders']
-        for order in orders:
-            if order['user']['status'] == 'ingame':
-                if order['order_type'] == 'sell':
-                    if order_info['sell'] == 0 or order['platinum'] < order_info['sell']:
-                        order_info['sell'] = order['platinum']
-                        order_info['seller'] = order['user']['ingame_name']
-                if order['order_type'] == 'buy':
-                    if order_info['buy'] == 0 or order['platinum'] > order_info['buy']:
-                        order_info['buy'] = order['platinum']
-                        order_info['buyer'] = order['user']['ingame_name']
-    else:
-        order_info['status'] = 'F'
-    return order_info
+    #     for order in orders:
+    #         if order['user']['status'] == 'ingame':
+    #             if order['order_type'] == 'sell':
+    #                 if order_info['sell'] == 0 or order['platinum'] < order_info['sell']:
+    #                     order_info['sell'] = order['platinum']
+    #                     order_info['seller'] = order['user']['ingame_name']
+    #             if order['order_type'] == 'buy':
+    #                 if order_info['buy'] == 0 or order['platinum'] > order_info['buy']:
+    #                     order_info['buy'] = order['platinum']
+    #                     order_info['buyer'] = order['user']['ingame_name']
+    # else:
+    #     order_info['status'] = 'F'
+    return orders
 
 
 @st.cache(show_spinner=False, suppress_st_warning=True)
