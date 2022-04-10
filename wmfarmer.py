@@ -6,10 +6,10 @@ st.set_page_config(page_title='Warframe Market Farmer', page_icon='👨‍🌾')
 
 def main():
     pages = {
-        '物品价格': item,
-        # '战甲套装': warframe.page,
-        # '噩梦收益': nightmare.page,
-        # '虚空裂缝': relic.page
+        '物品价格': item.page,
+        '战甲套装': warframe.page,
+        '噩梦收益': nightmare.page,
+        '虚空裂缝': relic.page
     }
     with st.sidebar:
         st.title('Warframe Market Farmer')
