@@ -22,28 +22,18 @@ items_api_url = Computed_URL + "/items"
 
 
 @st.cache(show_spinner=False, suppress_st_warning=True)
-def get_items():
+def get_items(language='zh-hans'):
     # items: Get list of all tradable items.
-    # combine item_name en and zh-hans
     # ['id', 'thumb', 'url_name', 'item_name_cn', 'item_name_en']
+    # Language : en, ru, ko, de, fr, pt, zh-hans, zh-hant, es, it, pl
 
-    # en for droptables
-    r_en = requests.get(items_api_url, headers={"Language": "en"})
-    if r_en.status_code == 200:
-        items_en = pd.json_normalize(r_en.json()["payload"]["items"])
-        items_en.rename(columns={"item_name": "item_name_en"}, inplace=True)
-        
-    # zh-hans 
-    r_cn = requests.get(items_api_url, headers={"Language": "zh-hans"})
-    if r_cn.status_code == 200:
-        items_cn = pd.json_normalize(r_cn.json()["payload"]["items"])
-        items_cn.rename(columns={"item_name": "item_name_cn"}, inplace=True)
+    headers = {'Language': language}
+    r = requests.get(items_api_url, headers=headers)
+    items = pd.DataFrame()
+    if r.status_code == 200:
+        items = pd.DataFrame(r.json()['payload']['items'])
 
-    items_df = pd.merge(items_cn, items_en)
-
-    # duplicated items EXIST, change if needed
-    # items[items.item_name_cn.duplicated(keep=False)]
-    return items_df
+    return items
 
 
 @st.cache(show_spinner=False, suppress_st_warning=True)
@@ -109,4 +99,3 @@ if __name__ == '__main__':
     # print(item_info)
     print(item_info.keys())
     print(item_info['zh-hans'])
-
