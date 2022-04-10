@@ -50,7 +50,7 @@ def get_item_info(url_name):
 
 
 @st.cache(show_spinner=False, suppress_st_warning=True, ttl=60.0)
-def items_orders(url_name):
+def get_item_orders(url_name):
     # item_orders: Get list of orders for a given item_id
     # st.cache
     # ttl = 60.0 Change if Needed
