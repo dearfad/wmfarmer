@@ -10,7 +10,7 @@ def show_item(url_name):
     # st.write(order_info)
     st.write(f"**{item['zh-hans']['item_name']}** 📝 {item['zh-hans']['description']}")
     col0, col1, col2 = st.columns(3)
-    col0.write(f"[![{item['zh-hans']['item_name']}]({assets_url+item['icon']})]({item['zh-hans']['wiki_link']})")
+    col0.write(f"[![{item['zh-hans']['item_name']}]({assets_url+item['thumb']})]({item['zh-hans']['wiki_link']})")
     # col0.write(item['zh-hans']['drop'])
     col1.metric("最高卖出", order_info['buy'], order_info['buyer'])
     col2.metric("最低买入", order_info['sell'], order_info['seller'])
