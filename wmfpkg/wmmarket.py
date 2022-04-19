@@ -61,23 +61,27 @@ def get_item_orders(url_name):
                   'buy': 0, 'buyer': '',  'status': '', 'time': ''}
     r = requests.get(f'{items_api_url}/{url_name}/orders',
                      headers={'Platform': 'pc'})
+    
+    item_orders = ''
     if r.status_code == 200:
-        order_info['status'] = 'T'
-        order_info['time'] = get_time()
-        orders = r.json()['payload']['orders']
-        for order in orders:
-            if order['user']['status'] == 'ingame':
-                if order['order_type'] == 'sell':
-                    if order_info['sell'] == 0 or order['platinum'] < order_info['sell']:
-                        order_info['sell'] = order['platinum']
-                        order_info['seller'] = order['user']['ingame_name']
-                if order['order_type'] == 'buy':
-                    if order_info['buy'] == 0 or order['platinum'] > order_info['buy']:
-                        order_info['buy'] = order['platinum']
-                        order_info['buyer'] = order['user']['ingame_name']
-    else:
-        order_info['status'] = 'F'
-    return order_info
+        item_orders = r.json()['payload']['orders']
+    # if r.status_code == 200:
+    #     order_info['status'] = 'T'
+    #     order_info['time'] = get_time()
+    #     orders = r.json()['payload']['orders']
+    #     for order in orders:
+    #         if order['user']['status'] == 'ingame':
+    #             if order['order_type'] == 'sell':
+    #                 if order_info['sell'] == 0 or order['platinum'] < order_info['sell']:
+    #                     order_info['sell'] = order['platinum']
+    #                     order_info['seller'] = order['user']['ingame_name']
+    #             if order['order_type'] == 'buy':
+    #                 if order_info['buy'] == 0 or order['platinum'] > order_info['buy']:
+    #                     order_info['buy'] = order['platinum']
+    #                     order_info['buyer'] = order['user']['ingame_name']
+    # else:
+    #     order_info['status'] = 'F'
+    return item_orders
 
 
 @st.cache(show_spinner=False, suppress_st_warning=True)
