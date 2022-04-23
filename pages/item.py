@@ -12,6 +12,6 @@ def page():
         st.warning('未找到相关信息...')
     else:
         selected_name = st.selectbox(
-            '已发现：', search_result['item_name'] + ' ' + search_result['url_name'])
+            '已发现：', search_result['item_name'])
         url_name = selected_name.split(' ')[-1]
         show_item(url_name)
