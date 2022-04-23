@@ -18,8 +18,10 @@ def fmt_item_orders(orders_df):
     orders_dict = {
         'ingame_highest_buy_platinum': 0,
         'ingame_hightest_buyer': '',
+        'ingame_high_buy': '',
         'ingame_lowest_sell_platinum': 0,
         'ingame_lowest_seller': '',
+        'ingame_low_sell': '',
     }
     # st.write(orders_df)
 
@@ -30,6 +32,7 @@ def fmt_item_orders(orders_df):
     if not ingame_buy_orders.empty:
         orders_dict['ingame_highest_buy_platinum'] = ingame_buy_orders.iloc[0].at['platinum']
         orders_dict['ingame_hightest_buyer'] = ingame_buy_orders.iloc[0].at['user.ingame_name']
+        orders_dict['ingame_high_buy'] = ingame_buy_orders.head(5)
     # ingame_lowest_sell
     ingame_sell_orders = orders_df[(orders_df['user.status'] == 'ingame') & (
         orders_df['order_type'] == 'sell')].sort_values(by='platinum', ascending=True)
@@ -37,7 +40,7 @@ def fmt_item_orders(orders_df):
         st.write(ingame_sell_orders)
         orders_dict['ingame_lowest_sell_platinum'] = ingame_sell_orders.iloc[0].at['platinum']
         orders_dict['ingame_lowest_seller'] = ingame_sell_orders.iloc[0].at['user.ingame_name']
-
+        orders_dict['ingame_low_sell'] = ingame_sell_orders.head(5)
 
     return orders_dict
 
@@ -46,7 +49,9 @@ def show_item_orders(orders):
     if orders:
         orders_df = pd.json_normalize(orders)
         orders_dict = fmt_item_orders(orders_df)
-        st.write(orders_dict)
+        st.write(f"当前最高买价：{orders_dict['ingame_highest_buy_platinum']}")
+        st.write(f"当前最高买者：{orders_dict['ingame_highest_buyer']}")
+        st.write(orders_dict['ingame_high_buy'])
     return
 
 
