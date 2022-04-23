@@ -35,12 +35,11 @@ def get_items(language='zh-hans'):
     return items
 
 
-# @st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
+@st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
 def get_item_info(url_name):
     # items_info: Gets information about an item
     headers = {"Platform": "pc", 'Connection': 'close', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'}
     r = requests.get(f'{items_api_url}/{url_name}', headers=headers)
-    st.write(r.text)
     item_info = {}
     if r.status_code == 200:
         item_json = r.json()['payload']['item']
