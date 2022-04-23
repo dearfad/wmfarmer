@@ -17,15 +17,26 @@ def show_item_info(item_info):
 def fmt_item_orders(orders_df):
     orders_dict = {
         'ingame_highest_buy_platinum': 0,
-        'ingame_hightest_buyer': ''
+        'ingame_hightest_buyer': '',
+        'ingame_lowest_sell_platinum': 0,
+        'ingame_lowest_seller': '',
     }
 
-    # online_hightest_buy
-    ingame_orders = orders_df[(orders_df['user.status'] == 'ingame') & (
-        orders_df['order_type'] == 'buy')].sort_values(by='platinum', ascending=False).head(5)
-    st.write(ingame_orders)
-    orders_dict['ingame_highest_buy_platinum'] = ingame_orders.iloc[0].at['platinum']
-    orders_dict['ingame_hightest_buyer'] = ingame_orders.iloc[0].at['user.ingame_name']
+    # ingame_hightest_buy
+    ingame_buy_orders = orders_df[(orders_df['user.status'] == 'ingame') & (
+        orders_df['order_type'] == 'buy')].sort_values(by='platinum', ascending=False)
+    # st.write(ingame_buy_orders)
+    orders_dict['ingame_highest_buy_platinum'] = ingame_buy_orders.iloc[0].at['platinum']
+    orders_dict['ingame_hightest_buyer'] = ingame_buy_orders.iloc[0].at['user.ingame_name']
+
+    # ingame_lowest_sell
+    ingame_sell_orders = orders_df[(orders_df['user.status'] == 'ingame') & (
+        orders_df['order_type'] == 'sell')].sort_values(by='platinum', ascending=True)
+    st.write(ingame_sell_orders)
+    orders_dict['ingame_highest_sell_platinum'] = ingame_sell_orders.iloc[0].at['platinum']
+    orders_dict['ingame_hightest_seller'] = ingame_sell_orders.iloc[0].at['user.ingame_name']
+
+
     return orders_dict
 
 
