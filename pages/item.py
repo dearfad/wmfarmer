@@ -5,7 +5,8 @@ from pages.core import show_item
 
 def page():
     input_name = st.text_input('模糊搜索：', '')
-    items = get_items()
+    items, time = get_items()
+    st.write(time)
     search_result = items[items['item_name'].str.contains(
         input_name.strip(), case=False)]
     if search_result.empty:

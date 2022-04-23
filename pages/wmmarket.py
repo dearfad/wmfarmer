@@ -6,6 +6,7 @@
 import pandas as pd
 import requests
 import streamlit as st
+from pages.core import get_time
 
 apiVersion = 'v1'
 Servers = "https://api.warframe.market/"
@@ -29,9 +30,10 @@ def get_items(language='zh-hans'):
     items = pd.DataFrame()
     if r.status_code == 200:
         items = pd.DataFrame(r.json()['payload']['items'])
+        time = get_time()
     else:
         st.write(f"get_items {r.status_code}")
-    return items
+    return items, time
 
 
 @st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
