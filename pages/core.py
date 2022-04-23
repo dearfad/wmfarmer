@@ -14,14 +14,23 @@ def show_item_info(item_info):
     return
 
 
-def fmt_item_orders(item_orders):
-    return item_orders
+def fmt_item_orders(orders_df):
+    orders_dict = {
+        'ingame_highest_buy_platinum': 0,
+        'ingame_hightest_buyer': ''
+    }
+
+    # online_hightest_buy
+
+
+    return orders_dict
 
 
 def show_item_orders(orders):
     if orders:
         orders_df = pd.json_normalize(orders)
-    st.write(orders_df)
+        orders_dict = fmt_item_orders(orders_df)
+        st.write(orders_df)
     return
 
 
