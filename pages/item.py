@@ -27,6 +27,7 @@ def page():
     
     with col2:
         st.write('')
+        st.write('')
         st.write(f"- 获取列表时间: {items['time']}")
         st.write(f"- 获取信息时间: {item_info['time']}")
 
