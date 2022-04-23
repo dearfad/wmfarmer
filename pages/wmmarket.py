@@ -29,6 +29,7 @@ def get_items(language='zh-hans'):
     items = pd.DataFrame()
     if r.status_code == 200:
         items = pd.DataFrame(r.json()['payload']['items'])
+        st.write('get_items OK!')
     else:
         st.write(f"get_items {r.status_code}")
 
