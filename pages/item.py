@@ -4,7 +4,7 @@ from pages.core import show_item
 
 def data_init():
     items = get_items()
-    item_info = get_item_info()
+    item_info = get_item_info('hammer_shot')
     return items, item_info
 
 def page():
