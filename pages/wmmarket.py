@@ -3,13 +3,9 @@
 # Author: dearfad
 # Email: dearfad@sina.com
 
-
-
-
 import pandas as pd
 import requests
 import streamlit as st
-from wmfpkg.core import get_time
 
 apiVersion = 'v1'
 Servers = "https://api.warframe.market/"
@@ -65,22 +61,6 @@ def get_item_orders(url_name):
     item_orders = ''
     if r.status_code == 200:
         item_orders = r.json()['payload']['orders']
-    # if r.status_code == 200:
-    #     order_info['status'] = 'T'
-    #     order_info['time'] = get_time()
-    #     orders = r.json()['payload']['orders']
-    #     for order in orders:
-    #         if order['user']['status'] == 'ingame':
-    #             if order['order_type'] == 'sell':
-    #                 if order_info['sell'] == 0 or order['platinum'] < order_info['sell']:
-    #                     order_info['sell'] = order['platinum']
-    #                     order_info['seller'] = order['user']['ingame_name']
-    #             if order['order_type'] == 'buy':
-    #                 if order_info['buy'] == 0 or order['platinum'] > order_info['buy']:
-    #                     order_info['buy'] = order['platinum']
-    #                     order_info['buyer'] = order['user']['ingame_name']
-    # else:
-    #     order_info['status'] = 'F'
     return item_orders
 
 

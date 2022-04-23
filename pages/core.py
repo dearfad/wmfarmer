@@ -1,12 +1,20 @@
 import streamlit as st
-from wmfpkg.wmmarket import get_item_info, get_item_orders
 import pandas as pd
+from datetime import datetime, timedelta, timezone
+from pages.wmmarket import get_item_info, get_item_orders
 
 assets_url = "https://warframe.market/static/assets/"
 
+def get_time():
+    utc_time = datetime.utcnow().replace(tzinfo=timezone.utc)
+    time = utc_time.astimezone(
+        timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M:%S")
+    return time
+    
+
 def show_item(url_name):
     item_info = get_item_info(url_name)
-    # st.write(item_info)
+    st.write(item_info)
     item_orders = pd.json_normalize(get_item_orders(url_name))
     # st.write(item_orders)
     # orders = fmt_item_orders(item_orders)
