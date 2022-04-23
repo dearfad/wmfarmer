@@ -15,7 +15,7 @@ def page():
 
     with col0:
         input_name = st.text_input('模糊搜索：', '')
-        search_result = items['item'][items['item']['item_name'].str.contains(
+        search_result = items['items'][items['items']['item_name'].str.contains(
             input_name.strip(), case=False)]
         if search_result.empty:
             st.warning('未找到相关信息...')
