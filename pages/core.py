@@ -13,18 +13,15 @@ def get_time():
     return time
 
 
-def markdown_list(itemlist):
-    markdown = ""
-    if itemlist:
-        markdown = '- ' + '\n- '.join(itemlist)
-    return markdown
-
 def show_item_info(item_info):
     st.write(
         f"[![{item_info['zh-hans']['item_name']}]({assets_url+item_info['thumb']})]({item_info['zh-hans']['wiki_link']})")
     st.write(
         f"![ducats](https://warframe.market/static/build/resources/images/icons/Ducats.b2f626d13cd31d84117a.png) **{item_info.get('ducats', '--')}**")
     return
+
+def show_item_orders(item_orders):
+    st.write(item_orders)
 
 def show_item(url_name):
     item_info = get_item_info(url_name)
@@ -42,7 +39,8 @@ def show_item(url_name):
     with col0:
         show_item_info(item_info)
     
-    col1.write(f"- {item_info['url_name']}\n{markdown_list(item_info['tags'])}")
+    with col1:
+        show_item_orders(item_orders)
 
     # col1.bar_chart(item_orders[item_orders['order_type']=='buy']['platinum'], height=160, use_container_width=True)
     # col2.write('col2')
