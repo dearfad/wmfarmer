@@ -1,14 +1,15 @@
 import streamlit as st
-from pages.wmmarket import get_items
+from pages.wmmarket import get_items, get_item_info
 from pages.core import show_item
 
 def data_init():
     items = get_items()
-    return items
+    item_info = get_item_info()
+    return items, item_info
 
 def page():
 
-    items = data_init()
+    items, item_info = data_init()
 
     col0, col1 = st.columns(2)
 
@@ -25,6 +26,7 @@ def page():
         #     url_name = selected_name.split(' ')[-1]
     
     with col1:
-        st.write(f"获取物品列表时间: {items['time']}")
+        st.write(f"- 获取列表时间: {items['time']}")
+        st.write(f"- 获取信息时间: {item_info['time']}")
 
     # show_item(url_name)

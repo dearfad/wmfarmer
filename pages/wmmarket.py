@@ -26,7 +26,7 @@ def get_time():
 items_api_url = Computed_URL + "/items"
 
 
-@st.cache(show_spinner=True, suppress_st_warning=False, ttl=60.0)
+@st.cache(show_spinner=True, suppress_st_warning=False, ttl=86400.0)
 def get_items(language='zh-hans'):
     # items: Get list of all tradable items.
     # ['id', 'thumb', 'url_name', 'item_name_cn', 'item_name_en']
@@ -53,7 +53,9 @@ def get_item_info(url_name):
         item_json = r.json()['payload']['item']
         for item in item_json['items_in_set']:
             if item['url_name'] == url_name:
-                item_info = item
+                item_info['info'] = item
+                item_info['time'] = get_time()
+
     else:
         st.write(f"get_item_info {r.status_code}")
     return item_info
