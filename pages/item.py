@@ -11,7 +11,7 @@ def page():
 
     items, item_info = data_init()
 
-    col0, col1 = st.columns(2)
+    col0, col1, col2 = st.columns(3)
 
     with col0:
         input_name = st.text_input('模糊搜索：', '')
@@ -25,7 +25,7 @@ def page():
             url_name = selected_name.split(' ')[-1]
             item_info = get_item_info(url_name)
     
-    with col1:
+    with col2:
         st.write(f"- 获取列表时间: {items['time']}")
         st.write(f"- 获取信息时间: {item_info['time']}")
 
