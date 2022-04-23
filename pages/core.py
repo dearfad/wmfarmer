@@ -14,7 +14,7 @@ def get_time():
 def markdown_list(itemlist):
     markdown = ""
     if itemlist:
-        markdown = '- ' + '- \n'.join(itemlist)
+        markdown = '- ' + '\n- '.join(itemlist)
     return markdown
 
 
