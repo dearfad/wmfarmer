@@ -26,7 +26,8 @@ def show_item(url_name):
     col0.write(
         f"[![{item_info['zh-hans']['item_name']}]({assets_url+item_info['thumb']})]({item_info['zh-hans']['wiki_link']})")
     col0.write(f"![ducats](https://warframe.market/static/build/resources/images/icons/Ducats.b2f626d13cd31d84117a.png) **{item_info.get('ducats', '--')}**")
-    col1.bar_chart(item_orders[item_orders['order_type']=='buy']['platinum'], height=160, use_container_width=True)
+    col1.write(item_info['tags'])
+    # col1.bar_chart(item_orders[item_orders['order_type']=='buy']['platinum'], height=160, use_container_width=True)
     # col2.write('col2')
     # col1.metric("最高卖出", item_orders['buy'], item_orders['buyer'])
     # col2.metric("最低买入", item_orders['sell'], item_orders['seller'])
