@@ -22,19 +22,20 @@ def fmt_item_orders(orders_df):
         'ingame_lowest_seller': '',
     }
 
-    # ingame_hightest_buy
-    ingame_buy_orders = orders_df[(orders_df['user.status'] == 'ingame') & (
-        orders_df['order_type'] == 'buy')].sort_values(by='platinum', ascending=False)
-    # st.write(ingame_buy_orders)
-    orders_dict['ingame_highest_buy_platinum'] = ingame_buy_orders.iloc[0].at['platinum']
-    orders_dict['ingame_hightest_buyer'] = ingame_buy_orders.iloc[0].at['user.ingame_name']
+    if orders_df:
+        # ingame_hightest_buy
+        ingame_buy_orders = orders_df[(orders_df['user.status'] == 'ingame') & (
+            orders_df['order_type'] == 'buy')].sort_values(by='platinum', ascending=False)
+        # st.write(ingame_buy_orders)
+        orders_dict['ingame_highest_buy_platinum'] = ingame_buy_orders.iloc[0].at['platinum']
+        orders_dict['ingame_hightest_buyer'] = ingame_buy_orders.iloc[0].at['user.ingame_name']
 
-    # ingame_lowest_sell
-    ingame_sell_orders = orders_df[(orders_df['user.status'] == 'ingame') & (
-        orders_df['order_type'] == 'sell')].sort_values(by='platinum', ascending=True)
-    st.write(ingame_sell_orders)
-    orders_dict['ingame_lowest_sell_platinum'] = ingame_sell_orders.iloc[0].at['platinum']
-    orders_dict['ingame_lowest_seller'] = ingame_sell_orders.iloc[0].at['user.ingame_name']
+        # ingame_lowest_sell
+        ingame_sell_orders = orders_df[(orders_df['user.status'] == 'ingame') & (
+            orders_df['order_type'] == 'sell')].sort_values(by='platinum', ascending=True)
+        st.write(ingame_sell_orders)
+        orders_dict['ingame_lowest_sell_platinum'] = ingame_sell_orders.iloc[0].at['platinum']
+        orders_dict['ingame_lowest_seller'] = ingame_sell_orders.iloc[0].at['user.ingame_name']
 
 
     return orders_dict
