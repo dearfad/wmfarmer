@@ -18,7 +18,7 @@ def get_time():
     time = utc_time.astimezone(
         timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M:%S")
     return time
-    
+
 # ===============================================================
 # Items: Provides all information about common items data models.
 # ===============================================================
@@ -34,13 +34,13 @@ def get_items(language='zh-hans'):
 
     headers = {'Language': language}
     r = requests.get(items_api_url, headers=headers)
-    items = pd.DataFrame()
+    items = {}
     if r.status_code == 200:
-        items = pd.DataFrame(r.json()['payload']['items'])
-        time = get_time()
+        items['items'] = pd.DataFrame(r.json()['payload']['items'])
+        items['time'] = get_time()
     else:
         st.write(f"get_items {r.status_code}")
-    return items, time
+    return items
 
 
 @st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)

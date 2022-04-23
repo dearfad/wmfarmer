@@ -2,12 +2,13 @@ import streamlit as st
 from pages.wmmarket import get_items
 from pages.core import show_item
 
-def init():
-    items = {}
-
+def data_init():
+    items = get_items()
     return items
 
 def page():
+
+    items = data_init()
 
     col0, col1 = st.columns(2)
 
@@ -24,6 +25,6 @@ def page():
         #     url_name = selected_name.split(' ')[-1]
     
     with col1:
-        st.write(time)
+        st.write(items['time'])
 
     # show_item(url_name)
