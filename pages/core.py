@@ -23,15 +23,16 @@ def show_item_orders(item_orders):
 
 
 def show_item(url_name):
-    item_info = get_item_info(url_name)
+    item_info = get_item_info(url_name)['info']
     # st.write(item_info)
+    
+    st.write(
+        f"**{item_info['zh-hans']['item_name']}** 📝 {item_info['zh-hans']['description']}")
 
     item_orders = ''
     if get_item_orders(url_name):
         item_orders = pd.json_normalize(get_item_orders(url_name))
 
-    st.write(
-        f"**{item_info['zh-hans']['item_name']}** 📝 {item_info['zh-hans']['description']}")
 
     col0, col1 = st.columns([1, 4])
 
