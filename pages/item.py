@@ -23,6 +23,7 @@ def page():
             selected_name = st.selectbox(
                 '已发现：', search_result['item_name'] + ' ' + search_result['url_name'])
             url_name = selected_name.split(' ')[-1]
+            item_info = get_item_info(url_name)
     
     with col1:
         st.write(f"- 获取列表时间: {items['time']}")
