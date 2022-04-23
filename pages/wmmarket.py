@@ -72,9 +72,10 @@ def get_item_orders(url_name):
     headers = {"Platform": "pc"}
     r = requests.get(f'{items_api_url}/{url_name}/orders',
                      headers=headers)  
-    item_orders = ''
+    item_orders = {}
     if r.status_code == 200:
-        item_orders = r.json()['payload']['orders']
+        item_orders['orders'] = r.json()['payload']['orders']
+        item_orders['time'] = get_time()
     else:
         st.write(f"get_item_orders {r.status_code}")
     return item_orders
