@@ -33,11 +33,12 @@ def get_items(language='zh-hans'):
     return items
 
 
-@st.cache(show_spinner=False, suppress_st_warning=True, ttl=10.0)
+# @st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
 def get_item_info(url_name):
     # items_info: Gets information about an item
     r = requests.get(f'{items_api_url}/{url_name}', headers={"Platform": "pc"})
     item_info = {}
+    print(r.status_code)
     if r.status_code == 200:
         item_json = r.json()['payload']['item']
         for item in item_json['items_in_set']:
