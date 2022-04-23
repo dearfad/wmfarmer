@@ -18,10 +18,10 @@ def fmt_item_orders(orders_df):
     orders_dict = {
         'ingame_highest_buy_platinum': 0,
         'ingame_highest_buyer': '',
-        'ingame_high_buy': '',
+        'ingame_high_buy': pd.DataFrame(),
         'ingame_lowest_sell_platinum': 0,
         'ingame_lowest_seller': '',
-        'ingame_low_sell': '',
+        'ingame_low_sell': pd.DataFrame(),
     }
     # st.write(orders_df)
 
@@ -51,13 +51,13 @@ def show_item_orders(orders):
         st.write(f"当前最高买价：{orders_dict['ingame_highest_buy_platinum']}")
         st.write(f"当前最高买者：{orders_dict['ingame_highest_buyer']}")
         with st.expander('买单列表'):
-            if orders_dict['ingame_high_buy']:
+            if not orders_dict['ingame_high_buy'].empty:
                 st.write(orders_dict['ingame_high_buy'][['platinum','last_update','user.ingame_name']])
         st.write(f"当前最低卖价：{orders_dict['ingame_lowest_sell_platinum']}")
         st.write(f"当前最低卖者：{orders_dict['ingame_lowest_seller']}")
         with st.expander('卖单列表'):
             st.write(orders_dict['ingame_low_sell'])
-            if orders_dict['ingame_low_sell']:
+            if not orders_dict['ingame_low_sell'].empty:
                 st.write(orders_dict['ingame_low_sell'][['platinum','last_update','user.ingame_name']])
     return
 
