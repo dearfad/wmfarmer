@@ -7,22 +7,13 @@ def page():
 
     items = get_items()
 
-    items = {
-        'items': {},
-        'time': ''
-    }
-
     col0, col1, col2 = st.columns([2, 1, 1])
 
     with col0:
         input_name = st.text_input('模糊搜索：', '')
 
-        if items['items']:
-            search_result = items['items'][items['items']['item_name'].str.contains(
-                input_name.strip(), case=False)]
-        else:
-            search_result = ''
-            st.warning('未获得物品信息...')
+        search_result = items['items'][items['items']['item_name'].str.contains(
+            input_name.strip(), case=False)]
 
         if search_result.empty:
             st.warning('未找到相关信息...')
@@ -31,7 +22,7 @@ def page():
                 '已发现：', search_result['item_name'] + ' ' + search_result['url_name'])
             url_name = selected_name.split(' ')[-1]
             item_info = get_item_info(url_name)
-    
+
     with col1:
         pass
 
@@ -39,6 +30,5 @@ def page():
         st.write(f"- 获取列表时间: {items['time']}")
         st.write(f"- 获取信息时间: {item_info['time']}")
         st.write(f"- 获取订单时间: ")
-    
 
     # show_item(url_name)

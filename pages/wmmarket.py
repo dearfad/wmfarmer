@@ -34,10 +34,7 @@ def get_items(language='zh-hans'):
 
     headers = {'Language': language}
     r = requests.get(items_api_url, headers=headers)
-    items = {
-        'items': {},
-        'time': ''
-    }
+    items = {}
     if r.status_code == 200:
         items['items'] = pd.DataFrame(r.json()['payload']['items'])
         items['time'] = get_time()
