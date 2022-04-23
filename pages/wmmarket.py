@@ -37,8 +37,8 @@ def get_items(language='zh-hans'):
 def get_item_info(url_name):
     # items_info: Gets information about an item
     r = requests.get(f'{items_api_url}/{url_name}', headers={"Platform": "pc"})
+    item_info = {}
     if r.status_code == 200:
-        item_info = {}
         item_json = r.json()['payload']['item']
         for item in item_json['items_in_set']:
             if item['url_name'] == url_name:
