@@ -20,6 +20,7 @@ def fmt_item_orders(orders_df):
         'ingame_hightest_buyer': ''
     }
 
+    st.write(orders_df.columns)
     # online_hightest_buy
     ingame_user = orders_df[orders_df['user_status']=='ingame'].sort_values(by='platinum').head()
     st.write(ingame_user)
