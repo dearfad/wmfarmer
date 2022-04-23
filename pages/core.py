@@ -22,7 +22,7 @@ def fmt_item_orders(orders_df):
 
     st.write(orders_df.columns)
     # online_hightest_buy
-    ingame_user = orders_df[orders_df['user.status']=='ingame'].sort_values(by='platinum', ascending=False).head(5)
+    ingame_user = orders_df[orders_df['user.status']=='ingame'&orders_df['order_type']=='buy'].sort_values(by='platinum', ascending=False).head(5)
     st.write(ingame_user)
     return orders_dict
 
