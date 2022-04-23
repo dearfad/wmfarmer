@@ -25,6 +25,6 @@ def page():
         #     url_name = selected_name.split(' ')[-1]
     
     with col1:
-        st.write(items['time'])
+        st.write(f"获取物品列表时间: {items['time']}")
 
     # show_item(url_name)
