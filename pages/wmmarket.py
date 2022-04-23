@@ -53,11 +53,8 @@ def get_item_orders(url_name):
     # ttl = 60.0 Change if Needed
     # The maximum number of seconds to keep an entry in the cache,
     # or None if cache entries should not expire. The default is None.
-    order_info = {'name': url_name, 'sell': 0, 'seller': '',
-                  'buy': 0, 'buyer': '',  'status': '', 'time': ''}
     r = requests.get(f'{items_api_url}/{url_name}/orders',
-                     headers={'Platform': 'pc'})
-    
+                     headers={'Platform': 'pc'})  
     item_orders = ''
     if r.status_code == 200:
         item_orders = r.json()['payload']['orders']
