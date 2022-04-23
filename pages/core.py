@@ -37,7 +37,6 @@ def fmt_item_orders(orders_df):
     ingame_sell_orders = orders_df[(orders_df['user.status'] == 'ingame') & (
         orders_df['order_type'] == 'sell')].sort_values(by='platinum', ascending=True)
     if not ingame_sell_orders.empty:
-        st.write(ingame_sell_orders)
         orders_dict['ingame_lowest_sell_platinum'] = ingame_sell_orders.iloc[0].at['platinum']
         orders_dict['ingame_lowest_seller'] = ingame_sell_orders.iloc[0].at['user.ingame_name']
         orders_dict['ingame_low_sell'] = ingame_sell_orders.head(5)
