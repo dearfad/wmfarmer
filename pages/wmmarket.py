@@ -18,7 +18,7 @@ Computed_URL = Servers + apiVersion
 items_api_url = Computed_URL + "/items"
 
 
-# @st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
+@st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
 def get_items(language='zh-hans'):
     # items: Get list of all tradable items.
     # ['id', 'thumb', 'url_name', 'item_name_cn', 'item_name_en']
@@ -26,11 +26,9 @@ def get_items(language='zh-hans'):
 
     headers = {'Language': language, 'Connection': 'close', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'}
     r = requests.get(items_api_url, headers=headers)
-    st.write(r.headers)
     items = pd.DataFrame()
     if r.status_code == 200:
         items = pd.DataFrame(r.json()['payload']['items'])
-        st.write('get_items OK!')
     else:
         st.write(f"get_items {r.status_code}")
 
