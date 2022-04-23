@@ -18,7 +18,7 @@ Computed_URL = Servers + apiVersion
 items_api_url = Computed_URL + "/items"
 
 
-@st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
+# @st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
 def get_items(language='zh-hans'):
     # items: Get list of all tradable items.
     # ['id', 'thumb', 'url_name', 'item_name_cn', 'item_name_en']
@@ -35,7 +35,7 @@ def get_items(language='zh-hans'):
     return items
 
 
-@st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
+# @st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
 def get_item_info(url_name):
     # items_info: Gets information about an item
     r = requests.get(f'{items_api_url}/{url_name}', headers={"Platform": "pc"})
