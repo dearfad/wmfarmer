@@ -49,9 +49,9 @@ def show_item_orders(orders):
     if orders:
         orders_df = pd.json_normalize(orders)
         orders_dict = fmt_item_orders(orders_df)
+        st.write(orders_dict['ingame_high_buy'])
         st.write(f"当前最高买价：{orders_dict['ingame_highest_buy_platinum']}")
         st.write(f"当前最高买者：{orders_dict['ingame_highest_buyer']}")
-        st.write(orders_dict['ingame_high_buy'])
     return
 
 
