@@ -41,6 +41,7 @@ def get_item_info(url_name):
     # items_info: Gets information about an item
     headers = {"Platform": "pc", 'Connection': 'close', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'}
     r = requests.get(f'{items_api_url}/{url_name}', headers=headers)
+    st.write(r)
     item_info = {}
     if r.status_code == 200:
         item_json = r.json()['payload']['item']
