@@ -26,6 +26,7 @@ def page():
             item_info = get_item_info(url_name)
     
     with col2:
+        st.write('')
         st.write(f"- 获取列表时间: {items['time']}")
         st.write(f"- 获取信息时间: {item_info['time']}")
 
