@@ -26,6 +26,7 @@ def get_items(language='zh-hans'):
 
     headers = {'Language': language, 'Connection': 'close', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'}
     r = requests.get(items_api_url, headers=headers)
+    st.write(r.headers)
     items = pd.DataFrame()
     if r.status_code == 200:
         items = pd.DataFrame(r.json()['payload']['items'])
