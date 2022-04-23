@@ -17,7 +17,7 @@ def show_item_info(item_info):
 def fmt_item_orders(orders_df):
     orders_dict = {
         'ingame_highest_buy_platinum': 0,
-        'ingame_hightest_buyer': '',
+        'ingame_highest_buyer': '',
         'ingame_high_buy': '',
         'ingame_lowest_sell_platinum': 0,
         'ingame_lowest_seller': '',
@@ -31,7 +31,7 @@ def fmt_item_orders(orders_df):
     # st.write(ingame_buy_orders)
     if not ingame_buy_orders.empty:
         orders_dict['ingame_highest_buy_platinum'] = ingame_buy_orders.iloc[0].at['platinum']
-        orders_dict['ingame_hightest_buyer'] = ingame_buy_orders.iloc[0].at['user.ingame_name']
+        orders_dict['ingame_highest_buyer'] = ingame_buy_orders.iloc[0].at['user.ingame_name']
         orders_dict['ingame_high_buy'] = ingame_buy_orders.head(5)
     # ingame_lowest_sell
     ingame_sell_orders = orders_df[(orders_df['user.status'] == 'ingame') & (
