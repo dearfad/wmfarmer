@@ -38,7 +38,6 @@ def get_items(language='zh-hans'):
     if r.status_code == 200:
         items['items'] = pd.DataFrame(r.json()['payload']['items'])
         items['time'] = get_time()
-        st.write(items)
     else:
         st.write(f"get_items {r.status_code}")
     return items
