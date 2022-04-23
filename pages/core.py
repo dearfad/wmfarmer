@@ -22,11 +22,11 @@ def markdown_list(itemlist):
 
 def show_item(url_name):
     item_info = get_item_info(url_name)
-    # st.write(item_info)
+    st.write(item_info)
     item_orders = ''
     if get_item_orders(url_name):
         item_orders = pd.json_normalize(get_item_orders(url_name))
-    st.write(item_orders)
+    # st.write(item_orders)
     # orders = fmt_item_orders(item_orders)
     # st.write(orders)
     # st.write(orders.columns)
