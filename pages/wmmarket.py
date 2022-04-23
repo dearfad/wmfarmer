@@ -18,14 +18,14 @@ Computed_URL = Servers + apiVersion
 items_api_url = Computed_URL + "/items"
 
 
-# @st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
+@st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
 def get_items(language='zh-hans'):
     # items: Get list of all tradable items.
     # ['id', 'thumb', 'url_name', 'item_name_cn', 'item_name_en']
     # Language : en, ru, ko, de, fr, pt, zh-hans, zh-hant, es, it, pl
 
-    headers = {'Language': language}
-    r = requests.get(items_api_url, headers=headers)
+    headers = {'Language': language, 'Connection': 'close'}
+    r = requests.get(items_api_url, headers=headers, verify=False)
     items = pd.DataFrame()
     if r.status_code == 200:
         items = pd.DataFrame(r.json()['payload']['items'])
@@ -35,10 +35,11 @@ def get_items(language='zh-hans'):
     return items
 
 
-# @st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
+@st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
 def get_item_info(url_name):
     # items_info: Gets information about an item
-    r = requests.get(f'{items_api_url}/{url_name}', headers={"Platform": "pc"})
+    headers = {"Platform": "pc", 'Connection': 'close'}
+    r = requests.get(f'{items_api_url}/{url_name}', headers=headers, verify=False)
     item_info = {}
     if r.status_code == 200:
         item_json = r.json()['payload']['item']
@@ -47,7 +48,7 @@ def get_item_info(url_name):
                 item_info = item
     else:
         st.write(f"get_item_info {r.status_code}")
-        
+
     return item_info
 
 
