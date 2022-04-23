@@ -27,7 +27,7 @@ def page():
     with col1:
         wm_logo_url = 'https://warframe.market/static/build/resources/images/logo.6a2466b9ef1a7dd1c164.png'
         wm_link = 'https://warframe.market/'
-        st.image(wm_logo_url, width=90, caption=f"[!['Warframe Market']({wm_logo_url})]({wm_link})")
+        st.image(wm_logo_url, width=110, caption="Warframe Market")
         # st.write(f"[!['Warframe Market']({wm_logo_url})]({wm_link})")        
 
     with col2:
