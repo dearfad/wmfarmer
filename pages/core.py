@@ -1,16 +1,9 @@
 import streamlit as st
 import pandas as pd
-from datetime import datetime, timedelta, timezone
+
 from pages.wmmarket import get_item_info, get_item_orders
 
 assets_url = "https://warframe.market/static/assets/"
-
-
-def get_time():
-    utc_time = datetime.utcnow().replace(tzinfo=timezone.utc)
-    time = utc_time.astimezone(
-        timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M:%S")
-    return time
 
 
 def show_item_info(item_info):
@@ -20,11 +13,14 @@ def show_item_info(item_info):
         f"![ducats](https://warframe.market/static/build/resources/images/icons/Ducats.b2f626d13cd31d84117a.png) **{item_info.get('ducats', '--')}**")
     return
 
+
 def fmt_item_orders(item_orders):
     return item_orders
 
+
 def show_item_orders(item_orders):
     st.write(item_orders)
+
 
 def show_item(url_name):
     item_info = get_item_info(url_name)
@@ -33,7 +29,7 @@ def show_item(url_name):
     item_orders = ''
     if get_item_orders(url_name):
         item_orders = pd.json_normalize(get_item_orders(url_name))
-    
+
     st.write(
         f"**{item_info['zh-hans']['item_name']}** 📝 {item_info['zh-hans']['description']}")
 
@@ -41,7 +37,7 @@ def show_item(url_name):
 
     with col0:
         show_item_info(item_info)
-    
+
     with col1:
         show_item_orders(item_orders)
 

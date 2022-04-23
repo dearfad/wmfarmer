@@ -6,12 +6,19 @@
 import pandas as pd
 import requests
 import streamlit as st
-from pages.core import get_time
+from datetime import datetime, timedelta, timezone
 
 apiVersion = 'v1'
 Servers = "https://api.warframe.market/"
 Computed_URL = Servers + apiVersion
 
+
+def get_time():
+    utc_time = datetime.utcnow().replace(tzinfo=timezone.utc)
+    time = utc_time.astimezone(
+        timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M:%S")
+    return time
+    
 # ===============================================================
 # Items: Provides all information about common items data models.
 # ===============================================================
