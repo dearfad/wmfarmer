@@ -25,9 +25,10 @@ def page():
             item_orders = get_item_orders(url_name)
 
     with col1:
-        wm_logo_url = 'https://avatars.githubusercontent.com/u/68020341?s=200&v=4'
+        wm_logo_url = 'https://warframe.market/'
         wm_link = 'https://warframe.market/'
-        st.write(f"[!['Warframe Market']({wm_logo_url})]({wm_link})")        
+        st.image(wm_logo_url, caption='Sunrise by the mountains')
+        # st.write(f"[!['Warframe Market']({wm_logo_url})]({wm_link})")        
 
     with col2:
         st.write(f"- 获取列表时间: {items['time']}")
