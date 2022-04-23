@@ -14,5 +14,4 @@ def page():
         selected_name = st.selectbox(
             '已发现：', search_result['item_name'] + ' ' + search_result['url_name'])
         url_name = selected_name.split(' ')[-1]
-        st.write(url_name)
         show_item(url_name)
