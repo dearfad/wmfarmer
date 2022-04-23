@@ -29,11 +29,13 @@ def get_items(language='zh-hans'):
     items = pd.DataFrame()
     if r.status_code == 200:
         items = pd.DataFrame(r.json()['payload']['items'])
+    else:
+        st.write(f"get_items {r.status_code}")
 
     return items
 
 
-# @st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
+@st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
 def get_item_info(url_name):
     # items_info: Gets information about an item
     r = requests.get(f'{items_api_url}/{url_name}', headers={"Platform": "pc"})
@@ -44,6 +46,8 @@ def get_item_info(url_name):
         for item in item_json['items_in_set']:
             if item['url_name'] == url_name:
                 item_info = item
+    else:
+        st.write(f"get_item_info {r.status_code}")
     return item_info
 
 
