@@ -24,7 +24,7 @@ def get_items(language='zh-hans'):
     # ['id', 'thumb', 'url_name', 'item_name_cn', 'item_name_en']
     # Language : en, ru, ko, de, fr, pt, zh-hans, zh-hant, es, it, pl
 
-    headers = {'Language': language, 'Connection': 'close'}
+    headers = {'Language': language, 'Connection': 'close', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'}
     r = requests.get(items_api_url, headers=headers)
     items = pd.DataFrame()
     if r.status_code == 200:
@@ -38,7 +38,7 @@ def get_items(language='zh-hans'):
 # @st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
 def get_item_info(url_name):
     # items_info: Gets information about an item
-    headers = {"Platform": "pc", 'Connection': 'close'}
+    headers = {"Platform": "pc", 'Connection': 'close', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'}
     r = requests.get(f'{items_api_url}/{url_name}', headers=headers)
     item_info = {}
     if r.status_code == 200:
@@ -60,7 +60,7 @@ def get_item_orders(url_name):
     # The maximum number of seconds to keep an entry in the cache,
     # or None if cache entries should not expire. The default is None.
 
-    headers = {"Platform": "pc", 'Connection': 'close'}
+    headers = {"Platform": "pc", 'Connection': 'close', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'}
     r = requests.get(f'{items_api_url}/{url_name}/orders',
                      headers=headers)  
     item_orders = ''
