@@ -21,8 +21,8 @@ def fmt_item_orders(orders_df):
     }
 
     # online_hightest_buy
-
-
+    ingame_user = orders_df[orders_df['user_status']=='ingame'].sort_values(by='platinum').head()
+    st.write(ingame_user)
     return orders_dict
 
 
@@ -30,7 +30,7 @@ def show_item_orders(orders):
     if orders:
         orders_df = pd.json_normalize(orders)
         orders_dict = fmt_item_orders(orders_df)
-        st.write(orders_df)
+        st.write(orders_dict)
     return
 
 
