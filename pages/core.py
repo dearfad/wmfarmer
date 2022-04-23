@@ -20,11 +20,12 @@ def fmt_item_orders(orders_df):
         'ingame_hightest_buyer': ''
     }
 
-    st.write(orders_df.columns)
     # online_hightest_buy
-    ingame_user = orders_df[(orders_df['user.status'] == 'ingame') & (
+    ingame_orders = orders_df[(orders_df['user.status'] == 'ingame') & (
         orders_df['order_type'] == 'buy')].sort_values(by='platinum', ascending=False).head(5)
-    st.write(ingame_user)
+    orders_dict['ingame_highest_buy_platinum'] = ingame_orders.loc[0,'platinum']
+    orders_dict['ingame_hightest_buyer'] = ingame_orders.loc[0,'user.ingame_name']
+    st.write(orders_dict)
     return orders_dict
 
 
