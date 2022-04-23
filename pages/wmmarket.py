@@ -38,7 +38,7 @@ def get_item_info(url_name):
     # items_info: Gets information about an item
     r = requests.get(f'{items_api_url}/{url_name}', headers={"Platform": "pc"})
     item_info = {}
-    print(r.status_code)
+    st.write(r.status_code)
     if r.status_code == 200:
         item_json = r.json()['payload']['item']
         for item in item_json['items_in_set']:
