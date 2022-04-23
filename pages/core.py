@@ -18,18 +18,17 @@ def fmt_item_orders(item_orders):
     return item_orders
 
 
-def show_item_orders(item_orders):
-    st.write(item_orders)
+def show_item_orders(orders):
+    if orders:
+        orders_df = pd.json_normalize(orders)
+    st.write(orders_df)
+    return
 
 
 def show_item(url_name, info, orders):
 
     st.write(
         f"**{info['zh-hans']['item_name']}** 📝 {info['zh-hans']['description']}")
-
-    # item_orders = ''
-    # if get_item_orders(url_name):
-    #     item_orders = pd.json_normalize(get_item_orders(url_name))
 
 
     col0, col1 = st.columns([1, 4])
@@ -38,13 +37,8 @@ def show_item(url_name, info, orders):
         show_item_info(info)
 
     with col1:
-        # show_item_orders(orders)
-        pass
+        show_item_orders(orders)
 
-    # col1.bar_chart(item_orders[item_orders['order_type']=='buy']['platinum'], height=160, use_container_width=True)
-    # col2.write('col2')
-    # col1.metric("最高卖出", item_orders['buy'], item_orders['buyer'])
-    # col2.metric("最低买入", item_orders['sell'], item_orders['seller'])
     return
 
 
