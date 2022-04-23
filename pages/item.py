@@ -32,4 +32,4 @@ def page():
         st.write(f"- 获取信息时间: {item_info['time']}")
         st.write(f"- 获取订单时间: {item_orders['time']}")
 
-    # show_item(url_name)
+    show_item(url_name, item_info['info'], item_orders['orders'])
