@@ -2,26 +2,28 @@ import streamlit as st
 from pages.wmmarket import get_items, get_item_info
 from pages.core import show_item
 
+
 def page():
-
-    st.line_chart({"data": [1, 5, 2, 6, 2, 1]})
-
-    with st.expander("See explanation"):
-        st.write("""
-            The chart above shows some numbers I picked for you.
-            I rolled actual dice for these, so they're *guaranteed* to
-            be random.
-        """)
-        st.image("https://static.streamlit.io/examples/dice.jpg")
 
     items = get_items()
 
-    col0, col1, col2 = st.columns([2,1,1])
+    items = {
+        'items': {},
+        'time': ''
+    }
+
+    col0, col1, col2 = st.columns([2, 1, 1])
 
     with col0:
         input_name = st.text_input('模糊搜索：', '')
-        search_result = items['items'][items['items']['item_name'].str.contains(
-            input_name.strip(), case=False)]
+
+        if items['items']:
+            search_result = items['items'][items['items']['item_name'].str.contains(
+                input_name.strip(), case=False)]
+        else:
+            search_result = ''
+            st.warning('未获得物品信息...')
+
         if search_result.empty:
             st.warning('未找到相关信息...')
         else:
@@ -30,9 +32,13 @@ def page():
             url_name = selected_name.split(' ')[-1]
             item_info = get_item_info(url_name)
     
+    with col1:
+        pass
+
     with col2:
         st.write(f"- 获取列表时间: {items['time']}")
         st.write(f"- 获取信息时间: {item_info['time']}")
         st.write(f"- 获取订单时间: ")
+    
 
-    # show_item(url_name)
+    show_item(url_name)
