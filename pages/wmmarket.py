@@ -25,7 +25,7 @@ def get_items(language='zh-hans'):
     # Language : en, ru, ko, de, fr, pt, zh-hans, zh-hant, es, it, pl
 
     headers = {'Language': language, 'Connection': 'close'}
-    r = requests.get(items_api_url, headers=headers, verify=False)
+    r = requests.get(items_api_url, headers=headers)
     items = pd.DataFrame()
     if r.status_code == 200:
         items = pd.DataFrame(r.json()['payload']['items'])
@@ -39,7 +39,7 @@ def get_items(language='zh-hans'):
 def get_item_info(url_name):
     # items_info: Gets information about an item
     headers = {"Platform": "pc", 'Connection': 'close'}
-    r = requests.get(f'{items_api_url}/{url_name}', headers=headers, verify=False)
+    r = requests.get(f'{items_api_url}/{url_name}', headers=headers)
     item_info = {}
     if r.status_code == 200:
         item_json = r.json()['payload']['item']
@@ -59,11 +59,15 @@ def get_item_orders(url_name):
     # ttl = 60.0 Change if Needed
     # The maximum number of seconds to keep an entry in the cache,
     # or None if cache entries should not expire. The default is None.
+
+    headers = {"Platform": "pc", 'Connection': 'close'}
     r = requests.get(f'{items_api_url}/{url_name}/orders',
-                     headers={'Platform': 'pc'})  
+                     headers=headers)  
     item_orders = ''
     if r.status_code == 200:
         item_orders = r.json()['payload']['orders']
+    else:
+        st.write(f"get_item_orders {r.status_code}")
     return item_orders
 
 
@@ -76,12 +80,18 @@ def items_droptables(url_name):
 if __name__ == '__main__':
 
     # test items()
-    # items = items()
+    # items = get_items()
     # print(items.head(1))
 
     # test items_info()
-    item_info = get_item_info('mirage_prime_systems')
+    # item_info = get_item_info('mirage_prime_systems')
     # item_info = get_item_info('hammer_shot')
     # print(item_info)
-    print(item_info.keys())
-    print(item_info['zh-hans'])
+    # print(item_info.keys())
+    # print(item_info['zh-hans'])
+
+    # test item_orders
+    # orders = get_item_orders('hammer_shot')
+    # print(orders)
+
+    pass
