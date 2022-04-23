@@ -26,7 +26,7 @@ def get_time():
 items_api_url = Computed_URL + "/items"
 
 
-@st.cache(show_spinner=True, suppress_st_warning=False, ttl=86400.0)
+@st.cache(show_spinner=True, suppress_st_warning=False, ttl=10.0)
 def get_items(language='zh-hans'):
     # items: Get list of all tradable items.
     # ['id', 'thumb', 'url_name', 'item_name_cn', 'item_name_en']
