@@ -24,25 +24,21 @@ def show_item_orders(item_orders):
 
 def show_item(url_name, info, orders):
 
-    st.write(url_name)
-    st.write(info)
-    st.write(orders)
-
-    # st.write(
-    #     f"**{item_info['zh-hans']['item_name']}** 📝 {item_info['zh-hans']['description']}")
+    st.write(
+        f"**{info['zh-hans']['item_name']}** 📝 {info['zh-hans']['description']}")
 
     # item_orders = ''
     # if get_item_orders(url_name):
     #     item_orders = pd.json_normalize(get_item_orders(url_name))
 
 
-    # col0, col1 = st.columns([1, 4])
+    col0, col1 = st.columns([1, 4])
 
-    # with col0:
-    #     show_item_info(item_info)
+    with col0:
+        show_item_info(info)
 
-    # with col1:
-    #     show_item_orders(item_orders)
+    with col1:
+        show_item_orders(orders)
 
     # col1.bar_chart(item_orders[item_orders['order_type']=='buy']['platinum'], height=160, use_container_width=True)
     # col2.write('col2')
