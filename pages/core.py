@@ -38,7 +38,8 @@ def show_item(url_name, info, orders):
         show_item_info(info)
 
     with col1:
-        show_item_orders(orders)
+        # show_item_orders(orders)
+        pass
 
     # col1.bar_chart(item_orders[item_orders['order_type']=='buy']['platinum'], height=160, use_container_width=True)
     # col2.write('col2')
