@@ -17,6 +17,7 @@ for i, name in enumerate(col_name):
 for warframe in warframe_prime_list:
     with cols[0]:
         st.write(f"**{warframe}**")
+        st.write("-")
     for i, item in enumerate(warframe_prime_set_list):
         with cols[i+1]:
             url_name = warframe + '_prime_' + item
@@ -26,3 +27,4 @@ for warframe in warframe_prime_list:
             orders = item_orders(url_name)
             price = item_price(orders['orders'])
             st.write(f"**{price['ingame_lowest_sell_platinum']}**")
+            st.write(f"**{price['ingame_highest_buy_platinum']}**")
