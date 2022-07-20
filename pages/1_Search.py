@@ -14,7 +14,7 @@ with search_col:
         st.warning('未找到相关信息...')
     else:
         selected_name = st.selectbox('已发现：', search_result['item_name'])
-        url_name = search_result[search_result['item_name']==selected_name]['url_name']
+        url_name = search_result[search_result['item_name']==selected_name]['url_name'][0]
         st.write(url_name)
         # item_info = item_info(url_name)
         # item_orders = item_orders(url_name)
