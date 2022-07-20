@@ -25,4 +25,4 @@ st.set_page_config(
 
 st.write("# Warframe Market Farmer! 👋")
 
-# st.sidebar.success("Select a demo above.")
+st.sidebar.success("Select a demo above.")
