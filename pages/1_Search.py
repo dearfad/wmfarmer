@@ -1,6 +1,6 @@
 import streamlit as st
 from scripts.wmmarket import items, item_info, item_orders
-# from pages.core import show_item
+from scripts.core import show_item
 
 
 items = items()['items']
