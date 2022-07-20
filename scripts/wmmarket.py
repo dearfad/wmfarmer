@@ -36,10 +36,11 @@ def items(language='zh-hans'):
     r = requests.get(items_api_url, headers=headers)
 
     items = {}
-    items['time'] = get_time()
     if r.status_code == 200:
+        items['time'] = get_time()
         items['items'] = pd.DataFrame(r.json()['payload']['items'])
     else:
+        items['time'] = 'failed'
         items['items'] = r.status_code
     return items
 

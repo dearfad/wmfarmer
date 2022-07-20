@@ -5,5 +5,9 @@ st.set_page_config(page_title='Warframe Market Farmer', page_icon='👨‍🌾')
 
 st.write("# Warframe Market Farmer! 👋")
 
-st.write(f"- {items()['time']}")
-st.write(f"- Total items: **{items()['items'].shape[0]}**")
+if items()['time']=='failed':
+    st.write(f"- **Failed!**")
+    st.write(f"- **Status Code**: **{items()[items]}**")
+else:
+    st.write(f"- {items()['time']}")
+    st.write(f"- Total items: **{items()['items'].shape[0]}**")
