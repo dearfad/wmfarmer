@@ -5,7 +5,7 @@ from scripts.core import show_item
 
 items = items()['items']
 
-search_col, empty_col, orders_col = st.columns([3,1,2])
+search_col, empty_col, orders_col = st.columns([3,1,3])
 
 with search_col:
     input_name = st.text_input('模糊搜索：', '')
