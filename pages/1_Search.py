@@ -27,5 +27,5 @@ else:
     
     item_price = item_price(item_orders['orders'])
     st.write(item_price)
-    st.metrics(label='ingame_lowest_sell_platinum', value=item_price['ingame_lowest_sell_platinum'])
+    st.metric(label='ingame_lowest_sell_platinum', value=item_price['ingame_lowest_sell_platinum'])
 
