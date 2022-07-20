@@ -5,7 +5,7 @@ from scripts.wmmarket import items, item_info, item_orders
 
 items = items()
 
-col0, col1, col2 = st.columns([2, 1, 1])
+col0, col1 = st.columns([2, 2])
 
 with col0:
     input_name = st.text_input('模糊搜索：', '')
@@ -19,10 +19,9 @@ with col0:
         url_name = selected_name.split(' ')[-1]
         item_info = item_info(url_name)
         item_orders = item_orders(url_name)
-with col1:
-    pass       
-with col2:
-    st.write(f"- 获取信息时间: {item_info['time']}")
-    st.write(f"- 获取订单时间: {item_orders['time']}")
+
+
+st.write(f"- 获取信息时间: {item_info['time']}")
+st.write(f"- 获取订单时间: {item_orders['time']}")
     
 show_item(url_name, item_info['info'], item_orders['orders'])
