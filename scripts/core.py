@@ -69,12 +69,12 @@ def show_item_orders(orders):
 
 def show_item(url_name, info, orders):
 
-    st.write(
-        f"**{info['zh-hans']['item_name']}** 📝 {info['zh-hans']['description']}")
+    st.write(f"# **{info['zh-hans']['item_name']}**")
+    # st.write(f"📝 {info['zh-hans']['description']}")
 
-    show_item_info(info)
+    # show_item_info(info)
 
-    show_item_orders(orders)
+    # show_item_orders(orders)
 
     return
 
