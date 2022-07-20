@@ -16,6 +16,11 @@ else:
     item_orders = item_orders(url_name)
     st.write(f"➖ ⏱️ **Info: {item_info['time'].split()[1]}** ➖ ⏲️ **Orders: {item_orders['time'].split()[1]}** ➖")
     st.write(f"### **{item_info['info']['zh-hans']['item_name']}**")
-    st.write(f"📝 {item_info['info']['zh-hans']['description']}")
-    st.write(f"[![{item_info['info']['zh-hans']['item_name']}]({assets_url+item_info['info']['thumb']})]({item_info['info']['zh-hans']['wiki_link']})")
-    st.write(f"![ducats](https://warframe.market/static/build/resources/images/icons/Ducats.b2f626d13cd31d84117a.png) **{item_info['info'].get('ducats', '--')}**")
+
+    thumb_col, description_col = st.columns([1,1])
+
+    with thumb_col:
+        st.write(f"[![{item_info['info']['zh-hans']['item_name']}]({assets_url+item_info['info']['thumb']})]({item_info['info']['zh-hans']['wiki_link']})")
+        st.write(f"![ducats](https://warframe.market/static/build/resources/images/icons/Ducats.b2f626d13cd31d84117a.png) **{item_info['info'].get('ducats', '--')}**")
+    with description_col:
+        st.write(f"📝 {item_info['info']['zh-hans']['description']}")
