@@ -46,7 +46,7 @@ def items(language='zh-hans'):
 
 
 @st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
-def get_item_info(url_name):
+def item_info(url_name):
     # items_info: Gets information about an item
     headers = {"Platform": "pc"}
     r = requests.get(f'{items_api_url}/{url_name}', headers=headers)
@@ -64,7 +64,7 @@ def get_item_info(url_name):
 
 
 @st.cache(show_spinner=False, suppress_st_warning=True, ttl=60.0)
-def get_item_orders(url_name):
+def item_orders(url_name):
     # item_orders: Get list of orders for a given item_id
     # st.cache
     # ttl = 60.0 Change if Needed
@@ -88,22 +88,3 @@ def items_droptables(url_name):
     # items_droptables: Get droptables for a given item
     pass
 
-
-if __name__ == '__main__':
-
-    # test items()
-    # items = get_items()
-    # print(items.head(1))
-
-    # test items_info()
-    # item_info = get_item_info('mirage_prime_systems')
-    # item_info = get_item_info('hammer_shot')
-    # print(item_info)
-    # print(item_info.keys())
-    # print(item_info['zh-hans'])
-
-    # test item_orders
-    # orders = get_item_orders('hammer_shot')
-    # print(orders)
-
-    pass
