@@ -24,8 +24,11 @@ else:
         st.metric(label='最低卖价', value=item_price['ingame_lowest_sell_platinum'])
         st.metric(label='最高买价', value=item_price['ingame_highest_buy_platinum'])
     with thumb_col:
-        st.write(item_info['info']['zh-hans']['wiki_link'])
-        st.write(f"[![{item_info['info']['zh-hans']['item_name']}]({assets_url+item_info['info']['thumb']})]({item_info['info']['zh-hans']['wiki_link']})")
+        wiki_link = item_info['info']['zh-hans']['wiki_link']
+        if wiki_link:
+            st.write(f"[![{item_info['info']['zh-hans']['item_name']}]({assets_url+item_info['info']['thumb']})]({item_info['info']['zh-hans']['wiki_link']})")
+        else:
+            st.write(f"[![{item_info['info']['zh-hans']['item_name']}]({assets_url+item_info['info']['thumb']})]")
     with description_col:
         st.write(f"![ducats](https://warframe.market/static/build/resources/images/icons/Ducats.b2f626d13cd31d84117a.png) **{item_info['info'].get('ducats', '--')}**")
         st.write(f"📝 {item_info['info']['zh-hans']['description']}")
