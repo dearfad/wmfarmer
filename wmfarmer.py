@@ -22,3 +22,7 @@ st.set_page_config(
 
 # if __name__ == '__main__':
 #     main()
+
+st.write("# Warframe Market Farmer! 👋")
+
+# st.sidebar.success("Select a demo above.")
