@@ -1,6 +1,6 @@
 from requests import URLRequired
 import streamlit as st
-from scripts.wmmarket import item_orders
+from scripts.wmmarket import item_orders, item_info
 from scripts.core import item_price
 import time
 
@@ -26,5 +26,9 @@ for warframe in warframe_prime_list:
                     url_name = url_name + '_blueprint'
             orders = item_orders(url_name)
             price = item_price(orders['orders'])
+            info = item_info(url_name)
             st.write(f"**{price['ingame_lowest_sell_platinum']}**")
+
+            ducats = info['info'].get('ducats', '--')
+            st.write(ducats)
             st.write(f"**{price['ingame_highest_buy_platinum']}**")
