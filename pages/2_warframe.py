@@ -30,5 +30,4 @@ for warframe in warframe_prime_list:
             st.write(f"**{price['ingame_lowest_sell_platinum']}**")
 
             ducats = info['info'].get('ducats', '--')
-            st.write(ducats)
-            st.write(f"**{price['ingame_highest_buy_platinum']}**")
+            st.write(f"**{price['ingame_highest_buy_platinum']}** {ducats}")
