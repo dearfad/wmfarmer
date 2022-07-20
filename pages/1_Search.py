@@ -16,6 +16,7 @@ else:
     url_name = search_result[search_result['item_name']==selected_name]['url_name'].values[0]
     item_info = item_info(url_name)
     item_orders = item_orders(url_name)
+    st.write(item_orders)
     st.write(f"➖ ⏱️ **Info: {item_info['time'].split()[1]}** ➖ ⏲️ **Orders: {item_orders['time'].split()[1]}** ➖")
     st.write(f"### **{item_info['info']['zh-hans']['item_name']}**")
 
