@@ -27,7 +27,7 @@ items_api_url = Computed_URL + "/items"
 
 
 @st.cache(show_spinner=True, suppress_st_warning=False, ttl=86400.0)
-def get_items(language='zh-hans'):
+def items(language='zh-hans'):
     # items: Get list of all tradable items.
     # ['id', 'thumb', 'url_name', 'item_name_cn', 'item_name_en']
     # Language : en, ru, ko, de, fr, pt, zh-hans, zh-hant, es, it, pl
