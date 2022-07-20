@@ -8,6 +8,6 @@ warframe_prime_set_list = ['set', 'blueprint', 'neuroptics', 'chassis', 'systems
 
 
 for warframe in warframe_prime_list:
-    for item in warframe_prime_set_list:
+    for i, item in enumerate(warframe_prime_set_list):
         item_name = warframe + '_prime_' + item
-        st.write(item_name)
+        st.write(i, item_name)
