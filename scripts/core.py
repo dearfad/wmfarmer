@@ -63,10 +63,8 @@ def show_item(url_name, info, orders):
 
     st.write(f"### **{info['zh-hans']['item_name']}**")
     st.write(f"📝 {info['zh-hans']['description']}")
-    st.write(
-        f"[![{info['zh-hans']['item_name']}]({assets_url+info['thumb']})]({info['zh-hans']['wiki_link']})")
-    st.write(
-        f"![ducats](https://warframe.market/static/build/resources/images/icons/Ducats.b2f626d13cd31d84117a.png) **{info.get('ducats', '--')}**")
+    st.write(f"[![{info['zh-hans']['item_name']}]({assets_url+info['thumb']})]({info['zh-hans']['wiki_link']})")
+    st.write(f"![ducats](https://warframe.market/static/build/resources/images/icons/Ducats.b2f626d13cd31d84117a.png) **{info.get('ducats', '--')}**")
 
     # show_item_orders(orders)
 
