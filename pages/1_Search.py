@@ -18,7 +18,7 @@ else:
     st.write(f"➖ ⏱️ **Info: {item_info['time'].split()[1]}** ➖ ⏲️ **Orders: {item_orders['time'].split()[1]}** ➖")
     st.write(f"### **{item_info['info']['zh-hans']['item_name']}**")
 
-    thumb_col, price_col, description_col = st.columns([2,1,6])
+    price_col, thumb_col, description_col = st.columns([1,2,6])
     with price_col:        
         item_price = item_price(item_orders['orders'])
         st.metric(label='最低卖价', value=item_price['ingame_lowest_sell_platinum'])
