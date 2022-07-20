@@ -11,5 +11,5 @@ for warframe in warframe_prime_list:
     cols = st.columns(len(warframe_prime_set_list))
     for i, item in enumerate(warframe_prime_set_list):
         with cols[i]:
-            item_name = warframe + '_prime_' + item
-            st.write(i, item_name)
+            url_name = warframe + '_prime_' + item
+            st.write(url_name)
