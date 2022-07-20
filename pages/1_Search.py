@@ -37,5 +37,5 @@ else:
         st.write(f"📝 {item_info['info']['zh-hans']['description']}")
         st.write(f"[WARFRAME MARKET]({item_url+url_name})")
     
-    st.write(pd.json_normalize(orders))
+    st.write(pd.json_normalize(item_orders))
     
