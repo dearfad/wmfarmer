@@ -25,7 +25,7 @@ else:
         st.write(f"![ducats](https://warframe.market/static/build/resources/images/icons/Ducats.b2f626d13cd31d84117a.png) **{item_info['info'].get('ducats', '--')}**")
         st.write(f"📝 {item_info['info']['zh-hans']['description']}")
     
-    st.write(item_orders)
-    # item_price = item_price(item_orders)
+    st.write(item_orders['orders'])
+    # item_price = item_price(item_orders['orders'])
     # st.write(item_price)
 
