@@ -35,6 +35,4 @@ else:
         st.write(f"![ducats](https://warframe.market/static/build/resources/images/icons/Ducats.b2f626d13cd31d84117a.png) **{item_info['info'].get('ducats', '--')}**")
         st.write(f"📝 {item_info['info']['zh-hans']['description']}")
         st.write(f"[WARFRAME MARKET]({item_url+url_name})")
-    
-    st.write(pd.json_normalize(item_orders['orders']))
-    
+        
