@@ -24,10 +24,10 @@ else:
     with description_col:
         st.write(f"![ducats](https://warframe.market/static/build/resources/images/icons/Ducats.b2f626d13cd31d84117a.png) **{item_info['info'].get('ducats', '--')}**")
         st.write(f"📝 {item_info['info']['zh-hans']['description']}")
+        item_price = item_price(item_orders['orders'])
+        sell_col, buy_col = st.columns([1,1])
+        with sell_col:
+            st.metric(label='最低卖价', value=item_price['ingame_lowest_sell_platinum'])
+        with buy_col:
+            st.metric(label='最高买价', value=item_price['ingame_highest_buy_platinum'])
     
-    item_price = item_price(item_orders['orders'])
-    sell_col, buy_col = st.columns([1,1])
-    with sell_col:
-        st.metric(label='最低卖价', value=item_price['ingame_lowest_sell_platinum'])
-    with buy_col:
-        st.metric(label='最高买价', value=item_price['ingame_highest_buy_platinum'])
