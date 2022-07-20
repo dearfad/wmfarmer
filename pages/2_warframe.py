@@ -9,7 +9,7 @@ warframe_prime_set_list = ['set', 'blueprint', 'neuroptics', 'chassis', 'systems
 cols = st.columns(len(warframe_prime_set_list)+1)
 col_name = ['名称','套装','蓝图','头部','机体','系统']
 for i, name in enumerate(col_name):
-    with cols[i+1]:
+    with cols[i]:
         st.write(name)
 
 for warframe in warframe_prime_list:
