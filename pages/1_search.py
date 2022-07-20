@@ -20,6 +20,6 @@ with search_col:
         item_orders = item_orders(url_name)
 
 
-st.write(f"- info: {item_info['time'].split()[1]} - orders: {item_orders['time']}")
+st.write(f"- Info: **{item_info['time'].split()[1]}** --- Orders: **{item_orders['time'].split()[1]}**")
     
 # show_item(url_name, item_info['info'], item_orders['orders'])
