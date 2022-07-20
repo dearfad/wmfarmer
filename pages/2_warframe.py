@@ -18,7 +18,6 @@ for warframe in warframe_prime_list:
     for i, item in enumerate(warframe_prime_set_list):
         with cols[i+1]:
             url_name = warframe + '_prime_' + item
-            item_orders = item_orders(url_name)
-            st.write(item_orders)
-            item_price = item_price(item_orders['orders'])
-            st.write(f"**{item_price['ingame_lowest_sell_platinum']}**")
+            orders = item_orders(url_name)
+            price = item_price(orders['orders'])
+            st.write(f"**{price['ingame_lowest_sell_platinum']}**")
