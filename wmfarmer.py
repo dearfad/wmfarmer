@@ -1,5 +1,5 @@
 import streamlit as st
-from pages.wmmarket import get_items, get_item_info, get_item_orders
+from scripts.wmmarket import get_items, get_item_info, get_item_orders
 
 st.set_page_config(page_title='Warframe Market Farmer', page_icon='👨‍🌾')
 
