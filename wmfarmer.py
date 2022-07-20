@@ -1,5 +1,5 @@
 import streamlit as st
-from pages import item
+from page import item
 
 st.set_page_config(page_title='Warframe Market Farmer', page_icon='👨‍🌾')
 
