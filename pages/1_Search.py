@@ -8,7 +8,7 @@ items = items()['items']
 search_col, orders_col = st.columns([1, 1])
 
 with search_col:
-    input_name = st.text_input('模糊搜索：', '')
+    input_name = st.text_input('**模糊搜索：**', '')
     search_result = items[items['item_name'].str.contains(input_name.strip(), case=False)]
     if search_result.empty:
         st.warning('未找到相关信息...')
