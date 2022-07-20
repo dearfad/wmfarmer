@@ -32,4 +32,6 @@ for warframe in warframe_prime_list:
             ducats = int(info['info'].get('ducats', '--'))
             if ducats==100:
                 label = "🗄️"
+            else:
+                label = ""
             st.write(f"**{price['ingame_highest_buy_platinum']}** {label}")
