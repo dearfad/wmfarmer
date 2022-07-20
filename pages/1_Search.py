@@ -14,9 +14,9 @@ with search_col:
         st.warning('未找到相关信息...')
     else:
         selected_name = st.selectbox('已发现：', search_result['item_name'])
-        url_name = selected_name.split(' ')[-1]
-        item_info = item_info(url_name)
-        item_orders = item_orders(url_name)
-        st.write(f"➖ ⏱️ **Info: {item_info['time'].split()[1]}** ➖ ⏲️ **Orders: {item_orders['time'].split()[1]}** ➖")
+        url_name = search_result[search_result['item_name']==selected_name]['url_name']
+        # item_info = item_info(url_name)
+        # item_orders = item_orders(url_name)
+        # st.write(f"➖ ⏱️ **Info: {item_info['time'].split()[1]}** ➖ ⏲️ **Orders: {item_orders['time'].split()[1]}** ➖")
     
 # show_item(url_name, item_info['info'], item_orders['orders'])
