@@ -2,7 +2,7 @@ import streamlit as st
 from scripts.wmmarket import items
 
 st.set_page_config(page_title='Warframe Market Farmer', page_icon='👨‍🌾')
-
+st.write("#          👨‍🌾")
 st.write("# Warframe Market Farmer! 👨‍🌾")
 
 if items()['time']=='failed':
