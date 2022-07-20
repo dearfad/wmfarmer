@@ -34,4 +34,4 @@ for warframe in warframe_prime_list:
                 label = "🗄️"
             else:
                 label = ""
-            st.write(f"**{price['ingame_highest_buy_platinum']}** {label}")
+            st.write(f"**{price['ingame_highest_buy_platinum']}** {ducats}{label}")
