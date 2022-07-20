@@ -16,7 +16,6 @@ else:
     item_info = item_info(url_name)
     item_orders = item_orders(url_name)
     st.write(f"➖ ⏱️ **Info: {item_info['time'].split()[1]}** ➖ ⏲️ **Orders: {item_orders['time'].split()[1]}** ➖")
-    # show_item(url_name, item_info['info'], item_orders['orders'])
     st.write(f"### **{item_info['info']['zh-hans']['item_name']}**")
     st.write(f"📝 {item_info['info']['zh-hans']['description']}")
     st.write(f"[![{item_info['info']['zh-hans']['item_name']}]({assets_url+item_info['info']['thumb']})]({item_info['info']['zh-hans']['wiki_link']})")

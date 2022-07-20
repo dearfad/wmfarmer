@@ -3,9 +3,6 @@ import pandas as pd
 
 from scripts.wmmarket import item_info, item_orders
 
-assets_url = "https://warframe.market/static/assets/"
-
-
 def fmt_item_orders(orders_df):
     # orders_dict = {
     #     'ingame_highest_buy_platinum': 0,
@@ -57,16 +54,3 @@ def show_item_orders(orders):
     #         if not orders_dict['ingame_low_sell'].empty:
     #             st.write(orders_dict['ingame_low_sell'][['platinum','last_update','user.ingame_name']])
     return
-
-
-def show_item(url_name, info, orders):
-
-    st.write(f"### **{info['zh-hans']['item_name']}**")
-    st.write(f"📝 {info['zh-hans']['description']}")
-    st.write(f"[![{info['zh-hans']['item_name']}]({assets_url+info['thumb']})]({info['zh-hans']['wiki_link']})")
-    st.write(f"![ducats](https://warframe.market/static/build/resources/images/icons/Ducats.b2f626d13cd31d84117a.png) **{info.get('ducats', '--')}**")
-
-    # show_item_orders(orders)
-
-    return
-
