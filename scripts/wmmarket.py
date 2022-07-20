@@ -63,7 +63,7 @@ def item_info(url_name):
     return item_info
 
 
-# @st.cache(show_spinner=False, suppress_st_warning=True, ttl=60.0)
+@st.cache(show_spinner=False, suppress_st_warning=True, ttl=60.0)
 def item_orders(url_name):
     # item_orders: Get list of orders for a given item_id
     # st.cache
