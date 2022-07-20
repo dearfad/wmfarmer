@@ -17,7 +17,7 @@ else:
     st.write(f"➖ ⏱️ **Info: {item_info['time'].split()[1]}** ➖ ⏲️ **Orders: {item_orders['time'].split()[1]}** ➖")
     st.write(f"### **{item_info['info']['zh-hans']['item_name']}**")
 
-    thumb_col, description_col = st.columns([1,1])
+    thumb_col, description_col = st.columns([1,3])
 
     with thumb_col:
         st.write(f"[![{item_info['info']['zh-hans']['item_name']}]({assets_url+item_info['info']['thumb']})]({item_info['info']['zh-hans']['wiki_link']})")
