@@ -5,7 +5,7 @@ from scripts.wmmarket import items, item_info, item_orders
 
 items = items()['items']
 
-search_col, empty_col = st.columns([1, 1])
+search_col, orders_col = st.columns([1, 1])
 
 with search_col:
     input_name = st.text_input('模糊搜索：', '')
@@ -18,5 +18,6 @@ with search_col:
         item_info = item_info(url_name)
         item_orders = item_orders(url_name)
         st.write(f"➖ ⏱️ **Info: {item_info['time'].split()[1]}** ➖ ⏲️ **Orders: {item_orders['time'].split()[1]}** ➖")
-    
-# show_item(url_name, item_info['info'], item_orders['orders'])
+
+with orders_col:   
+    show_item(url_name, item_info['info'], item_orders['orders'])
