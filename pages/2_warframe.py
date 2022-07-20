@@ -1,17 +1,13 @@
 import streamlit as st
-from pages.wmmarket import get_items
-from pages.core import show_item
+from scripts.wmmarket import item_orders
+from scripts.core import item_price
 
-
-def page():
-    warframe_prime_list = ['ash', 'atlas', 'banshee', 'chroma', 'ember', 'equinox', 'frost', 'gara', 'garuda', 'harrow', 'hydroid', 'inaros', 'ivara', 'limbo', 'loki', 'mag',
+warframe_prime_list = ['ash', 'atlas', 'banshee', 'chroma', 'ember', 'equinox', 'frost', 'gara', 'garuda', 'harrow', 'hydroid', 'inaros', 'ivara', 'limbo', 'loki', 'mag',
                            'mesa', 'mirage', 'nekros', 'nezha', 'nidus', 'nova', 'nyx', 'oberon', 'octavia', 'rhino', 'saryn', 'titania', 'trinity', 'valkyr', 'vauban', 'volt', 'wukong', 'zephyr']
-    warframe_prime_set_list = ['set', 'blueprint',
-                               'neuroptics', 'chassis', 'systems']
-    warframe_selection = st.selectbox('选择战甲', warframe_prime_list)
-    items = items()
+warframe_prime_set_list = ['set', 'blueprint', 'neuroptics', 'chassis', 'systems']
+
+
+for warframe in warframe_prime_list:
     for item in warframe_prime_set_list:
-        item_name = warframe_selection + '_prime_' + item
-        item_df = items[items['url_name'] == item_name]
-        show_item(item_df)
-    return
+        item_name = warframe + '_prime_' + item
+        st.write(item_name)
