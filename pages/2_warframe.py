@@ -1,3 +1,4 @@
+from requests import URLRequired
 import streamlit as st
 from scripts.wmmarket import item_orders
 from scripts.core import item_price
@@ -19,6 +20,8 @@ for warframe in warframe_prime_list:
     for i, item in enumerate(warframe_prime_set_list):
         with cols[i+1]:
             url_name = warframe + '_prime_' + item
+            if warframe=='khora':
+                url_name = url_name + '_blueprint'
             orders = item_orders(url_name)
             time.sleep(0.4)
             price = item_price(orders['orders'])
