@@ -6,14 +6,6 @@ from scripts.wmmarket import item_info, item_orders
 assets_url = "https://warframe.market/static/assets/"
 
 
-def show_item_info(item_info):
-    st.write(
-        f"[![{item_info['zh-hans']['item_name']}]({assets_url+item_info['thumb']})]({item_info['zh-hans']['wiki_link']})")
-    st.write(
-        f"![ducats](https://warframe.market/static/build/resources/images/icons/Ducats.b2f626d13cd31d84117a.png) **{item_info.get('ducats', '--')}**")
-    return
-
-
 def fmt_item_orders(orders_df):
     # orders_dict = {
     #     'ingame_highest_buy_platinum': 0,
@@ -71,7 +63,10 @@ def show_item(url_name, info, orders):
 
     st.write(f"### **{info['zh-hans']['item_name']}**")
     st.write(f"📝 {info['zh-hans']['description']}")
-    show_item_info(info)
+    st.write(
+        f"[![{info['zh-hans']['item_name']}]({assets_url+info['thumb']})]({info['zh-hans']['wiki_link']})")
+    st.write(
+        f"![ducats](https://warframe.market/static/build/resources/images/icons/Ducats.b2f626d13cd31d84117a.png) **{info.get('ducats', '--')}**")
 
     # show_item_orders(orders)
 
