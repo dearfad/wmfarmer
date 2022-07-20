@@ -1,6 +1,5 @@
 import streamlit as st
 from scripts.wmmarket import items, item_info, item_orders
-from scripts.core import show_item
 
 assets_url = "https://warframe.market/static/assets/"
 
