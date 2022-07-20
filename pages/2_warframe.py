@@ -13,6 +13,8 @@ for i, name in enumerate(col_name):
         st.write(name)
 
 for warframe in warframe_prime_list:
+    with cols[0]:
+        st.write(f"**{warframe}**")
     for i, item in enumerate(warframe_prime_set_list):
         with cols[i+1]:
             url_name = warframe + '_prime_' + item
