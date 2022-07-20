@@ -26,7 +26,8 @@ else:
         st.write(f"📝 {item_info['info']['zh-hans']['description']}")
     
     item_price = item_price(item_orders['orders'])
-    st.metric(label='最低卖价', value=item_price['ingame_lowest_sell_platinum'])
-    st.metric(label='最高买价', value=item_price['ingame_highest_buy_platinum'])
-
-
+    sell_col, buy_col = st.columns([1,1])
+    with sell_col:
+        st.metric(label='最低卖价', value=item_price['ingame_lowest_sell_platinum'])
+    with buy_col:
+        st.metric(label='最高买价', value=item_price['ingame_highest_buy_platinum'])
