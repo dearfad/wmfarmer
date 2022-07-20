@@ -20,7 +20,7 @@ with search_col:
         item_orders = item_orders(url_name)
 
 
-st.write(f"- 获取信息时间: {item_info['time']}")
+st.write(f"- 获取信息时间: {item_info['time'].split()[1]}")
 st.write(f"- 获取订单时间: {item_orders['time']}")
     
 # show_item(url_name, item_info['info'], item_orders['orders'])
