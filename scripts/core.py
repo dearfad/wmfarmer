@@ -13,7 +13,6 @@ def item_price(orders):
         'ingame_low_sell': pd.DataFrame(),
         'week_low_sell_platinum': 0,        
     }
-    st.write(orders_df)
 
     # ingame_hightest_buy
     ingame_buy_orders = orders_df[(orders_df['user.status'] == 'ingame') & (
