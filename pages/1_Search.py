@@ -1,6 +1,7 @@
 import streamlit as st
 from scripts.wmmarket import items, item_info, item_orders
 from scripts.core import item_price
+import pandas as pd
 
 assets_url = "https://warframe.market/static/assets/"
 item_url = "https://warframe.market/zh-hans/items/"
@@ -35,4 +36,6 @@ else:
         st.write(f"![ducats](https://warframe.market/static/build/resources/images/icons/Ducats.b2f626d13cd31d84117a.png) **{item_info['info'].get('ducats', '--')}**")
         st.write(f"📝 {item_info['info']['zh-hans']['description']}")
         st.write(f"[WARFRAME MARKET]({item_url+url_name})")
+    
+    st.write(pd.json_normalize(orders))
     
