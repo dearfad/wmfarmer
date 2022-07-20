@@ -3,14 +3,13 @@ from scripts.wmmarket import items, item_info, item_orders
 # from pages.core import show_item
 
 
-items = items()
+items = items()['items']
 
-col0, col1 = st.columns([2, 2])
+search_col, empty_col = st.columns([1, 1])
 
-with col0:
+with search_col:
     input_name = st.text_input('模糊搜索：', '')
-    search_result = items['items'][items['items']['item_name'].str.contains(
-        input_name.strip(), case=False)]
+    search_result = items[items['item_name'].str.contains(input_name.strip(), case=False)]
     if search_result.empty:
         st.warning('未找到相关信息...')
     else:
@@ -24,4 +23,4 @@ with col0:
 st.write(f"- 获取信息时间: {item_info['time']}")
 st.write(f"- 获取订单时间: {item_orders['time']}")
     
-show_item(url_name, item_info['info'], item_orders['orders'])
+# show_item(url_name, item_info['info'], item_orders['orders'])
