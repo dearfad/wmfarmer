@@ -13,8 +13,8 @@ with search_col:
     if search_result.empty:
         st.warning('未找到相关信息...')
     else:
-        selected_name = st.selectbox(
-            '已发现：', search_result['item_name'] + ' ' + search_result['url_name'])
+        st.write(search_result)
+        selected_name = st.selectbox('已发现：', search_result['item_name'] + ' ' + search_result['url_name'])
         url_name = selected_name.split(' ')[-1]
         item_info = item_info(url_name)
         item_orders = item_orders(url_name)
