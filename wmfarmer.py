@@ -9,5 +9,5 @@ if items()['time']=='failed':
     st.write(f"➖ ⏱️ **Failed** ➖ *️⃣ **Status Code: {items()[items]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
 else:
     st.write(f"➖ ⏱️ **{items()['time']}** ➖ *️⃣ **Total: {items()['items'].shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
-    st.write(f"➖ ⏱️ **Failed** ➖ *️⃣ **Status Code: 200** ➖ 👨‍💼 **By: DEARFAD** ➖")
-    # st.write(f"➖ ⏱️ **Failed** ➖ *️⃣ **Status Code: {items()[items]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
+    st.write(f"➖ ⏱️ **Get Items Failed** ➖ *️⃣ **Status Code: 200** ➖ 👨‍💼 **By: DEARFAD** ➖")
+    # st.write(f"➖ ⏱️ **Get Items Failed** ➖ *️⃣ **Status Code: {items()[items]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
