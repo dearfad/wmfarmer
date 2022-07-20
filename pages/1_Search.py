@@ -1,7 +1,6 @@
 import streamlit as st
 from scripts.wmmarket import items, item_info, item_orders
 from scripts.core import item_price
-import pandas as pd
 
 assets_url = "https://warframe.market/static/assets/"
 item_url = "https://warframe.market/zh-hans/items/"
