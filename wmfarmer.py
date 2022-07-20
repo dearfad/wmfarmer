@@ -9,4 +9,4 @@ if items()['time']=='failed':
     st.write(f"- **Failed!**")
     st.write(f"- **Status Code**: **{items()[items]}**")
 else:
-    st.write(f"⏱️ **{items()['time']} *️⃣ Total: {items()['items'].shape[0]}**")
+    st.write(f"⏱️ **{items()['time']}** *️⃣ **Total: {items()['items'].shape[0]}**")
