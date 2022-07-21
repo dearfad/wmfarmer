@@ -13,7 +13,7 @@ col1, col2 = st.columns(2)
 with col1:
     st.table(wcol1)
 with col2:
-    st.write(wcol2)
+    st.table(wcol2)
 
 col3, col4 = st.columns(2)
 with col3:
