@@ -34,9 +34,10 @@ def get_warframe_price():
     warframe_price_df = pd.DataFrame(data=np.zeros((len(warframe_prime_list),len(warframe_prime_set_list)), dtype = int), index=warframe_prime_list, columns=warframe_prime_set_list)
 
     warframe_progress = st.progress(0)
+    warframe_count = len(warframe_prime_list)
 
     for i, warframe in enumerate(warframe_prime_list):
-        warframe_progress.progress(i)
+        warframe_progress.progress(int(i/warframe_count*100))
         for item in warframe_prime_set_list:
             url_name = warframe + '_prime_' + item
             if warframe=='khora':
