@@ -11,6 +11,7 @@ warframe_prime_set_list = ['set', 'blueprint', 'neuroptics', 'chassis', 'systems
 
 warframe_df = pd.DataFrame(data=np.zeros((len(warframe_prime_list),len(warframe_prime_set_list)), dtype = int), index=warframe_prime_list, columns=warframe_prime_set_list)
 
+warframe_df.loc['ash','set'] = 1
 st.write(warframe_df.loc['ash','set'])
 st.write(warframe_df)
 
