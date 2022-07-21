@@ -13,7 +13,7 @@ warframe_df = pd.DataFrame(data=np.zeros((len(warframe_prime_list),len(warframe_
 
 
 for warframe in warframe_prime_list:
-    for item in enumerate(warframe_prime_set_list):
+    for item in warframe_prime_set_list:
         url_name = warframe + '_prime_' + item
         if warframe=='khora':
             if item in ['neuroptics', 'chassis', 'systems']:
