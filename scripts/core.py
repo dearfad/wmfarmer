@@ -50,7 +50,7 @@ def get_warframe_price():
             # ducats = int(info['info'].get('ducats', '--'))
             # label = "💛" if ducats==100 else ""
     
-            warframe_price_df.loc[warframe, item] = str(price['ingame_lowest_sell_platinum']).rjust(3,'0') + '-' + str(price['ingame_highest_buy_platinum']).rjust(3,'0')
+            warframe_price_df.loc[warframe, item] = str(price['ingame_lowest_sell_platinum']) + '\n' + str(price['ingame_highest_buy_platinum'])
     progress.empty()
 
     return warframe_price_df
