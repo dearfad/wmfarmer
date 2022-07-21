@@ -3,7 +3,7 @@ from scripts.core import get_warframe_price
 
 warframe_price_df = get_warframe_price()
 
-wcol1 = warframe_price_df.iloc[:10, :]
+wcol1 = warframe_price_df.iloc[:9, :]
 wcol2 = warframe_price_df.iloc[10:20, :]
 wcol3 = warframe_price_df.iloc[20:30, :]
 wcol4 = warframe_price_df.iloc[30:, :]
