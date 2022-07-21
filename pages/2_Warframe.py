@@ -2,4 +2,13 @@ import streamlit as st
 from scripts.core import get_warframe_price
 
 warframe_price_df = get_warframe_price()
-st.write(warframe_price_df)
+
+wcol1 = warframe_price_df.iloc[:10, :]
+wcol2 = warframe_price_df.iloc[10, :]
+
+col1, col2 = st.columns()
+
+with col1:
+    st.write(wcol1)
+with col2:
+    st.write(wcol2)
