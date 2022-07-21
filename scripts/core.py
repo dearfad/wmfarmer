@@ -44,7 +44,7 @@ def get_warframe_price():
             price = item_price(orders['orders'])
             info = item_info(url_name)
 
-            warframe_df.loc[warframe, item] = price['ingame_lowest_sell_platinum']
+            warframe_price_df.loc[warframe, item] = price['ingame_lowest_sell_platinum']
 
             # st.write(f"**{price['ingame_lowest_sell_platinum']}**")
             # ducats = int(info['info'].get('ducats', '--'))
