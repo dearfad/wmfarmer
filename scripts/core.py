@@ -1,5 +1,4 @@
 from scripts.wmmarket import item_orders, item_info
-from scripts.core import item_price
 import numpy as np
 import pandas as pd
 
