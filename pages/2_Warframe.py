@@ -8,12 +8,14 @@ wcol2 = warframe_price_df.iloc[10:20, :]
 wcol3 = warframe_price_df.iloc[20:30, :]
 wcol4 = warframe_price_df.iloc[30:, :]
 
-col1, col2 = st.columns(2)
+format_dict = {
+}
 
+col1, col2 = st.columns(2)
 with col1:
-    st.table(wcol1)
+    st.write(wcol1.style.format({format_dict}, align='center'))
 with col2:
-    st.table(wcol2)
+    st.write(wcol2)
 
 col3, col4 = st.columns(2)
 with col3:
