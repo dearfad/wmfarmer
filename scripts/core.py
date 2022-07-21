@@ -35,6 +35,7 @@ def get_warframe_price():
 
 
     for warframe in warframe_prime_list:
+        st.info(warframe)
         for item in warframe_prime_set_list:
             url_name = warframe + '_prime_' + item
             if warframe=='khora':
