@@ -8,12 +8,12 @@ wcol2 = warframe_price_df.iloc[10:20, :]
 wcol3 = warframe_price_df.iloc[20:30, :]
 wcol4 = warframe_price_df.iloc[30:, :]
 
-format_dict = {
-}
+def left_align(s, props='text-align: left;'):
+    return props
 
 col1, col2 = st.columns(2)
 with col1:
-    st.write(wcol1.style.format({format_dict}, align='center'))
+    st.write(wcol1.style.applymap(left_align))
 with col2:
     st.write(wcol2)
 
