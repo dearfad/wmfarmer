@@ -1,4 +1,3 @@
-from requests import URLRequired
 import streamlit as st
 from scripts.wmmarket import item_orders, item_info
 from scripts.core import item_price
