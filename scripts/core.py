@@ -33,13 +33,14 @@ def get_warframe_price():
 
     warframe_price_df = pd.DataFrame(data=np.zeros((len(warframe_prime_list),len(warframe_prime_set_list)), dtype = int), index=warframe_prime_list, columns=warframe_prime_set_list)
 
+    progress = st.empty()
     warframe_progress = st.progress(0)
     warframe_count = len(warframe_prime_list)
-    name = st.empty()
 
     for i, warframe in enumerate(warframe_prime_list):
-        warframe_progress.progress(int(i/warframe_count*100))
-        name.text(warframe)
+        with progress.container():
+            warframe_progress.progress(int(i/warframe_count*100))
+            st.write(warframe)
         for item in warframe_prime_set_list:
             url_name = warframe + '_prime_' + item
             if warframe=='khora':
@@ -56,4 +57,6 @@ def get_warframe_price():
             # label = "💛" if ducats==100 else ""
             # st.write(f"**{price['ingame_highest_buy_platinum']}** {label}")
     
+    progress.empty()
+
     return warframe_price_df
