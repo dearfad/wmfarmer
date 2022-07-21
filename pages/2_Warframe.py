@@ -2,12 +2,14 @@ import streamlit as st
 from scripts.wmmarket import item_orders, item_info
 from scripts.core import item_price
 import pandas as pd
+import numpy as np
 
 warframe_prime_list = ['ash', 'atlas', 'banshee', 'chroma', 'ember', 'equinox', 'frost', 'gara', 'garuda', 'harrow', 'hydroid', 'inaros', 'ivara', 'khora', 'limbo', 'loki', 'mag',
                            'mesa', 'mirage', 'nekros', 'nezha', 'nidus', 'nova', 'nyx', 'oberon', 'octavia', 'rhino', 'saryn', 'titania', 'trinity', 'valkyr', 'vauban', 'volt', 'wukong', 'zephyr']
 warframe_prime_set_list = ['set', 'blueprint', 'neuroptics', 'chassis', 'systems']
 
-warframe_df = pd.Dataframe(index=warframe_prime_list, columns=warframe_prime_set_list)
+
+warframe_df = pd.Dataframe(data=np.zeros(len(warframe_prime_list),len(warframe_prime_set_list)), index=warframe_prime_list, columns=warframe_prime_set_list)
 
 st.write(warframe_df)
 
