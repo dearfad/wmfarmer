@@ -36,7 +36,7 @@ def get_warframe_price():
     progress = st.empty()
 
     for i, warframe in enumerate(warframe_prime_list):
-        progress.write(f"**{warframe.upper()}**")
+        progress.write(f"获取 **{warframe.upper()}** 价格列表中...")
         for item in warframe_prime_set_list:
             url_name = warframe + '_prime_' + item
             if warframe=='khora':
