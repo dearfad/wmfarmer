@@ -45,7 +45,7 @@ def items(language='zh-hans'):
     return items
 
 
-# @st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
+@st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
 def item_info(url_name):
     # items_info: Gets information about an item
     headers = {"Platform": "pc"}
@@ -63,7 +63,7 @@ def item_info(url_name):
     return item_info
 
 
-# @st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
+@st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
 def item_orders(url_name):
     # item_orders: Get list of orders for a given item_id
     # st.cache
