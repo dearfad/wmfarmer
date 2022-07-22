@@ -27,7 +27,7 @@ items_api_url = Computed_URL + "/items"
 
 
 @st.cache(show_spinner=True, suppress_st_warning=False, ttl=86400.0)
-def items(language='zh-hans'):
+def get_items(language='zh-hans'):
     # items: Get list of all tradable items.
     # ['id', 'thumb', 'url_name', 'item_name_cn', 'item_name_en']
     # Language : en, ru, ko, de, fr, pt, zh-hans, zh-hant, es, it, pl
@@ -46,7 +46,7 @@ def items(language='zh-hans'):
 
 
 @st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
-def item_info(url_name):
+def get_item_info(url_name):
     # items_info: Gets information about an item
     headers = {"Platform": "pc"}
     r = requests.get(f'{items_api_url}/{url_name}', headers=headers)
@@ -64,7 +64,7 @@ def item_info(url_name):
 
 
 @st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
-def item_orders(url_name):
+def get_item_orders(url_name):
     # item_orders: Get list of orders for a given item_id
     # st.cache
     # ttl = 60.0 Change if Needed
@@ -84,7 +84,7 @@ def item_orders(url_name):
 
 
 @st.cache(show_spinner=False, suppress_st_warning=True)
-def items_droptables(url_name):
+def get_items_droptables(url_name):
     # items_droptables: Get droptables for a given item
     pass
 
