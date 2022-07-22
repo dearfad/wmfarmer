@@ -3,7 +3,7 @@ from scripts.wmmarket import get_item_orders, get_item_info
 import numpy as np
 import pandas as pd
 
-def item_price(orders):
+def get_item_price(orders):
     orders_df = pd.json_normalize(orders)
     item_price = {
         'ingame_highest_buy_platinum': 0,
