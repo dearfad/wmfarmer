@@ -21,7 +21,7 @@ else:
 
     price_col, thumb_col, description_col = st.columns([1,2,4])
     with price_col:        
-        item_price = item_price(item_orders['orders'])
+        item_price = get_item_price(item_orders['orders'])
         st.metric(label='最低卖价', value=item_price['ingame_lowest_sell_platinum'])
         st.metric(label='最高买价', value=item_price['ingame_highest_buy_platinum'])
     with thumb_col:
