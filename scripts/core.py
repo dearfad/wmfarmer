@@ -24,7 +24,6 @@ def get_item_price(orders):
 
     return item_price
 
-@st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
 def get_warframe_price():
 
     warframe_prime_list = ['ash', 'atlas', 'banshee', 'chroma', 'ember', 'equinox', 'frost', 'gara', 'garuda', 'harrow', 'hydroid', 'inaros', 'ivara', 'khora', 'limbo', 'loki', 'mag',
@@ -42,15 +41,16 @@ def get_warframe_price():
             if warframe=='khora':
                 if item in ['neuroptics', 'chassis', 'systems']:
                     url_name = url_name + '_blueprint'
-            orders = item_orders(url_name)
-            price = item_price(orders['orders'])
-            info = item_info(url_name)
+            orders = get_item_orders(url_name)
+            price = get_item_price(orders['orders'])
+            info = get_item_info(url_name)
 
 
             # ducats = int(info['info'].get('ducats', '--'))
             # label = "💛" if ducats==100 else ""
     
             warframe_price_df.loc[warframe, item] = str(price['ingame_lowest_sell_platinum']) + ' - ' + str(price['ingame_highest_buy_platinum'])
+            
     progress.empty()
 
     return warframe_price_df
