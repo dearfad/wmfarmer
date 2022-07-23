@@ -2,6 +2,7 @@ import streamlit as st
 from scripts.wmmarket import get_item_orders, get_item_info
 import numpy as np
 import pandas as pd
+import time
 
 def get_item_price(orders):
     orders_df = pd.json_normalize(orders)
@@ -24,6 +25,7 @@ def get_item_price(orders):
 
     return item_price
 
+@st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
 def get_warframe_price():
 
     warframe_prime_list = ['ash', 'atlas', 'banshee', 'chroma', 'ember', 'equinox', 'frost', 'gara', 'garuda', 'harrow', 'hydroid', 'inaros', 'ivara', 'khora', 'limbo', 'loki', 'mag',
@@ -34,7 +36,10 @@ def get_warframe_price():
 
     progress = st.empty()
 
+
+
     for i, warframe in enumerate(warframe_prime_list):
+        s_time = time()
         progress.write(f"🚴‍♂️ **{warframe.upper()}** ...")
         for item in warframe_prime_set_list:
             url_name = warframe + '_prime_' + item
@@ -50,6 +55,8 @@ def get_warframe_price():
             # label = "💛" if ducats==100 else ""
     
             warframe_price_df.loc[warframe, item] = str(item_price['ingame_lowest_sell_platinum']) + ' - ' + str(item_price['ingame_highest_buy_platinum'])
+        e_time = time()
+        progress.write(e_time - s_time)
 
     progress.empty()
 
