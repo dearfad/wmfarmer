@@ -42,6 +42,7 @@ def get_warframe_price():
                 if item in ['neuroptics', 'chassis', 'systems']:
                     url_name = url_name + '_blueprint'
             item_orders = get_item_orders(url_name)
+            st.write(item_orders['orders'])
             item_price = get_item_price(item_orders['orders'])
             item_info = get_item_info(url_name)
 
