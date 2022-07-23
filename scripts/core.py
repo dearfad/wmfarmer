@@ -39,7 +39,7 @@ def get_warframe_price():
 
 
     for i, warframe in enumerate(warframe_prime_list):
-        s_time = time()
+        s_time = time.time()
         progress.write(f"🚴‍♂️ **{warframe.upper()}** ...")
         for item in warframe_prime_set_list:
             url_name = warframe + '_prime_' + item
@@ -55,7 +55,7 @@ def get_warframe_price():
             # label = "💛" if ducats==100 else ""
     
             warframe_price_df.loc[warframe, item] = str(item_price['ingame_lowest_sell_platinum']) + ' - ' + str(item_price['ingame_highest_buy_platinum'])
-        e_time = time()
+        e_time = time.time()
         progress.write(e_time - s_time)
 
     progress.empty()
