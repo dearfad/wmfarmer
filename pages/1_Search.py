@@ -12,10 +12,13 @@ search_result = items[items['item_name'].str.contains(input_name.strip(), case=F
 if search_result.empty:
     st.warning('未找到相关信息...')
 else:
+    
     selected_name = st.selectbox('已发现：', search_result['item_name'])
+
     url_name = search_result[search_result['item_name']==selected_name]['url_name'].values[0]
     item_info = get_item_info(url_name)
     item_orders = get_item_orders(url_name)
+
     st.write(f"➖ ⏱️ **Info: {item_info['time'].split()[1]}** ➖ ⏲️ **Orders: {item_orders['time'].split()[1]}** ➖")
     st.write(f"### **{item_info['info']['zh-hans']['item_name']}**")
 
