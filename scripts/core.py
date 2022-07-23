@@ -56,7 +56,7 @@ def get_warframe_price():
     
             warframe_price_df.loc[warframe, item] = str(item_price['ingame_lowest_sell_platinum']) + ' - ' + str(item_price['ingame_highest_buy_platinum'])
         e_time = time.time()
-        progress.write(e_time - s_time)
+        st.write(e_time - s_time)
 
     progress.empty()
 
