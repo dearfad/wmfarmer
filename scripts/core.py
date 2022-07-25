@@ -24,7 +24,7 @@ def get_item_price(orders):
 
     return item_price
 
-# @st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
+@st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
 def get_warframe_price():
 
     warframe_prime_list = ['ash', 'atlas', 'banshee', 'chroma', 'ember', 'equinox', 'frost', 'gara', 'garuda', 'harrow', 'hydroid', 'inaros', 'ivara', 'khora', 'limbo', 'loki', 'mag',
