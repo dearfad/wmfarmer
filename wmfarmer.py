@@ -3,7 +3,7 @@ import streamlit as st
 from scripts.wmmarket import get_items, get_item_info, get_item_orders
 from scripts.core import get_item_price
 
-st.set_page_config(page_title='Warframe Market Farmer', layout="wide", page_icon='👨‍🌾')
+st.set_page_config(page_title='Warframe Market Farmer', page_icon='👨‍🌾')
 
 assets_url = "https://warframe.market/static/assets/"
 item_url = "https://warframe.market/zh-hans/items/"
@@ -33,15 +33,15 @@ if url_name:
     item_orders = get_item_orders(url_name)
     
     with info_col:
-        st.write(f"➖ ⏱️ **Info: {item_info['time'].split()[1]}** ➖ ⏲️ **Orders: {item_orders['time'].split()[1]}** ➖")
+        # st.write(f"➖ ⏱️ **Info: {item_info['time'].split()[1]}** ➖ ⏲️ **Orders: {item_orders['time'].split()[1]}** ➖")
         st.write(f"### **{item_info['info']['zh-hans']['item_name']}**")
-        wiki_link = item_info['info']['zh-hans']['wiki_link']
-        if wiki_link:
-            # st.write(f"[![{item_info['info']['zh-hans']['item_name']}]({assets_url+item_info['info']['thumb']})]({item_info['info']['zh-hans']['wiki_link']})")
-            st.write(f"[![{item_info['info']['zh-hans']['item_name']}]({assets_url+item_info['info']['icon']})]({item_info['info']['zh-hans']['wiki_link']})")
-        else:
-            # st.write(f"![{item_info['info']['zh-hans']['item_name']}]({assets_url+item_info['info']['thumb']})")
-            st.write(f"![{item_info['info']['zh-hans']['item_name']}]({assets_url+item_info['info']['icon']})")
+        # wiki_link = item_info['info']['zh-hans']['wiki_link']
+        # if wiki_link:
+        #     # st.write(f"[![{item_info['info']['zh-hans']['item_name']}]({assets_url+item_info['info']['thumb']})]({item_info['info']['zh-hans']['wiki_link']})")
+        #     st.write(f"[![{item_info['info']['zh-hans']['item_name']}]({assets_url+item_info['info']['icon']})]({item_info['info']['zh-hans']['wiki_link']})")
+        # else:
+        #     # st.write(f"![{item_info['info']['zh-hans']['item_name']}]({assets_url+item_info['info']['thumb']})")
+        #     st.write(f"![{item_info['info']['zh-hans']['item_name']}]({assets_url+item_info['info']['icon']})")
         item_price = get_item_price(item_orders['orders'])
         st.metric(label='最低卖价', value=item_price['ingame_lowest_sell_platinum'])
         st.metric(label='最高买价', value=item_price['ingame_highest_buy_platinum'])
