@@ -17,7 +17,7 @@ else:
     st.write(f"➖ ⏱️ **{items['time']}** ➖ *️⃣ **Total: {items['items'].shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
 
 input_name = st.text_input('模糊搜索：', '')
-search_result = items['items][items['items']['item_name'].str.contains(input_name.strip(), case=False)]
+search_result = items['items'][items['items']['item_name'].str.contains(input_name.strip(), case=False)]
 
 if search_result.empty:
     st.warning('未找到相关信息...')
