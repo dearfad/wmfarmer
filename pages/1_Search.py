@@ -30,12 +30,12 @@ with search_col:
         else:
             # st.write(f"![{item_info['info']['zh-hans']['item_name']}]({assets_url+item_info['info']['thumb']})")
             st.write(f"![{item_info['info']['zh-hans']['item_name']}]({assets_url+item_info['info']['icon']})")
-    # price_col, thumb_col, description_col = search_col.columns([1,2,4])
-    # with price_col:        
-    #     item_price = get_item_price(item_orders['orders'])
-    #     st.metric(label='最低卖价', value=item_price['ingame_lowest_sell_platinum'])
-    #     st.metric(label='最高买价', value=item_price['ingame_highest_buy_platinum'])
-    # with description_col:
-    #     st.write(f"![ducats](https://warframe.market/static/build/resources/images/icons/Ducats.b2f626d13cd31d84117a.png) **{item_info['info'].get('ducats', '--')}**")
-    #     st.write(f"📝 {item_info['info']['zh-hans']['description']}")
-    #     st.write(f"[WARFRAME MARKET]({item_url+url_name})")
+
+with info_col:
+    if url_name:
+        item_price = get_item_price(item_orders['orders'])
+        st.metric(label='最低卖价', value=item_price['ingame_lowest_sell_platinum'])
+        st.metric(label='最高买价', value=item_price['ingame_highest_buy_platinum'])
+        st.write(f"![ducats](https://warframe.market/static/build/resources/images/icons/Ducats.b2f626d13cd31d84117a.png) **{item_info['info'].get('ducats', '--')}**")
+        st.write(f"📝 {item_info['info']['zh-hans']['description']}")
+        st.write(f"[WARFRAME MARKET]({item_url+url_name})")
