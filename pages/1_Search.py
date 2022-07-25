@@ -28,8 +28,6 @@ with search_col:
             st.write(f"[![{item_info['info']['zh-hans']['item_name']}]({assets_url+item_info['info']['thumb']})]({item_info['info']['zh-hans']['wiki_link']})")
         else:
             st.write(f"![{item_info['info']['zh-hans']['item_name']}]({assets_url+item_info['info']['thumb']})")
-        
-        st.write(item_info)
         st.write(f"![{item_info['info']['zh-hans']['item_name']}]({assets_url+item_info['info']['icon']})")
     # price_col, thumb_col, description_col = search_col.columns([1,2,4])
     # with price_col:        
