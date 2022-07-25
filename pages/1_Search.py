@@ -38,5 +38,3 @@ else:
         st.write(f"📝 {item_info['info']['zh-hans']['description']}")
         st.write(f"[WARFRAME MARKET]({item_url+url_name})")
     
-    st.write(item_info)
-        
