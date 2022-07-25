@@ -7,7 +7,7 @@ item_url = "https://warframe.market/zh-hans/items/"
 
 items = get_items()['items']
 
-search_col, info_col = st.columns(2)
+search_col, empty_col, info_col = st.columns([3,1,3])
 
 with search_col:
     input_name = st.text_input('模糊搜索：', '')
