@@ -17,7 +17,7 @@ if items['time']=='failed':
 else:
     st.write(f"➖ ⏱️ **{items['time']}** ➖ *️⃣ **Total: {items['items'].shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
 
-search_col, empty_col, info_col = st.columns([3,1,6])
+search_col, empty_col, info_col = st.columns([4,1,10])
 
 with search_col:
     input_name = st.text_input('模糊搜索：', '')
