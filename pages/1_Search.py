@@ -23,6 +23,9 @@ with search_col:
 
         st.write(f"➖ ⏱️ **Info: {item_info['time'].split()[1]}** ➖ ⏲️ **Orders: {item_orders['time'].split()[1]}** ➖")
         st.write(f"### **{item_info['info']['zh-hans']['item_name']}**")
+
+with info_col:
+    if url_name:
         wiki_link = item_info['info']['zh-hans']['wiki_link']
         if wiki_link:
             # st.write(f"[![{item_info['info']['zh-hans']['item_name']}]({assets_url+item_info['info']['thumb']})]({item_info['info']['zh-hans']['wiki_link']})")
@@ -30,9 +33,6 @@ with search_col:
         else:
             # st.write(f"![{item_info['info']['zh-hans']['item_name']}]({assets_url+item_info['info']['thumb']})")
             st.write(f"![{item_info['info']['zh-hans']['item_name']}]({assets_url+item_info['info']['icon']})")
-
-with info_col:
-    if url_name:
         item_price = get_item_price(item_orders['orders'])
         st.metric(label='最低卖价', value=item_price['ingame_lowest_sell_platinum'])
         st.metric(label='最高买价', value=item_price['ingame_highest_buy_platinum'])
