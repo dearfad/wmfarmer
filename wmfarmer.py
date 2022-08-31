@@ -51,7 +51,7 @@ with warframe:
     st.write(f"- 总计：{warframe_price_df.shape[0]}")
 
 with weapon:
-    st.write('#### 主武器')
+    st.write('##### 主武器')
     weapon_price_df = get_weapon_price()
     weapon_table = "|名 称|套 装|蓝 图|枪 机|枪 托|枪 管|\n|:---:|:---:|:---:|:---:|:---:|:---:|\n"
     for index, row in weapon_price_df.iterrows():
