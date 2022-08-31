@@ -43,4 +43,5 @@ warframe, weapon, mod = st.tabs(["战甲", "武器", "MOD"])
 
 with warframe:
     warframe_price_df = get_warframe_price()
-    st.write(warframe_price_df)
+    for item in warframe_price_df:
+        st.write(item)
