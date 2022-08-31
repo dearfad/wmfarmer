@@ -48,4 +48,4 @@ with warframe:
         price = f'|**{index.upper()}**|{row["set"]}|{row["blueprint"]}|{row["neuroptics"]}|{row["chassis"]}|{row["systems"]}|\n'
         warframe_table = warframe_table + price
     st.write(warframe_table)
-    st.write(f"\n- 总计：{warframe_price_df.shape[0]}")
+    st.write(f"- 总计：{warframe_price_df.shape[0]}")
