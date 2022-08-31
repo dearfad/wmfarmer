@@ -36,7 +36,7 @@ if url_name:
         st.write(f"#### **{item_info['info']['zh-hans']['item_name']}**")
         item_price = get_item_price(item_orders['orders'])
         wiki_link = 'https://warframe.huijiwiki.com/wiki/' + item_info['info']['zh-hans']['item_name']
-        st.write(f"###### ![ducats](https://warframe.market/static/build/resources/images/icons/Ducats.b2f626d13cd31d84117a.png) **{item_info['info'].get('ducats', '0')}** - [WM]({item_url+url_name}) - [WIKI]({wiki_link})")
+        st.write(f"###### ![ducats](https://warframe.market/static/build/resources/images/icons/Ducats.b2f626d13cd31d84117a.png) **{item_info['info'].get('ducats', '0')}** - [WM]({item_url+url_name}) - [WIKI]({wiki_link.replace(' ','')})")
         st.write(f"###### 最低卖价: {item_price['ingame_lowest_sell_platinum']}")
         st.write(f"###### 最高买价: {item_price['ingame_highest_buy_platinum']}")
 
