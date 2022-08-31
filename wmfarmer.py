@@ -50,3 +50,5 @@ if url_name:
         # st.metric(label='最高买价', value=item_price['ingame_highest_buy_platinum'])
         # st.write(f"📝 {item_info['info']['zh-hans']['description']}")
         # st.write(f"###### [WM]({item_url+url_name})")
+
+tab1, tab2, tab3 = st.tabs(["战甲", "武器", "MOD"])
