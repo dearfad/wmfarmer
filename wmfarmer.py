@@ -49,4 +49,4 @@ if url_name:
         # st.metric(label='最低卖价', value=item_price['ingame_lowest_sell_platinum'])
         # st.metric(label='最高买价', value=item_price['ingame_highest_buy_platinum'])
         # st.write(f"📝 {item_info['info']['zh-hans']['description']}")
-        st.write(f"-[WARFRAME MARKET]({item_url+url_name})-")
+        st.write(f"###### [WM]({item_url+url_name})")
