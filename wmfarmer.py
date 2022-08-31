@@ -3,7 +3,7 @@ import streamlit as st
 from scripts.wmmarket import get_items, get_item_info, get_item_orders
 from scripts.core import get_item_price, get_warframe_price, get_weapon_price
 
-st.set_page_config(page_title='Warframe Market Farmer', page_icon='👨‍🌾')
+st.set_page_config(page_title='Warframe Market Farmer', page_icon='👨‍🌾', layout="wide")
 
 assets_url = "https://warframe.market/static/assets/"
 item_url = "https://warframe.market/zh-hans/items/"
