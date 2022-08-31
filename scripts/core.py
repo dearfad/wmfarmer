@@ -77,8 +77,7 @@ def get_weapon_price():
             item_orders = get_item_orders(url_name)
             item_price = get_item_price(item_orders['orders'])
             item_info = get_item_info(url_name)
-            item_info['info']['zh-hans']['item_name']
-            weapon_price_df.loc[weapon, 'item_name'] = item_info['info']['zh-hans']['item_name']
+            weapon_price_df.loc[weapon, 'item_name'] = item_info['info']['zh-hans']['item_name'].split(' ')[0]
 
             # ducats = int(info['info'].get('ducats', '--'))
             # label = "💛" if ducats==100 else ""    
