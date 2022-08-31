@@ -69,19 +69,14 @@ def get_weapon_price():
 
     for i, weapon in enumerate(weapon_prime_list):
         progress.write(f"🚴‍♂️ **{weapon.upper()}** ...")
+       
+        item_info = get_item_info(weapon + '_prime_set')
+        weapon_price_df.loc[weapon, 'item_name'] = item_info['info']['zh-hans']['item_name'].split(' ')[0]
+
         for item in weapon_prime_set_list:
             url_name = weapon + '_prime_' + item
-            # if warframe=='khora':
-            #     if item in ['neuroptics', 'chassis', 'systems']:
-            #         url_name = url_name + '_blueprint'
             item_orders = get_item_orders(url_name)
             item_price = get_item_price(item_orders['orders'])
-            item_info = get_item_info(url_name)
-            weapon_price_df.loc[weapon, 'item_name'] = item_info['info']['zh-hans']['item_name'].split(' ')[0]
-
-            # ducats = int(info['info'].get('ducats', '--'))
-            # label = "💛" if ducats==100 else ""    
-            # warframe_price_df.loc[warframe, item] = str(item_price['ingame_lowest_sell_platinum']) + ' - ' + str(item_price['ingame_highest_buy_platinum'])
             weapon_price_df.loc[weapon, item] = item_price['ingame_lowest_sell_platinum']
 
     progress.empty()
