@@ -59,7 +59,7 @@ def get_warframe_price():
 @st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
 def get_weapon_price():
 
-    weapon_prime_list = ['burston','tenora','braton','vectis','sybaris','latron','stradavar','soma','tiberon','baza','boltor']
+    weapon_prime_list = ['burston','tenora','braton','vectis','sybaris','latron','stradavar','soma','tiberon','baza','boltor','strun','tigris','astilla','corinth','boar']
     weapon_prime_set_list = ['set', 'blueprint', 'receiver', 'stock', 'barrel']
 
     weapon_price_df = pd.DataFrame(data=np.zeros((len(weapon_prime_list),len(weapon_prime_set_list)), dtype = int), index=weapon_prime_list, columns=weapon_prime_set_list)
