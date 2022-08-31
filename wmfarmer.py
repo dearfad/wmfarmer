@@ -33,7 +33,7 @@ if url_name:
     item_orders = get_item_orders(url_name)
     
     with info_col:
-        # st.write(f"➖ ⏱️ **Info: {item_info['time'].split()[1]}** ➖ ⏲️ **Orders: {item_orders['time'].split()[1]}** ➖")
+        st.write(f"➖ ⏱️ **Info: {item_info['time'].split()[1]}** ➖ ⏲️ **Orders: {item_orders['time'].split()[1]}** ➖")
         st.write(f"### **{item_info['info']['zh-hans']['item_name']}**")
         # wiki_link = item_info['info']['zh-hans']['wiki_link']
         # if wiki_link:
