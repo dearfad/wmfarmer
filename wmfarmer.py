@@ -1,7 +1,7 @@
 from pandas.core import series
 import streamlit as st
 from scripts.wmmarket import get_items, get_item_info, get_item_orders
-from scripts.core import get_item_price
+from scripts.core import get_item_price, get_warframe_price
 
 st.set_page_config(page_title='Warframe Market Farmer', page_icon='👨‍🌾')
 
@@ -39,4 +39,8 @@ if url_name:
         st.write(f"###### 最低卖价: {item_price['ingame_lowest_sell_platinum']}")
         st.write(f"###### 最高买价: {item_price['ingame_highest_buy_platinum']}")
 
-tab1, tab2, tab3 = st.tabs(["战甲", "武器", "MOD"])
+warframe, weapon, mod = st.tabs(["战甲", "武器", "MOD"])
+
+with warframe:
+    warframe_price_df = get_warframe_price()
+    st.write(warframe_price_df)
