@@ -42,11 +42,23 @@ if url_name:
 warframe, weapon, mod = st.tabs(["战甲Prime", "武器Prime", "MOD"])
 
 with warframe:
+    warframe_price_df = get_warframe_price()
     col_1, col_2, col_3 = st.columns([1,1,1])
-    with col_2:
-        warframe_price_df = get_warframe_price()
+    with col_1:
         warframe_table = "|名 称|套 装|蓝 图|头 部|机 体|系 统|\n|:---:|:---:|:---:|:---:|:---:|:---:|\n"
-        for index, row in warframe_price_df.iterrows():
+        for index, row in warframe_price_df[:12].iterrows():
+            price = f'|**{index.upper()}**|{row["set"]}|{row["blueprint"]}|{row["neuroptics"]}|{row["chassis"]}|{row["systems"]}|\n'
+            warframe_table = warframe_table + price
+        st.write(warframe_table)
+    with col_2:
+        warframe_table = "|名 称|套 装|蓝 图|头 部|机 体|系 统|\n|:---:|:---:|:---:|:---:|:---:|:---:|\n"
+        for index, row in warframe_price_df[12:24].iterrows():
+            price = f'|**{index.upper()}**|{row["set"]}|{row["blueprint"]}|{row["neuroptics"]}|{row["chassis"]}|{row["systems"]}|\n'
+            warframe_table = warframe_table + price
+        st.write(warframe_table)
+    with col_3:
+        warframe_table = "|名 称|套 装|蓝 图|头 部|机 体|系 统|\n|:---:|:---:|:---:|:---:|:---:|:---:|\n"
+        for index, row in warframe_price_df[24:].iterrows():
             price = f'|**{index.upper()}**|{row["set"]}|{row["blueprint"]}|{row["neuroptics"]}|{row["chassis"]}|{row["systems"]}|\n'
             warframe_table = warframe_table + price
         st.write(warframe_table)
