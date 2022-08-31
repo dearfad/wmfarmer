@@ -73,8 +73,8 @@ with weapon:
         for index, row in weapon_price_df.iterrows():
             price = f'|**{row["item_name"]}**|{row["set"]}|{row["blueprint"]}|{row["receiver"]}|{row["stock"]}|{row["barrel"]}|\n'
             weapon_table = weapon_table + price
+        weapon_table = weapon_table + f"| | | | |总计|{weapon_price_df.shape[0]}|\n"
         st.write(weapon_table)
-        st.write(f"- 总计：{weapon_price_df.shape[0]}")
     with col_side_weapon:
         st.write("##### 副武器")
     with col_melee_weapon:
