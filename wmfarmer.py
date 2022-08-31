@@ -45,7 +45,6 @@ with warframe:
     warframe_price_df = get_warframe_price()
     warframe_table = "|名称|套装|蓝图|头部|机体|系统|\n|----|----|----|----|----|----|\n"
     for index, row in warframe_price_df.iterrows():
-        ['set', 'blueprint', 'neuroptics', 'chassis', 'systems']
         price = f'|{index}|{row["set"]}|{row["blueprint"]}|{row["neuroptics"]}|{row["chassis"]}|{row["systems"]}|\n'
         warframe_table = warframe_table + price
     st.write(warframe_table)
