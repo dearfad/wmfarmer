@@ -45,4 +45,4 @@ with warframe:
     warframe_price_df = get_warframe_price()
     warframe_table = "|名称|套装|蓝图|头部|机体|系统|\n"
     for index, row in warframe_price_df.iterrows():
-        st.write(row)
+        st.write(row["set"])
