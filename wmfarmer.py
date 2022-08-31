@@ -43,7 +43,6 @@ warframe, weapon, mod = st.tabs(["战甲", "武器", "MOD"])
 
 with warframe:
     warframe_price_df = get_warframe_price()
-    st.write('''| Syntax | Description |
-| --- | ----------- |
-| Header | Title |
-| Paragraph | Text |''')
+    warframe_table = "|名称|套装|蓝图|头部|机体|系统|\n"
+    for index, row in warframe_price_df.iterrows():
+        st.write(index)
