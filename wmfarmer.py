@@ -65,11 +65,17 @@ with warframe:
         st.write(warframe_table)
 
 with weapon:
-    st.write('##### 主武器')
-    weapon_price_df = get_weapon_price()
-    weapon_table = "|名 称|套 装|蓝 图|枪 机|枪 托|枪 管|\n|:---:|:---:|:---:|:---:|:---:|:---:|\n"
-    for index, row in weapon_price_df.iterrows():
-        price = f'|**{row["item_name"]}**|{row["set"]}|{row["blueprint"]}|{row["receiver"]}|{row["stock"]}|{row["barrel"]}|\n'
-        weapon_table = weapon_table + price
-    st.write(weapon_table)
-    st.write(f"- 总计：{weapon_price_df.shape[0]}")
+    col_main_weapon, col_side_weapon, col_melee_weapon = st.columns([1,1,1])
+    with col_main_weapon:
+        st.write('##### 主武器')
+        weapon_price_df = get_weapon_price()
+        weapon_table = "|名 称|套 装|蓝 图|枪 机|枪 托|枪 管|\n|:---:|:---:|:---:|:---:|:---:|:---:|\n"
+        for index, row in weapon_price_df.iterrows():
+            price = f'|**{row["item_name"]}**|{row["set"]}|{row["blueprint"]}|{row["receiver"]}|{row["stock"]}|{row["barrel"]}|\n'
+            weapon_table = weapon_table + price
+        st.write(weapon_table)
+        st.write(f"- 总计：{weapon_price_df.shape[0]}")
+    with col_side_weapon:
+        st.write("##### 副武器")
+    with col_melee_weapon:
+        st.write("##### 近战武器")
