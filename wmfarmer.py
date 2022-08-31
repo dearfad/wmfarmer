@@ -1,7 +1,7 @@
 from pandas.core import series
 import streamlit as st
 from scripts.wmmarket import get_items, get_item_info, get_item_orders
-from scripts.core import get_item_price, get_warframe_price
+from scripts.core import get_item_price, get_warframe_price, get_weapon_price
 
 st.set_page_config(page_title='Warframe Market Farmer', page_icon='👨‍🌾')
 
@@ -49,3 +49,12 @@ with warframe:
         warframe_table = warframe_table + price
     st.write(warframe_table)
     st.write(f"- 总计：{warframe_price_df.shape[0]}")
+
+with weapon:
+    weapon_price_df = get_weapon_price()
+    weapon_table = "|名 称|套 装|蓝 图|枪 机|枪 托|枪 管|\n|:---:|:---:|:---:|:---:|:---:|:---:|\n"
+    for index, row in weapon_price_df.iterrows():
+        price = f'|**{index.upper()}**|{row["set"]}|{row["blueprint"]}|{row["receiver"]}|{row["stock"]}|{row["barrel"]}|\n'
+        weapon_table = weapon_table + price
+    st.write(weapon_table)
+    st.write(f"- 总计：{weapon_price_df.shape[0]}")
