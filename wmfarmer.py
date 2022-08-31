@@ -66,6 +66,7 @@ with warframe:
 
 with weapon:
     col_main_weapon, col_side_weapon, col_melee_weapon = st.columns([1,1,1])
+    
     with col_main_weapon:
         st.write('##### 主武器')
         weapon_price_df = get_weapon_price()
@@ -75,7 +76,9 @@ with weapon:
             weapon_table = weapon_table + price
         weapon_table = weapon_table + f"| | | | |总计|{weapon_price_df.shape[0]}|\n"
         st.write(weapon_table)
+
     with col_side_weapon:
         st.write("##### 副武器")
+
     with col_melee_weapon:
         st.write("##### 近战武器")
