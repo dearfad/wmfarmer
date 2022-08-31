@@ -62,7 +62,7 @@ def get_weapon_price():
     weapon_prime_list = ['burston','tenora','vectis','braton']
     weapon_prime_set_list = ['set', 'blueprint', 'receiver', 'stock', 'barrel']
 
-    weapon_price_df = pd.DataFrame(data=np.zeros((len(weapon_prime_list),len(weapon_prime_set_list)+1), dtype = int), index=weapon_prime_list, columns=weapon_prime_set_list+'item_name')
+    weapon_price_df = pd.DataFrame(data=np.zeros((len(weapon_prime_list),len(weapon_prime_set_list)+1), dtype = int), index=weapon_prime_list, columns=weapon_prime_set_list.append('item_name'))
 
     progress = st.empty()
 
