@@ -31,10 +31,10 @@ with search_col:
 if url_name:
     item_info = get_item_info(url_name)
     item_orders = get_item_orders(url_name)
+    item_price = get_item_price(item_orders['orders'])
     
     with info_col:
         st.write(f"#### **{item_info['info']['zh-hans']['item_name']}**")
-        item_price = get_item_price(item_orders['orders'])
         st.write(f"###### ![ducats](https://warframe.market/static/build/resources/images/icons/Ducats.b2f626d13cd31d84117a.png) **{item_info['info'].get('ducats', '0')}** - [WM]({item_url+url_name}) - [WIKI]({item_info['info']['zh-hans']['wiki_link']})")
         st.write(f"###### 最低卖价: {item_price['ingame_lowest_sell_platinum']}")
         st.write(f"###### 最高买价: {item_price['ingame_highest_buy_platinum']}")
