@@ -39,7 +39,7 @@ if url_name:
         st.write(f"###### 最低卖价: {item_price['ingame_lowest_sell_platinum']}")
         st.write(f"###### 最高买价: {item_price['ingame_highest_buy_platinum']}")
 
-warframe, weapon, mod = st.tabs(["战甲", "武器", "MOD"])
+warframe, weapon, mod = st.tabs(["战甲Prime", "武器Prime", "MOD"])
 
 with warframe:
     warframe_price_df = get_warframe_price()
