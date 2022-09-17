@@ -12,7 +12,7 @@ st.write("# Warframe Market Farmer! 👨‍🌾")
 
 items = get_items()
 
-st.write(items)
+st.write(items['items'])
 
 # if items['time']=='failed':
 #     st.write(f"➖ ⏱️ **Get Items Failed** ➖ *️⃣ **Status Code: {items[items]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
