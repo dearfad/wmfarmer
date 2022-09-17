@@ -12,7 +12,7 @@ st.write("# Warframe Market Farmer! 👨‍🌾")
 
 items = get_items()
 
-for url_name in items['items']['url_name']:
+for url_name in items['items']['url_name'][:10]:
     st.write(url_name)
 
 # if items['time']=='failed':
