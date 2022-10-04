@@ -27,6 +27,7 @@ with search_col:
     search_result = items['items'][items['items']['item_name'].str.contains(input_name.strip(), case=False)]
     if search_result.empty:
         st.warning('未找到相关信息...')
+        url_name = ''
     else:    
         selected_name = st.selectbox('已发现：', search_result['item_name'])
         url_name = search_result[search_result['item_name']==selected_name]['url_name'].values[0]
