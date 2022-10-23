@@ -61,7 +61,7 @@ def get_warframe_price():
     warframe_price['data'] = warframe_price_df
     progress.empty()
 
-    return warframe_price_df
+    return warframe_price
 
 @st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
 def get_weapon_price():
