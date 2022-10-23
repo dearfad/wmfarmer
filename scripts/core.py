@@ -27,6 +27,11 @@ def get_item_price(orders):
 @st.cache(show_spinner=False, suppress_st_warning=True, ttl=86400.0)
 def get_warframe_price():
 
+    warframe_price = {
+            'time':'',
+            'data':''
+    }
+
     warframe_prime_list = ['ash', 'atlas', 'banshee', 'chroma', 'ember', 'equinox', 'frost', 'gara', 'garuda', 'harrow', 'hydroid', 'inaros', 'ivara', 'khora', 'limbo', 'loki', 'mag',
                             'mesa', 'mirage', 'nekros', 'nezha', 'nidus', 'nova', 'nyx', 'oberon', 'octavia', 'revenant', 'rhino', 'saryn', 'titania', 'trinity', 'valkyr', 'vauban', 'volt', 'wukong', 'zephyr']
     warframe_prime_set_list = ['set', 'blueprint', 'neuroptics', 'chassis', 'systems']
@@ -52,7 +57,8 @@ def get_warframe_price():
             # warframe_price_df.loc[warframe, item] = str(item_price['ingame_lowest_sell_platinum']) + ' - ' + str(item_price['ingame_highest_buy_platinum'])
             warframe_price_df.loc[warframe, item] = item_price['ingame_lowest_sell_platinum']
 
-    warframe_price_df.loc['time','set'] = item_time
+    warframe_price['time'] = item_time
+    warframe_price['data'] = warframe_price_df
     progress.empty()
 
     return warframe_price_df

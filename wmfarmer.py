@@ -46,7 +46,8 @@ if url_name:
 warframe, weapon, mod = st.tabs(["战甲Prime", "武器Prime", "MOD"])
 
 with warframe:
-    warframe_price_df = get_warframe_price()
+    warframe_price = get_warframe_price()
+    warframe_price_df = warframe_price['data']
     col_1, col_2, col_3 = st.columns([1,1,1])
     with col_1:
         warframe_table = "|名 称|套 装|蓝 图|头 部|机 体|系 统|\n|:---:|:---:|:---:|:---:|:---:|:---:|\n"
@@ -65,7 +66,7 @@ with warframe:
         for index, row in warframe_price_df.iloc[24:-1,:].iterrows():
             price = f'|**{index.upper()}**|{int(row["set"])}|{int(row["blueprint"])}|{int(row["neuroptics"])}|{int(row["chassis"])}|{int(row["systems"])}|\n'
             warframe_table = warframe_table + price
-        warframe_table = warframe_table + f"| | | | |总计|{warframe_price_df.shape[0]-1}|\n" + f"| | | | |时间|{warframe_price_df.loc['time','set'].split(' ')[1]}|\n"
+        warframe_table = warframe_table + f"| | | | |总计|{warframe_price_df.shape[0]}|\n" + f"| | | | |时间|{warframe_price['time'].split(' ')[1]}|\n"
         st.write(warframe_table)
 
 with weapon:
