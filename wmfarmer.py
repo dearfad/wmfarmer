@@ -51,7 +51,7 @@ with warframe:
     with col_1:
         warframe_table = "|名 称|套 装|蓝 图|头 部|机 体|系 统|\n|:---:|:---:|:---:|:---:|:---:|:---:|\n"
         for index, row in warframe_price_df.iloc[:12,:].iterrows():
-            price = f'|**{index.upper()}**|{row["set"]}|{row["blueprint"]}|{row["neuroptics"]}|{row["chassis"]}|{row["systems"]}|\n'
+            price = f'|**{index.upper()}**|{int(row["set"])}|{row["blueprint"]}|{row["neuroptics"]}|{row["chassis"]}|{row["systems"]}|\n'
             warframe_table = warframe_table + price
         st.write(warframe_table)
     with col_2:
