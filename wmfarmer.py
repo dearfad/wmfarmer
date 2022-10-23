@@ -52,19 +52,19 @@ with warframe:
     with col_1:
         warframe_table = "|名 称|套 装|蓝 图|头 部|机 体|系 统|\n|:---:|:---:|:---:|:---:|:---:|:---:|\n"
         for index, row in warframe_price_df.iloc[:12,:].iterrows():
-            price = f'|**{index.upper()}**|{int(row["set"])}|{int(row["blueprint"])}|{int(row["neuroptics"])}|{int(row["chassis"])}|{int(row["systems"])}|\n'
+            price = f'|**{index.upper()}**|{row["set"]}|{row["blueprint"]}|{row["neuroptics"]}|{row["chassis"]}|{row["systems"]}|\n'
             warframe_table = warframe_table + price
         st.write(warframe_table)
     with col_2:
         warframe_table = "|名 称|套 装|蓝 图|头 部|机 体|系 统|\n|:---:|:---:|:---:|:---:|:---:|:---:|\n"
         for index, row in warframe_price_df.iloc[12:24,:].iterrows():
-            price = f'|**{index.upper()}**|{int(row["set"])}|{int(row["blueprint"])}|{int(row["neuroptics"])}|{int(row["chassis"])}|{int(row["systems"])}|\n'
+            price = f'|**{index.upper()}**|{row["set"]}|{row["blueprint"]}|{row["neuroptics"]}|{row["chassis"]}|{row["systems"]}|\n'
             warframe_table = warframe_table + price
         st.write(warframe_table)
     with col_3:
         warframe_table = "|名 称|套 装|蓝 图|头 部|机 体|系 统|\n|:---:|:---:|:---:|:---:|:---:|:---:|\n"
-        for index, row in warframe_price_df.iloc[24:-1,:].iterrows():
-            price = f'|**{index.upper()}**|{int(row["set"])}|{int(row["blueprint"])}|{int(row["neuroptics"])}|{int(row["chassis"])}|{int(row["systems"])}|\n'
+        for index, row in warframe_price_df.iloc[24:,:].iterrows():
+            price = f'|**{index.upper()}**|{row["set"]}|{row["blueprint"]}|{row["neuroptics"]}|{row["chassis"]}|{row["systems"]}|\n'
             warframe_table = warframe_table + price
         warframe_table = warframe_table + f"| | | | |总计|{warframe_price_df.shape[0]}|\n" + f"| | | | |时间|{warframe_price['time'].split(' ')[1]}|\n"
         st.write(warframe_table)
