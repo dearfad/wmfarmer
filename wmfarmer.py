@@ -65,7 +65,7 @@ with warframe:
         for index, row in warframe_price_df.iloc[24:-1,:].iterrows():
             price = f'|**{index.upper()}**|{row["set"]}|{row["blueprint"]}|{row["neuroptics"]}|{row["chassis"]}|{row["systems"]}|\n'
             warframe_table = warframe_table + price
-        warframe_table = warframe_table + f"| | | | |总计|{warframe_price_df.shape[0]-1}|\n" + f"| | | | |时间|{warframe_price_df.loc['time','set'].split(' ')[0]}|\n"
+        warframe_table = warframe_table + f"| | | | |总计|{warframe_price_df.shape[0]-1}|\n" + f"| | | | |时间|{warframe_price_df.loc['time','set'].split(' ')[1]}|\n"
         st.write(warframe_table)
 
 with weapon:
