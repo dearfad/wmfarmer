@@ -44,7 +44,7 @@ def get_warframe_price():
         progress.write(f"🚴‍♂️ **{warframe.upper()}** ...")
         for item in warframe_prime_set_list:
             url_name = warframe + '_prime_' + item
-            if warframe=='khora' or warframe=='revenant':
+            if warframe in ['khora', 'revenant']:
                 if item in ['neuroptics', 'chassis', 'systems']:
                     url_name = url_name + '_blueprint'
             item_orders = get_item_orders(url_name)
